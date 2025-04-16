@@ -1,5 +1,5 @@
 <nav>
-  <div class="navbar-container px-6 py-2">
+  <div class="navbar-container px-6 pb-4">
     <div class="logo">
       <a href="/"><strong>Maths Quiz</strong></a>
     </div>
@@ -30,8 +30,8 @@
   }
 
   .logo {
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 30px;
+    font-weight: bolder;
   }
 
   .logo a {
@@ -58,6 +58,8 @@
     font-weight: 500;
     text-decoration: none;
     color: white;
+    letter-spacing: 1.3px;
+    font-size: 18px;
   }
 
   .is-active {
