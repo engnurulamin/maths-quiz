@@ -1,27 +1,29 @@
 <div class="columns">
   <div class="column has-text-centered">
     <div class="card m-4 p-4 has-background-warning">
-      <h1 class="title is-1">Fun with Maths!!!</h1>
-      <div class="control">
+      <div class="box has-background-danger-dark m-4">
+        <h1>Fun with Maths!!!</h1>
+      </div>
+      <div class="control mx-4 my-6">
         <div class="filed">
           <input class="input is-medium is-transparent transparent-input" type="text" placeholder="Enter your name">
         </div>
       </div>
-      <div class="control">
+      <div class="control mx-4 my-6">
        <div class="field">
-        <div class="columns my-4">
-          <div class="column">
-            <div class="card p-6 mx-5 has-background-info-dark">
+        <div class="columns">
+          <div class="column p-4 is-clickable">
+            <div class="card py-6 has-background-info-dark">
               <span class="">Easy</span>
             </div>
           </div>
-          <div class="column">
-            <div class="card p-6 mx-5 has-background-primary-dark">
+          <div class="column p-4 is-clickable">
+            <div class="card py-6 has-background-primary-dark">
               <span class="">Medium</span>
             </div>
           </div>
-          <div class="column">
-            <div class="card p-6 mx-5 has-background-danger-dark">
+          <div class="column p-4 is-clickable">
+            <div class="card  py-6 has-background-danger-dark">
               <span class="">Hard</span>
             </div>
           </div>
@@ -34,8 +36,12 @@
 
 <style>
   h1 {
-    letter-spacing: 2px;
+    letter-spacing: 2.5px;
+    font-weight: bolder;
+    font-size: 70px;
+    color: white;
   }
+
   .transparent-input {
     background-color: transparent !important;
     border: 2px solid rgba(237, 222, 154, 0.361);
@@ -63,5 +69,11 @@
     font-weight: bold;
     font-size: 40px;
     letter-spacing: 1.3px;
+  }
+
+  @media (max-width: 768px) {
+   .box, h1 {
+    font-size: 50px;
+   }
   }
 </style>
