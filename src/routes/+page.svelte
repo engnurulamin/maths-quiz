@@ -6,18 +6,41 @@
         <div class="filed">
           <input class="input is-medium is-transparent transparent-input" type="text" placeholder="Enter your name">
         </div>
+      </div>
+      <div class="control">
+       <div class="field">
+        <div class="columns my-4">
+          <div class="column">
+            <div class="card p-6 mx-5 has-background-info-dark">
+              <span class="">Easy</span>
+            </div>
+          </div>
+          <div class="column">
+            <div class="card p-6 mx-5 has-background-primary-dark">
+              <span class="">Medium</span>
+            </div>
+          </div>
+          <div class="column">
+            <div class="card p-6 mx-5 has-background-danger-dark">
+              <span class="">Hard</span>
+            </div>
+          </div>
+        </div>
+       </div>
       </div>  
     </div>
   </div>
 </div>
 
 <style>
+  h1 {
+    letter-spacing: 2px;
+  }
   .transparent-input {
     background-color: transparent !important;
     border: 2px solid rgba(237, 222, 154, 0.361);
     padding: 0.75rem 1.5rem;
     border-radius: 40px 40px 40px 40px;
-
     transition: all 0.3s ease;
   }
 
@@ -25,7 +48,7 @@
     color: white;
     opacity: 1;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 30px;
   }
 
   .transparent-input:focus,
@@ -33,5 +56,12 @@
     outline: none;
     border-color: rgba(255, 255, 255, 0.6); /* light border */
     box-shadow: 0 0 8px rgba(255, 255, 255, 0.4); /* soft glow */
+  }
+
+  span{
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
+    letter-spacing: 1.3px;
   }
 </style>
