@@ -14,22 +14,28 @@
         <div class="columns">
           <div class="column p-4 is-clickable">
             <div class="card py-6 has-background-info-dark">
-              <span class="">Easy</span>
+              <span class="type">Easy</span>
             </div>
           </div>
           <div class="column p-4 is-clickable">
             <div class="card py-6 has-background-primary-dark">
-              <span class="">Medium</span>
+              <span class="type">Medium</span>
             </div>
           </div>
           <div class="column p-4 is-clickable">
             <div class="card  py-6 has-background-danger-dark">
-              <span class="">Hard</span>
+              <span class="type">Hard</span>
             </div>
           </div>
         </div>
        </div>
-      </div>  
+      </div> 
+      
+      <div class="control mx-4 mt-6 mb-4">
+        <a href="/quiz" class="button is-medium is-rounded is-fullwidth is-success-dark py-4"> 
+          <i class="fa-regular fa-clock mr-2"></i> Start Quiz
+        </a>
+      </div>
     </div>
   </div>
 </div>
@@ -43,18 +49,18 @@
   }
 
   .transparent-input {
-    background-color: transparent !important;
-    border: 2px solid rgba(237, 222, 154, 0.361);
+    background-color: white !important;
+    border: 2px solid rgba(56, 3, 3, 0.796);
     padding: 0.75rem 1.5rem;
     border-radius: 40px 40px 40px 40px;
     transition: all 0.3s ease;
   }
 
   .transparent-input::placeholder {
-    color: white;
-    opacity: 1;
+    color: black;
+    opacity: 0.5;
     font-weight: 400;
-    font-size: 30px;
+    font-size: 20px;
   }
 
   .transparent-input:focus,
@@ -64,7 +70,7 @@
     box-shadow: 0 0 8px rgba(255, 255, 255, 0.4); /* soft glow */
   }
 
-  span{
+  .type {
     color: white;
     font-weight: bold;
     font-size: 40px;

@@ -10,7 +10,7 @@
       <a href="/" class="menu {is_active === 1 ? 'is-active' : ''}" on:click={() => activeTab(1)}>
         Home
       </a>
-      <a href="/balance" class="menu {is_active === 2 ? 'is-active' : ''}" on:click={() => activeTab(2)}>
+      <a href="/quiz" class="menu {is_active === 2 ? 'is-active' : ''}" on:click={() => activeTab(2)}>
         Start Quiz
       </a>
     </div>
@@ -63,8 +63,8 @@
   }
 
   .is-active {
-    color: rgb(247, 231, 202);
-    border-bottom: 2px solid rgb(247, 231, 202);
+    color: rgb(15, 14, 13);
+    border-bottom: 2px solid rgb(15, 14, 13);
   }
 
   /* Responsive Styles */
