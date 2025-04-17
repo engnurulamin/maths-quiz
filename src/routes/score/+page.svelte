@@ -12,31 +12,31 @@
       <div class="columns">
         <div class="column">
           <div class="box has-background-warning-light mx-4 my-2">
-            <p class="has-text-black has-text-centered is-size-2-desktop is-size-4-tablet is-size-5-mobile">You took: <span class="has-text-weight-semibold has-text-info">190 seconds</span></p>
+            <p class="has-text-black has-text-centered is-size-2-desktop is-size-4-tablet is-size-5-mobile">⏱️You took: <span class="has-text-weight-semibold has-text-info">190 seconds</span></p>
           </div>
         </div>
         <div class="column">
           <div class="box has-background-warning-light mx-4 mt-1">
-            <p class="has-text-black has-text-centered is-size-2-desktop is-size-4-tablet is-size-5-mobile">Your score is: <span class="has-text-weight-semibold has-text-primary">10/10</span></p>
+            <p class="has-text-black has-text-centered is-size-2-desktop is-size-4-tablet is-size-5-mobile">🏆 Your score is: <span class="has-text-weight-semibold has-text-primary">10/10</span></p>
           </div>
         </div>
       </div> 
       <div class="columns">
         <div class="column">
           <div class="box has-background-warning-light mx-4 my-2">
-            <p class="has-text-black has-text-centered is-size-2-desktop is-size-4-tablet is-size-5-mobile">Total Correct Answers: <span class="has-text-weight-bold has-text-success">10</span></p>
+            <p class="has-text-black has-text-centered is-size-2-desktop is-size-4-tablet is-size-5-mobile">✅ Total correct answers: <span class="has-text-weight-bold has-text-success">10</span></p>
           </div>
         </div>
         <div class="column">
           <div class="box has-background-warning-light mx-4 mt-1">
-            <p class="has-text-black has-text-centered is-size-2-desktop is-size-4-tablet is-size-5-mobile">Total Wrong Answers: <span class="has-text-weight-bold has-text-danger">10</span></p>
+            <p class="has-text-black has-text-centered is-size-2-desktop is-size-4-tablet is-size-5-mobile">❌ Total wrong answers: <span class="has-text-weight-bold has-text-danger">10</span></p>
           </div>
         </div>
       </div> 
       <div class="columns">
         <div class="column">
           <div class="box has-background-warning-light mx-4 my-2">
-            <p class="has-text-black has-text-centered is-size-2-desktop is-size-4-tablet is-size-5-mobile">Total Attempts: <span class="has-text-weight-bold has-text-success">10</span></p>
+            <p class="has-text-black has-text-centered is-size-2-desktop is-size-4-tablet is-size-5-mobile">🎯 Total attempts: <span class="has-text-weight-bold has-text-success">10</span></p>
           </div>
         </div>
         <div class="column mx-4 my-2">
