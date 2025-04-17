@@ -49,7 +49,7 @@
   }
 
   .transparent-input {
-    background-color: white !important;
+    background-color: rgb(243, 230, 166) !important;
     border: 2px solid rgba(56, 3, 3, 0.796);
     padding: 0.75rem 1.5rem;
     border-radius: 40px 40px 40px 40px;
