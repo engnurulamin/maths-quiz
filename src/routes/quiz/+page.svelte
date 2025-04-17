@@ -22,6 +22,11 @@
            Next
         </button>
       </div>
+      <div class="control mx-4 mt-6 mb-4">
+        <button class="button is-medium is-rounded is-fullwidth is-danger py-4"> 
+           Reset
+        </button>
+      </div>
     </div>
   </div>
 </div>

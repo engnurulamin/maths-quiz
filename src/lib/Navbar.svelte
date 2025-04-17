@@ -13,6 +13,9 @@
       <a href="/quiz" class="menu {is_active === 2 ? 'is-active' : ''}" on:click={() => activeTab(2)}>
         Start Quiz
       </a>
+      <a href="/score" class="menu {is_active === 3 ? 'is-active' : ''}" on:click={() => activeTab(3)}>
+        Score
+      </a>
     </div>
   </div>
 </nav>
