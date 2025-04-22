@@ -2,47 +2,114 @@
   <div class="column">
     <div class="card has-background-warning m-4 p-4">
       <div class="box has-background-warning-light m-4">
-        <p class="has-text-black has-text-weight-bold has-text-centered is-size-1-desktop is-size-2-tablet is-size-3-mobile">
-          🎉 Congratulations 
+        <p class="has-text-black has-text-weight-bold has-text-centered is-size-3-desktop is-size-4-tablet is-size-5-mobile">
+          <span class="animated-emoji">{randomEmoji}</span> Congratulations
         </p>
-        <p class="has-text-success has-text-weight-bold has-text-centered is-size-1-desktop is-size-2-tablet is-size-3-mobile">
+        <p class="has-text-success has-text-weight-bold has-text-centered is-size-3-desktop is-size-4-tablet is-size-5-mobile">
           Tabassum 🎊
         </p>
+        <p class="has-text-centered has-text-link has-text-weight-semibold is-size-4-tablet is-size-5-mobile">
+          {message}
+        </p>
       </div>
+
       <div class="columns">
         <div class="column">
           <div class="box has-background-warning-light mx-4 my-2">
-            <p class="has-text-black has-text-centered is-size-2-desktop is-size-4-tablet is-size-5-mobile">⏱️You took: <span class="has-text-weight-semibold has-text-info">190 seconds</span></p>
+            <p class="has-text-black has-text-centered is-size-4-desktop is-size-5-tablet is-size-6-mobile">
+              ⏱️ You took: <span class="has-text-weight-semibold has-text-info">{timeTaken} seconds</span>
+            </p>
           </div>
         </div>
         <div class="column">
           <div class="box has-background-warning-light mx-4 mt-1">
-            <p class="has-text-black has-text-centered is-size-2-desktop is-size-4-tablet is-size-5-mobile">🏆 Your score is: <span class="has-text-weight-semibold has-text-primary">10/10</span></p>
+            <p class="has-text-black has-text-centered is-size-4-desktop is-size-5-tablet is-size-6-mobile">
+              🏆 Your score is: <span class="has-text-weight-semibold has-text-primary">{correct}/{total}</span>
+            </p>
           </div>
         </div>
-      </div> 
+      </div>
+
       <div class="columns">
         <div class="column">
           <div class="box has-background-warning-light mx-4 my-2">
-            <p class="has-text-black has-text-centered is-size-2-desktop is-size-4-tablet is-size-5-mobile">✅ Total correct answers: <span class="has-text-weight-bold has-text-success">10</span></p>
+            <p class="has-text-black has-text-centered is-size-4-desktop is-size-5-tablet is-size-6-mobile">
+              ✅ Total correct answers: <span class="has-text-weight-bold has-text-success">{correct}</span>
+            </p>
           </div>
         </div>
         <div class="column">
           <div class="box has-background-warning-light mx-4 mt-1">
-            <p class="has-text-black has-text-centered is-size-2-desktop is-size-4-tablet is-size-5-mobile">❌ Total wrong answers: <span class="has-text-weight-bold has-text-danger">10</span></p>
+            <p class="has-text-black has-text-centered is-size-4-desktop is-size-5-tablet is-size-6-mobile">
+              ❌ Total wrong answers: <span class="has-text-weight-bold has-text-danger">{wrong}</span>
+            </p>
           </div>
         </div>
-      </div> 
+      </div>
+
       <div class="columns">
         <div class="column">
           <div class="box has-background-warning-light mx-4 my-2">
-            <p class="has-text-black has-text-centered is-size-2-desktop is-size-4-tablet is-size-5-mobile">🎯 Total attempts: <span class="has-text-weight-bold has-text-success">10</span></p>
+            <p class="has-text-black has-text-centered is-size-4-desktop is-size-5-tablet is-size-6-mobile">
+              🎯 Total attempts: <span class="has-text-weight-bold has-text-success">{total}</span>
+            </p>
           </div>
         </div>
+        <div class="column">
+          <div class="box has-background-warning-light mx-4 my-2">
+            <p class="has-text-black has-text-centered is-size-4-desktop is-size-5-tablet is-size-6-mobile">
+              📊 Accuracy: <span class="has-text-weight-bold has-text-link">{accuracy}%</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns">
         <div class="column mx-4 my-2">
-            <a href="/" class="button is-medium is-warning-light is-rounded is-fullwidth has-text-white has-text-centered is-size-2-desktop is-size-4-tablet is-size-5-mobile">Play Again</a>
+          <div class="field">
+            <p class="control">
+              <a href="/" class="button is-primary is-dark is-rounded is-fullwidth  is-size-4-desktop is-size-6-tablet is-size-6-mobile">
+                Play Again
+              </a>
+            </p> 
+          </div>
         </div>
-      </div>   
+      </div>
+
     </div>
   </div>
 </div>
+
+<style>
+	.animated-emoji {
+		display: inline-block;
+		animation: bounce 1s infinite;
+	}
+
+	@keyframes bounce {
+		0%, 100% { transform: translateY(0); }
+		50% { transform: translateY(-8px); }
+	}
+</style>
+
+<script>
+	let correct = 10;
+	let wrong = 0;
+	let total = correct + wrong;
+	let timeTaken = 190;
+
+	const accuracy = Math.round((correct / total) * 100);
+
+	const emojis = ['🎉', '🏆', '🎯', '⭐', '🌟', '🧁', '🍭', '🎈', '🚀', '💥'];
+	const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+
+  const getMotivationalMessage = () => {
+		if (accuracy === 100) return "You're a genius! 💡";
+		if (accuracy >= 90) return "Awesome job! 🌟";
+		if (accuracy >= 75) return "Great effort! 👍";
+		if (accuracy >= 50) return "Keep practicing! 💪";
+		return "Don't give up! You can do it! 🚀";
+	};
+
+	$: message = getMotivationalMessage();
+</script>
