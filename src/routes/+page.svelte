@@ -4,31 +4,32 @@
       <h1>Fun with Maths{randomEmoji}</h1>
       <div class="control mx-4 my-6">
         <div class="filed">
-          <input class="input is-medium is-transparent transparent-input" type="text" placeholder="Enter your name">
+          <input class="input is-medium is-transparent transparent-input" type="text" placeholder="Enter your name" bind:value={$userName}>
         </div>
       </div>
       <div class="control mx-4 my-6">
        <div class="field">
         <div class="columns">
-          <div class="column p-4 is-clickable">
-            <div class="card py-6 has-background-info-dark">
+          <div class="column p-4 is-clickable" onclick={() => difficultyClick('easy')}>
+            <div class="card py-6 has-background-info-dark {$difficulty === 'easy' ? 'selected' : ''}">
               <span class="type">Easy</span>
             </div>
           </div>
-          <div class="column p-4 is-clickable">
-            <div class="card py-6 has-background-primary-dark">
+          <div class="column p-4 is-clickable" onclick={() => difficultyClick('medium')}>
+            <div class="card py-6 has-background-primary-dark {$difficulty === 'medium' ? 'selected' : ''}">
               <span class="type">Medium</span>
             </div>
           </div>
-          <div class="column p-4 is-clickable">
-            <div class="card  py-6 has-background-danger-dark">
+          <div class="column p-4 is-clickable" onclick={() => difficultyClick('hard')}>
+            <div class="card  py-6 has-background-danger-dark {$difficulty === 'hard' ? 'selected' : ''}">
               <span class="type">Hard</span>
             </div>
           </div>
         </div>
        </div>
       </div> 
-      
+      <p>{$userName}</p>
+      <p>{$difficulty}</p>
       <div class="control mx-4 mt-6 mb-4">
         <a href="/quiz" class="button is-medium is-rounded is-fullwidth is-success-dark py-3"> 
           <i class="fa-regular fa-clock mr-2"></i> Start Quiz
@@ -52,6 +53,7 @@
     padding: 0.75rem 1.5rem;
     border-radius: 40px 40px 40px 40px;
     transition: all 0.3s ease;
+    color: #000;
   }
 
   .transparent-input::placeholder {
@@ -75,6 +77,11 @@
     letter-spacing: 1.3px;
   }
 
+  .selected {
+		border: 3px solid rgb(209, 201, 201);
+		transform: scale(1.05);
+	}
+
   @media (max-width: 768px) {
     h1 {
     font-size: 50px;
@@ -83,6 +90,9 @@
 </style>
 <script>
 	import { onMount } from 'svelte';
+	import { userName, difficulty } from '../lib/stores';
+
+  console.log($userName);
 
 	let funEmojis = [
 		"🎉", "🎈", "🧁", "🍭", "🍬", "⭐", "🌟", "🪄",
@@ -100,6 +110,10 @@
 
 	function updateEmoji() {
 		randomEmoji = funEmojis[Math.floor(Math.random() * funEmojis.length)];
+	}
+
+  function difficultyClick(type) {
+		difficulty.set(type);
 	}
 </script>
 
