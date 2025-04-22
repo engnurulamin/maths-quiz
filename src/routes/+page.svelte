@@ -1,9 +1,7 @@
 <div class="columns">
   <div class="column has-text-centered">
     <div class="card m-4 p-4 has-background-warning">
-      <div class="box has-background-danger-dark m-4">
-        <h1>Fun with Maths!!!</h1>
-      </div>
+      <h1>Fun with Maths{randomEmoji}</h1>
       <div class="control mx-4 my-6">
         <div class="filed">
           <input class="input is-medium is-transparent transparent-input" type="text" placeholder="Enter your name">
@@ -32,7 +30,7 @@
       </div> 
       
       <div class="control mx-4 mt-6 mb-4">
-        <a href="/quiz" class="button is-medium is-rounded is-fullwidth is-success-dark py-4"> 
+        <a href="/quiz" class="button is-medium is-rounded is-fullwidth is-success-dark py-3"> 
           <i class="fa-regular fa-clock mr-2"></i> Start Quiz
         </a>
       </div>
@@ -45,7 +43,7 @@
     letter-spacing: 2.5px;
     font-weight: bolder;
     font-size: 70px;
-    color: white;
+    color: rgb(58, 3, 87);
   }
 
   .transparent-input {
@@ -72,14 +70,36 @@
 
   .type {
     color: white;
-    font-weight: bold;
-    font-size: 40px;
+    font-weight: 400;
+    font-size: 30px;
     letter-spacing: 1.3px;
   }
 
   @media (max-width: 768px) {
-   .box, h1 {
+    h1 {
     font-size: 50px;
    }
   }
 </style>
+<script>
+	import { onMount } from 'svelte';
+
+	let funEmojis = [
+		"🎉", "🎈", "🧁", "🍭", "🍬", "⭐", "🌟", "🪄",
+		"🚀", "🐣", "🐥",  "👑", "💎", "🌈",
+		"🎀", "💖", "🔥", "💥"
+	];
+
+	let randomEmoji = "";
+
+	onMount(() => {
+		updateEmoji();
+		const interval = setInterval(updateEmoji, 2000); 
+		return () => clearInterval(interval);
+	});
+
+	function updateEmoji() {
+		randomEmoji = funEmojis[Math.floor(Math.random() * funEmojis.length)];
+	}
+</script>
+
