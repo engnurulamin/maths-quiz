@@ -10,12 +10,16 @@
       <a href="/" class="menu {is_active === 1 ? 'is-active' : ''}" on:click={() => activeTab(1)}>
         Home
       </a>
-      <a href="/quiz" class="menu {is_active === 2 ? 'is-active' : ''}" on:click={() => activeTab(2)}>
-        Start Quiz
-      </a>
-      <a href="/score" class="menu {is_active === 3 ? 'is-active' : ''}" on:click={() => activeTab(3)}>
-        Score
-      </a>
+      {#if $user_name}
+        <a href="/quiz" class="menu {is_active === 2 ? 'is-active' : ''}" on:click={() => activeTab(2)}>
+          Start Quiz
+        </a>
+        {/if}
+        {#if $questions.length > 0 && $user_name}
+          <a href="/score" class="menu {is_active === 3 ? 'is-active' : ''}" on:click={() => activeTab(3)}>
+            Score
+          </a>
+        {/if}
     </div>
   </div>
 </nav>
@@ -70,7 +74,6 @@
     border-bottom: 2px solid rgb(15, 14, 13);
   }
 
-  /* Responsive Styles */
   @media (max-width: 768px) {
     .hamburger {
       display: block;
@@ -94,6 +97,7 @@
 </style>
 
 <script>
+  import { user_name, questions } from './stores';
   let is_active = 1;
   let menuOpen = false;
 
