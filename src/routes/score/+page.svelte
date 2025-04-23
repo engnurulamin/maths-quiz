@@ -24,7 +24,7 @@
         <div class="column">
           <div class="box has-background-warning-light mx-4 mt-1">
             <p class="has-text-black has-text-centered is-size-4-desktop is-size-5-tablet is-size-6-mobile">
-              🏆 Your score is: <span class="has-text-weight-semibold has-text-primary">{$correct}/{total}</span>
+              🏆 Your score is: <span class="has-text-weight-semibold has-text-primary">{$correct}/{$total}</span>
             </p>
           </div>
         </div>
@@ -58,7 +58,7 @@
         <div class="column">
           <div class="box has-background-warning-light mx-4 my-2">
             <p class="has-text-black has-text-centered is-size-4-desktop is-size-5-tablet is-size-6-mobile">
-              📊 Accuracy: <span class="has-text-weight-bold has-text-link">{accuracy}%</span>
+              📊 Accuracy: <span class="has-text-weight-bold has-text-link">{$accuracy || 0}%</span>
             </p>
           </div>
         </div>
@@ -94,21 +94,20 @@
 
 <script>
   import { user_name, correct, wrong, total, time_taken, accuracy } from '../../lib/stores';
-	// let correct = 10;
-	// let wrong = 0;
+
 	total.set($correct + $wrong);
 	let timeTaken = 190;
 
-	accuracy.set(Math.round(($correct / total) * 100));
+	accuracy.set(Math.round(($correct / $total) * 100));
 
 	const emojis = ['🎉', '🏆', '🎯', '⭐', '🌟', '🧁', '🍭', '🎈', '🚀', '💥'];
 	const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
 
   const getMotivationalMessage = () => {
-		if (accuracy === 100) return "You're a genius! 💡";
-		if (accuracy >= 90) return "Awesome job! 🌟";
-		if (accuracy >= 75) return "Great effort! 👍";
-		if (accuracy >= 50) return "Keep practicing! 💪";
+		if ($accuracy === 100) return "You're a genius! 💡";
+		if ($accuracy >= 90) return "Awesome job! 🌟";
+		if ($accuracy >= 75) return "Great effort! 👍";
+		if ($accuracy >= 50) return "Keep practicing! 💪";
 		return "Don't give up! You can do it! 🚀";
 	};
 

@@ -28,8 +28,8 @@
         </div>
        </div>
       </div> 
-      <p>{$user_name}</p>
-      <p>{$difficulty}</p>
+      <p class="has-text-dark has-text-weight-bold is-size-4">{ $user_name ? `Your Name is: ${$user_name}` : ''}</p>
+      <p class="has-text-dark has-text-weight-bold is-size-5">{ $difficulty ? `You are going to play on ${$difficulty.toUpperCase()} mode` : ''}</p>
       <div class="control mx-4 mt-6 mb-4">
         <a href="/quiz" class="button is-medium is-rounded is-fullwidth is-success-dark py-3"> 
           <i class="fa-regular fa-clock mr-2"></i> Start Quiz
