@@ -3,7 +3,19 @@
     <div class="card has-background-warning m-4 p-4">
       <h1 class="has-text-white has-text-weight-bold has-text-centered py-6 title is-2">
         <i class="fa-regular fa-clock mr-2"></i> {formatTime($time)}
+        {#if $is_game_start}
+          <button class="button is-primary is-light is-pulled-right mt-2 mr-5" onclick={() => {is_paused ? startQuiz() : pauseQuiz()}}>
+            {is_paused ? 'Resume' : 'Pause'}
+          </button>
+        {/if}
+        {#if !$is_game_start}
+          <button class="button is-primary is-light is-pulled-right mt-2 mr-5" onclick={startQuiz}>
+            Start Quiz
+          </button>
+        {/if}
       </h1>
+      
+      
 
       <div class="control mx-4 my-6">
         <div class="filed">
@@ -67,18 +79,28 @@
   let currentQuestion = '';
   let answerInput = '';
   let timerInterval;
-
-
-  // $: minutes = Math.floor($time / 60);
-  // $: seconds = $time % 60;
-  // $: displayTime = minutes > 0 
-  //   ? `${minutes}m ${seconds < 10 ? '0' + seconds : seconds}s` 
-  //   : `${seconds}s`;
+  let is_paused = false;
 
   $: if ($questions.length) {
     currentQuestion = $questions[currentQuestionIndex]?.question;
   }
 
+  function startQuiz() {
+    is_game_start.set(true);
+    is_paused = false;
+    
+
+    timerInterval = setInterval(() => {
+      if (!is_paused) {
+        time.update(t => t + 1);
+      }
+    }, 1000);
+  }
+
+  function pauseQuiz() {
+    is_paused = true;
+    clearInterval(timerInterval);
+  }
  
   $: if ($is_game_start && !$is_game_end) {
     startTimer();
@@ -168,7 +190,6 @@
 
   onMount(() => {
     generateQuestions($difficulty); 
-    is_game_start.set(true);
     clearInterval(timerInterval);
   });
 </script>
