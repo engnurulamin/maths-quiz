@@ -4,7 +4,7 @@
       <h1>Fun with Maths{randomEmoji}</h1>
       <div class="control mx-4 my-6">
         <div class="filed">
-          <input class="input is-medium is-transparent transparent-input" type="text" placeholder="Enter your name" bind:value={$userName}>
+          <input class="input is-medium is-transparent transparent-input" type="text" placeholder="Enter your name" bind:value={$user_name}>
         </div>
       </div>
       <div class="control mx-4 my-6">
@@ -28,7 +28,7 @@
         </div>
        </div>
       </div> 
-      <p>{$userName}</p>
+      <p>{$user_name}</p>
       <p>{$difficulty}</p>
       <div class="control mx-4 mt-6 mb-4">
         <a href="/quiz" class="button is-medium is-rounded is-fullwidth is-success-dark py-3"> 
@@ -90,9 +90,8 @@
 </style>
 <script>
 	import { onMount } from 'svelte';
-	import { userName, difficulty } from '../lib/stores';
+	import { user_name, difficulty } from '../lib/stores';
 
-  console.log($userName);
 
 	let funEmojis = [
 		"🎉", "🎈", "🧁", "🍭", "🍬", "⭐", "🌟", "🪄",
