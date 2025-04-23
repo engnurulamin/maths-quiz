@@ -37,16 +37,22 @@
       </div>
       <div class="control mx-4 my-6">
         <div class="filed">
-          <input class="input is-medium is-transparent transparent-input" bind:value={answerInput} type="text" placeholder="Write your answer">
+          <input 
+            class="input is-medium is-transparent transparent-input" 
+            bind:value={answerInput} 
+            type="text" 
+            placeholder="Write your answer"
+            disabled={!$is_game_start}
+            >
         </div>
       </div>
       <div class="control mx-4 mt-6 mb-4">
-        <button class="button is-medium is-rounded is-fullwidth is-info-dark py-4" onclick={nextQuestion}> 
+        <button class="button is-medium is-rounded is-fullwidth is-info-dark py-4" onclick={nextQuestion} disabled={!$is_game_start}> 
            Next
         </button>
       </div>
       <div class="control mx-4 mt-6 mb-4">
-        <button class="button is-medium is-rounded is-fullwidth is-danger py-4" onclick={resetQuiz}> 
+        <button class="button is-medium is-rounded is-fullwidth is-danger py-4" onclick={resetQuiz} disabled={!$is_game_start}> 
            Reset
         </button>
       </div>
