@@ -103,6 +103,7 @@
 <script>
 	import { formatTime } from '$lib/utils';
   import { user_name, correct, wrong, total, time_taken, accuracy } from '$lib/stores';
+  import { getMotivationalMessage } from '$lib/utils';
 
 	total.set($correct + $wrong);
 
@@ -112,13 +113,5 @@
 	const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
 	const random_emoji = emojis[Math.floor(Math.random() * emojis.length -1)];
 
-  const getMotivationalMessage = () => {
-		if ($accuracy === 100) return "You're a genius! 💡";
-		if ($accuracy >= 90) return "Awesome job! 🌟";
-		if ($accuracy >= 75) return "Great effort! 👍";
-		if ($accuracy >= 50) return "Keep practicing! 💪";
-		return "Don't give up! You can do it! 🚀";
-	};
-
-	$: message = getMotivationalMessage();
+	$: message = getMotivationalMessage($accuracy);
 </script>
