@@ -81,9 +81,10 @@
 
 <script>
   import { onMount } from 'svelte';
-  import { difficulty, questions, user_answers, is_game_start, is_game_end, time, time_taken, score, correct, wrong, total } from '../../lib/stores';
+  import { difficulty, questions, user_answers, is_game_start, is_game_end, time, time_taken, score, correct, wrong, total } from '$lib/stores';
   import { goto } from '$app/navigation';
-  import { formatTime } from '../../lib/utils';
+  import { formatTime } from '$lib/utils';
+  import { generateQuestions } from '$lib/quiz';
 
   
   let currentQuestionIndex = 0;
@@ -163,41 +164,6 @@
     goto('/');
   }
 
-  function generateQuestions(level) {
-    let generated = [];
-
-    for (let i = 0; i < 10; i++) {
-      let a, b, question, answer;
-
-      if (level === 'easy') {
-        a = Math.floor(Math.random() * 10);
-        b = Math.floor(Math.random() * 10);
-        question = `${a} + ${b}`;
-        answer = a + b;
-      } else if (level === 'medium') {
-        a = Math.floor(Math.random() * 90) + 10;
-        b = Math.floor(Math.random() * 9) + 1;
-        const type = Math.random() > 0.5 ? '×' : '÷';
-        if (type === '×') {
-          question = `${a} × ${b}`;
-          answer = a * b;
-        } else {
-          question = `${a} ÷ ${b}`;
-          answer = Math.floor(a / b); 
-        }
-      } else {
-        a = Math.floor(Math.random() * 900) + 100;
-        b = Math.floor(Math.random() * 90) + 10;
-        question = `${a} ÷ ${b}`;
-        answer = Math.floor(a / b);
-      }
-
-      generated.push({ question, answer });
-    }
-
-    questions.set(generated);
-    total.set(generated.length);
-  }
 
   onMount(() => {
     generateQuestions($difficulty); 

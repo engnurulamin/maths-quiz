@@ -102,7 +102,7 @@
 
 <script>
 	import { formatTime } from '$lib/utils';
-  import { user_name, correct, wrong, total, time_taken, accuracy } from '../../lib/stores';
+  import { user_name, correct, wrong, total, time_taken, accuracy } from '$lib/stores';
 
 	total.set($correct + $wrong);
 

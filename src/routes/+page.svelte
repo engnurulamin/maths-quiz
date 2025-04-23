@@ -107,7 +107,7 @@
 </style>
 <script>
 	import { onMount } from 'svelte';
-	import { user_name, difficulty } from '../lib/stores';
+	import { user_name, difficulty } from '$lib/stores';
 
 
 	let funEmojis = [
