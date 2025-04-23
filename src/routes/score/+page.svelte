@@ -6,7 +6,7 @@
           <span class="animated-emoji">{randomEmoji}</span> Congratulations
         </p>
         <p class="has-text-success has-text-weight-bold has-text-centered is-size-3-desktop is-size-4-tablet is-size-5-mobile">
-          Tabassum 🎊
+          {$user_name} 🎊
         </p>
         <p class="has-text-centered has-text-link has-text-weight-semibold is-size-4-tablet is-size-5-mobile">
           {message}
@@ -24,7 +24,7 @@
         <div class="column">
           <div class="box has-background-warning-light mx-4 mt-1">
             <p class="has-text-black has-text-centered is-size-4-desktop is-size-5-tablet is-size-6-mobile">
-              🏆 Your score is: <span class="has-text-weight-semibold has-text-primary">{correct}/{total}</span>
+              🏆 Your score is: <span class="has-text-weight-semibold has-text-primary">{$correct}/{total}</span>
             </p>
           </div>
         </div>
@@ -34,14 +34,14 @@
         <div class="column">
           <div class="box has-background-warning-light mx-4 my-2">
             <p class="has-text-black has-text-centered is-size-4-desktop is-size-5-tablet is-size-6-mobile">
-              ✅ Total correct answers: <span class="has-text-weight-bold has-text-success">{correct}</span>
+              ✅ Total correct answers: <span class="has-text-weight-bold has-text-success">{$correct}</span>
             </p>
           </div>
         </div>
         <div class="column">
           <div class="box has-background-warning-light mx-4 mt-1">
             <p class="has-text-black has-text-centered is-size-4-desktop is-size-5-tablet is-size-6-mobile">
-              ❌ Total wrong answers: <span class="has-text-weight-bold has-text-danger">{wrong}</span>
+              ❌ Total wrong answers: <span class="has-text-weight-bold has-text-danger">{$wrong}</span>
             </p>
           </div>
         </div>
@@ -51,7 +51,7 @@
         <div class="column">
           <div class="box has-background-warning-light mx-4 my-2">
             <p class="has-text-black has-text-centered is-size-4-desktop is-size-5-tablet is-size-6-mobile">
-              🎯 Total attempts: <span class="has-text-weight-bold has-text-success">{total}</span>
+              🎯 Total attempts: <span class="has-text-weight-bold has-text-success">{$total}</span>
             </p>
           </div>
         </div>
@@ -93,12 +93,13 @@
 </style>
 
 <script>
-	let correct = 10;
-	let wrong = 0;
-	let total = correct + wrong;
+  import { user_name, correct, wrong, total, time_taken, accuracy } from '../../lib/stores';
+	// let correct = 10;
+	// let wrong = 0;
+	total.set($correct + $wrong);
 	let timeTaken = 190;
 
-	const accuracy = Math.round((correct / total) * 100);
+	accuracy.set(Math.round(($correct / total) * 100));
 
 	const emojis = ['🎉', '🏆', '🎯', '⭐', '🌟', '🧁', '🍭', '🎈', '🚀', '💥'];
 	const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
