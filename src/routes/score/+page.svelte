@@ -3,13 +3,21 @@
     <div class="card has-background-warning m-4 p-4">
       <div class="box has-background-warning-light m-4">
         <p class="has-text-black has-text-weight-bold has-text-centered is-size-3-desktop is-size-4-tablet is-size-5-mobile">
-          <span class="animated-emoji">{randomEmoji}</span> Congratulations
+          {#if $user_name}
+          <span class="animated-emoji">{randomEmoji}</span>
+          {/if}
+           Congratulations
         </p>
         <p class="has-text-success has-text-weight-bold has-text-centered is-size-3-desktop is-size-4-tablet is-size-5-mobile">
-          {$user_name} 🎊
+          {$user_name} 
+          {#if $user_name}
+            <span class="animated-emoji">{random_emoji}</span>
+          {/if}
         </p>
         <p class="has-text-centered has-text-link has-text-weight-semibold is-size-4-tablet is-size-5-mobile">
-          {message}
+          {#if $user_name}
+            {message}
+          {/if}
         </p>
       </div>
 
@@ -102,6 +110,7 @@
 
 	const emojis = ['🎉', '🏆', '🎯', '⭐', '🌟', '🧁', '🍭', '🎈', '🚀', '💥'];
 	const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+	const random_emoji = emojis[Math.floor(Math.random() * emojis.length -1)];
 
   const getMotivationalMessage = () => {
 		if ($accuracy === 100) return "You're a genius! 💡";
