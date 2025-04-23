@@ -4,8 +4,8 @@
       <h1 class="has-text-white has-text-weight-bold has-text-centered py-6 title is-2">
         <i class="fa-regular fa-clock mr-2"></i> {formatTime($time)}
         {#if $is_game_start}
-          <button class="button is-primary is-light is-pulled-right mt-2 mr-5" onclick={() => {is_paused ? startQuiz() : pauseQuiz()}}>
-            {is_paused ? 'Resume' : 'Pause'}
+          <button class="button is-primary is-light is-pulled-right mt-2 mr-5" onclick={pauseQuiz}>
+            Pause
           </button>
         {/if}
         {#if !$is_game_start}
@@ -15,7 +15,18 @@
         {/if}
       </h1>
       
-      
+      {#if is_paused}
+        <div class="modal is-active">
+          <div class="modal-background"></div>
+          <div class="modal-content has-text-centered p-6">
+            <h2 class="title is-3 has-text-white mb-6">Game Paused</h2>
+            <p class="is-size-5 has-text-white mb-6">Click 
+              <button class="button is-small is-rounded is-primary is-light mx-3" onclick={startQuiz}>
+                Resume
+              </button> to continue.</p>
+          </div>
+        </div>
+      {/if}
 
       <div class="control mx-4 my-6">
         <div class="filed">
@@ -88,7 +99,7 @@
   function startQuiz() {
     is_game_start.set(true);
     is_paused = false;
-    
+
 
     timerInterval = setInterval(() => {
       if (!is_paused) {
