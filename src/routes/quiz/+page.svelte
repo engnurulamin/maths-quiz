@@ -2,7 +2,7 @@
   <div class="column">
     <div class="card has-background-warning m-4 p-4">
       <h1 class="has-text-white has-text-weight-bold has-text-centered py-6 title is-2">
-        <i class="fa-regular fa-clock mr-2"></i> 200s
+        <i class="fa-regular fa-clock mr-2"></i> {displayTime}
       </h1>
 
       <div class="control mx-4 my-6">
@@ -58,17 +58,43 @@
 
 <script>
   import { onMount } from 'svelte';
-  import { difficulty, questions, user_answers, is_game_start, time, score, correct, wrong, total } from '../../lib/stores';
+  import { difficulty, questions, user_answers, is_game_start, is_game_end, time, score, correct, wrong, total } from '../../lib/stores';
   import { goto } from '$app/navigation';
 
   
   let currentQuestionIndex = 0;
   let currentQuestion = '';
   let answerInput = '';
+  let timerInterval;
+
+
+  $: minutes = Math.floor($time / 60);
+  $: seconds = $time % 60;
+  $: displayTime = minutes > 0 
+    ? `${minutes}m ${seconds < 10 ? '0' + seconds : seconds}s` 
+    : `${seconds}s`;
 
   $: if ($questions.length) {
     currentQuestion = $questions[currentQuestionIndex]?.question;
   }
+
+ 
+  $: if ($is_game_start && !$is_game_end) {
+    startTimer();
+  }
+
+  function startTimer() {
+    time.set(0); // Reset time to 0
+    clearInterval(timerInterval);
+
+    timerInterval = setInterval(() => {
+      time.update(n => n + 1);
+    }, 1000);
+  }
+
+  $: if ($is_game_end) {
+  clearInterval(timerInterval);
+}
 
   function nextQuestion() {
     const currentCorrectAnswer = $questions[currentQuestionIndex]?.answer;
@@ -141,5 +167,6 @@
   onMount(() => {
     generateQuestions($difficulty); 
     is_game_start.set(true);
+    clearInterval(timerInterval);
   });
 </script>
