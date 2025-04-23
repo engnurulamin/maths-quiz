@@ -10,17 +10,17 @@
       <div class="control mx-4 my-6">
        <div class="field">
         <div class="columns">
-          <div class="column p-4 is-clickable" onclick={() => difficultyClick('easy')}>
+          <div class="column p-4 is-clickable" onclick={() => difficultyClick('easy')} role="button" aria-label="Easy mode" disabled={!$user_name}>
             <div class="card py-6 has-background-info-dark {$difficulty === 'easy' ? 'selected' : ''}">
               <span class="type">Easy</span>
             </div>
           </div>
-          <div class="column p-4 is-clickable" onclick={() => difficultyClick('medium')}>
+          <div class="column p-4 is-clickable" onclick={() => difficultyClick('medium')} role="button" aria-label="Medium mode" disabled={!$user_name}>
             <div class="card py-6 has-background-primary-dark {$difficulty === 'medium' ? 'selected' : ''}">
               <span class="type">Medium</span>
             </div>
           </div>
-          <div class="column p-4 is-clickable" onclick={() => difficultyClick('hard')}>
+          <div class="column p-4 is-clickable" onclick={() => difficultyClick('hard')} role="button" aria-label="Hard mode" disabled={!$user_name}>
             <div class="card  py-6 has-background-danger-dark {$difficulty === 'hard' ? 'selected' : ''}">
               <span class="type">Hard</span>
             </div>

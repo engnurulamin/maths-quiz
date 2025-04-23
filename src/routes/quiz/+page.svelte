@@ -2,7 +2,7 @@
   <div class="column">
     <div class="card has-background-warning m-4 p-4">
       <h1 class="has-text-white has-text-weight-bold has-text-centered py-6 title is-2">
-        <i class="fa-regular fa-clock mr-2"></i> {displayTime}
+        <i class="fa-regular fa-clock mr-2"></i> {formatTime($time)}
       </h1>
 
       <div class="control mx-4 my-6">
@@ -58,8 +58,9 @@
 
 <script>
   import { onMount } from 'svelte';
-  import { difficulty, questions, user_answers, is_game_start, is_game_end, time, score, correct, wrong, total } from '../../lib/stores';
+  import { difficulty, questions, user_answers, is_game_start, is_game_end, time, time_taken, score, correct, wrong, total } from '../../lib/stores';
   import { goto } from '$app/navigation';
+  import { formatTime } from '../../lib/utils';
 
   
   let currentQuestionIndex = 0;
@@ -68,11 +69,11 @@
   let timerInterval;
 
 
-  $: minutes = Math.floor($time / 60);
-  $: seconds = $time % 60;
-  $: displayTime = minutes > 0 
-    ? `${minutes}m ${seconds < 10 ? '0' + seconds : seconds}s` 
-    : `${seconds}s`;
+  // $: minutes = Math.floor($time / 60);
+  // $: seconds = $time % 60;
+  // $: displayTime = minutes > 0 
+  //   ? `${minutes}m ${seconds < 10 ? '0' + seconds : seconds}s` 
+  //   : `${seconds}s`;
 
   $: if ($questions.length) {
     currentQuestion = $questions[currentQuestionIndex]?.question;
@@ -84,7 +85,7 @@
   }
 
   function startTimer() {
-    time.set(0); // Reset time to 0
+    time.set(0); 
     clearInterval(timerInterval);
 
     timerInterval = setInterval(() => {
@@ -112,6 +113,7 @@
       currentQuestionIndex += 1;
     } else {
       is_game_start.set(false);
+      time_taken.set($time);
       goto('/score');
     }
   }

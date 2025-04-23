@@ -17,7 +17,7 @@
         <div class="column">
           <div class="box has-background-warning-light mx-4 my-2">
             <p class="has-text-black has-text-centered is-size-4-desktop is-size-5-tablet is-size-6-mobile">
-              ⏱️ You took: <span class="has-text-weight-semibold has-text-info">{timeTaken} seconds</span>
+              ⏱️ You took: <span class="has-text-weight-semibold has-text-info">{formatTime($time_taken)}</span>
             </p>
           </div>
         </div>
@@ -93,10 +93,10 @@
 </style>
 
 <script>
+	import { formatTime } from '$lib/utils';
   import { user_name, correct, wrong, total, time_taken, accuracy } from '../../lib/stores';
 
 	total.set($correct + $wrong);
-	let timeTaken = 190;
 
 	accuracy.set(Math.round(($correct / $total) * 100));
 
