@@ -71,12 +71,11 @@
           </div>
         </div>
       </div>
-
       <div class="columns">
         <div class="column mx-4 my-2">
           <div class="field">
             <p class="control">
-              <a href="/" class="button is-primary is-dark is-rounded is-fullwidth  is-size-4-desktop is-size-6-tablet is-size-6-mobile">
+              <a href="/" class="button is-primary is-dark is-rounded is-fullwidth has-text-white is-size-4-desktop is-size-6-tablet is-size-6-mobile">
                 Play Again
               </a>
             </p> 
