@@ -10,17 +10,17 @@
       <div class="control mx-4 my-6">
        <div class="field">
         <div class="columns">
-          <div class="column p-4 is-clickable { !$user_name ? 'disabled' : '' }" onclick={() => difficultyClick('easy')} role="button" aria-label="Easy mode">
+          <div class="column p-4 is-clickable { !$user_name ? 'disabled' : '' }" onclick={() => $user_name && difficultyClick('easy')}>
             <div class="card py-6 has-background-info-dark {$difficulty === 'easy' ? 'selected' : ''}">
               <span class="type">Easy</span>
             </div>
           </div>
-          <div class="column p-4 is-clickable { !$user_name ? 'disabled' : '' }" onclick={() => difficultyClick('medium')} role="button" aria-label="Medium mode">
+          <div class="column p-4 is-clickable { !$user_name ? 'disabled' : '' }" onclick={() => $user_name && difficultyClick('medium')}>
             <div class="card py-6 has-background-primary-dark {$difficulty === 'medium' ? 'selected' : ''}">
               <span class="type">Medium</span>
             </div>
           </div>
-          <div class="column p-4 is-clickable { !$user_name ? 'disabled' : '' }" onclick={() => difficultyClick('hard')} role="button" aria-label="Hard mode" disabled={!$user_name}>
+          <div class="column p-4 is-clickable { !$user_name ? 'disabled' : '' }" onclick={() => $user_name && difficultyClick('hard')}>
             <div class="card  py-6 has-background-danger-dark {$difficulty === 'hard' ? 'selected' : ''}">
               <span class="type">Hard</span>
             </div>
@@ -85,7 +85,7 @@
   .disabled {
     opacity: 0.5;
     pointer-events: none;
-    cursor: not-allowed;
+    cursor: not-allowed !important;
   }
   .type {
     color: white;

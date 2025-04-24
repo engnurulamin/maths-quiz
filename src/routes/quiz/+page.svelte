@@ -139,13 +139,11 @@
 
   function nextQuestion() {
     const currentCorrectAnswer = $questions[currentQuestionIndex]?.answer;
-
     if (parseInt(answerInput) === currentCorrectAnswer) {
       correct.update(n => n + 1);
     } else {
       wrong.update(n => n + 1);
     }
-
     user_answers.update(ans => [...ans, answerInput]);
     answerInput = '';
 
@@ -169,7 +167,6 @@
     is_game_start.set(false);
     goto('/');
   }
-
 
   onMount(() => {
     generateQuestions($difficulty); 
