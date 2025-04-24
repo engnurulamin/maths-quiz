@@ -1,18 +1,18 @@
 <div class="columns">
   <div class="column">
-    <div class="card has-background-warning m-4 p-4">
-      <h1 class="has-text-white has-text-weight-bold has-text-centered py-6 title is-2">
-        <i class="fa-regular fa-clock mr-2"></i> {formatTime($time)}
-        {#if $is_game_start}
-          <button class="button is-primary is-light is-pulled-right mt-2 mr-5" onclick={pauseQuiz}>
+    <div class="card has-background-warning m-4 p-4 has-text-centered">
+      {#if $is_game_start}
+          <button class="button is-primary is-light" onclick={pauseQuiz}>
             Pause
           </button>
         {/if}
         {#if !$is_game_start}
-          <button class="button is-primary is-light is-pulled-right mt-2 mr-5" onclick={startQuiz}>
+          <button class="button is-primary is-light" onclick={startQuiz}>
             Start Quiz
           </button>
         {/if}
+      <h1 class="has-text-white has-text-weight-bold has-text-centered py-6 title is-2">
+        <i class="fa-regular fa-clock mr-2"></i> {formatTime($time)}
       </h1>
       
       {#if is_paused}
