@@ -2,49 +2,49 @@
   <div class="column has-text-centered">
     <div class="card m-4 p-4 has-background-warning">
       <h1>Fun with Maths{randomEmoji}</h1>
-      <div class="control mx-4 my-6">
-        <div class="filed">
-          <input class="input is-medium is-transparent transparent-input" type="text" placeholder="Enter your name" bind:value={$user_name}>
+      <div class="control mx-6 my-4">
+        <p class="has-text-dark is-size-5 mt-1">
+          {#if $user_name}
+            Your name is: <span class="has-text-success">{$user_name}</span>
+          {/if}
+        </p>
+        
+        <p class="has-text-dark is-size-7 mt-1">
+          {#if $difficulty}
+            You are going to play on 
+            <span class="has-text-weight-bold has-text-success-light is-size-6">
+              {$difficulty.toUpperCase()}
+            </span> mode
+          {/if}
+        </p>
+        <div class="filed my-5">
+          <input class="input is-transparent transparent-input" type="text" placeholder="Enter your name" bind:value={$user_name}>
         </div>
       </div>
-      <div class="control mx-4 my-6">
+    
+      <div class="control mx-6">
        <div class="field">
         <div class="columns">
-          <div class="column p-4 is-clickable { !$user_name ? 'disabled' : '' }" onclick={() => $user_name && difficultyClick('easy')}>
-            <div class="card py-6 has-background-info-dark {$difficulty === 'easy' ? 'selected' : ''}">
-              <span class="type">Easy</span>
+          <div class="column is-clickable { !$user_name ? 'disabled' : '' }" onclick={() => $user_name && difficultyClick('easy')}>
+            <div class="card py-1 has-background-info-dark {$difficulty === 'easy' ? 'selected' : ''}">
+              <span class="type is-size-5">Easy</span>
             </div>
           </div>
-          <div class="column p-4 is-clickable { !$user_name ? 'disabled' : '' }" onclick={() => $user_name && difficultyClick('medium')}>
-            <div class="card py-6 has-background-primary-dark {$difficulty === 'medium' ? 'selected' : ''}">
-              <span class="type">Medium</span>
+          <div class="column is-clickable { !$user_name ? 'disabled' : '' }" onclick={() => $user_name && difficultyClick('medium')}>
+            <div class="card py-1 has-background-primary-dark {$difficulty === 'medium' ? 'selected' : ''}">
+              <span class="type is-size-5">Medium</span>
             </div>
           </div>
-          <div class="column p-4 is-clickable { !$user_name ? 'disabled' : '' }" onclick={() => $user_name && difficultyClick('hard')}>
-            <div class="card  py-6 has-background-danger-dark {$difficulty === 'hard' ? 'selected' : ''}">
-              <span class="type">Hard</span>
+          <div class="column is-clickable { !$user_name ? 'disabled' : '' }" onclick={() => $user_name && difficultyClick('hard')}>
+            <div class="card py-1 has-background-danger-dark {$difficulty === 'hard' ? 'selected' : ''}">
+              <span class="type is-size-5">Hard</span>
             </div>
           </div>
         </div>
        </div>
       </div> 
-      <p class="has-text-dark is-size-5">
-        {#if $user_name}
-          Your name is: <span class="has-text-success">{$user_name}</span>
-        {/if}
-      </p>
-      
-      <p class="has-text-dark is-size-6">
-        {#if $difficulty}
-          You are going to play on 
-          <span class="has-text-weight-bold has-text-success-light">
-            {$difficulty.toUpperCase()}
-          </span> mode
-        {/if}
-      </p>
-      
-      <div class="control mx-4 mt-6 mb-4">
-        <a href="/quiz" class="button is-medium is-rounded is-fullwidth is-success-dark py-3"> 
+      <div class="control mx-6 my-4">
+        <a href="/quiz" class="button is-rounded is-fullwidth is-success-dark"> 
           <i class="fa-regular fa-clock mr-2"></i> Start Quiz
         </a>
       </div>
@@ -56,7 +56,7 @@
   h1 {
     letter-spacing: 2.5px;
     font-weight: bolder;
-    font-size: 70px;
+    font-size: 50px;
     color: rgb(58, 3, 87);
   }
 
@@ -64,7 +64,7 @@
     background-color: rgb(243, 230, 166) !important;
     border: 2px solid rgba(56, 3, 3, 0.796);
     padding: 0.75rem 1.5rem;
-    border-radius: 40px 40px 40px 40px;
+    border-radius: 10px;
     transition: all 0.3s ease;
     color: #000;
   }
@@ -73,7 +73,7 @@
     color: black;
     opacity: 0.5;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 15px;
   }
 
   .transparent-input:focus,
@@ -101,7 +101,7 @@
 
   @media (max-width: 768px) {
     h1 {
-    font-size: 50px;
+    font-size: 40px;
    }
   }
 </style>
