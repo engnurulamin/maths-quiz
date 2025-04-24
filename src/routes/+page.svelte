@@ -2,21 +2,21 @@
   <div class="column has-text-centered">
     <div class="card m-4 p-4 has-background-warning">
       <h1>Fun with Maths{randomEmoji}</h1>
-      <div class="control mx-6 my-4">
-        <p class="has-text-dark is-size-5 mt-1">
-          {#if $user_name}
-            Your name is: <span class="has-text-success">{$user_name}</span>
-          {/if}
-        </p>
-        
-        <p class="has-text-dark is-size-7 mt-1">
-          {#if $difficulty}
-            You are going to play on 
-            <span class="has-text-weight-bold has-text-success-light is-size-6">
-              {$difficulty.toUpperCase()}
-            </span> mode
-          {/if}
-        </p>
+      <p class="has-text-dark is-size-5 mt-1">
+        {#if $user_name}
+        Your name is: <span class="has-text-success">{$user_name}</span>
+        {/if}
+      </p>
+      
+      <p class="has-text-dark is-size-7 mt-1">
+        {#if $difficulty}
+        You are going to play on 
+        <span class="has-text-weight-bold has-text-success-light is-size-6">
+          {$difficulty.toUpperCase()}
+        </span> mode
+        {/if}
+      </p>
+      <div class="control mx-6">
         <div class="filed my-5">
           <input class="input p-4 is-transparent transparent-input" type="text" placeholder="Enter your name" bind:value={$user_name}>
         </div>
