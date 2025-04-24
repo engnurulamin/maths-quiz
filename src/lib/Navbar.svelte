@@ -7,14 +7,14 @@
       ☰
     </button>
     <div class="menu-links {is_open ? 'show' : ''}">
-      <a href="/" class="menu {$page.url.pathname === '/' ? 'is-active' : ''}">Home</a>
+      <a href="/" class="menu my-0 {$page.url.pathname === '/' ? 'is-active' : ''}">Home</a>
       {#if $user_name}
-        <a href="/quiz" class="menu {$page.url.pathname === '/quiz' ? 'is-active' : ''}">
-          Start Quiz
+        <a href="/quiz" class="menu my-0 {$page.url.pathname === '/quiz' ? 'is-active' : ''}">
+          Quiz
         </a>
       {/if}
       {#if $questions.length > 0 && $user_name}
-        <a href="/score" class="menu {$page.url.pathname === '/score' ? 'is-active' : ''}">
+        <a href="/score" class="menu my-0 {$page.url.pathname === '/score' ? 'is-active' : ''}">
           Score
         </a>
       {/if}
@@ -64,7 +64,7 @@
     text-decoration: none;
     color: white;
     letter-spacing: 1.3px;
-    font-size: 18px;
+    font-size: 15px;
   }
 
   .is-active {

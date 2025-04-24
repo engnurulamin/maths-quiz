@@ -72,7 +72,7 @@
         </div>
       </div>
       <div class="columns">
-        <div class="column mx-4">
+        <div class="column mx-4 mb-3">
           <div class="field">
             <p class="control">
               <a href="/" class="button is-primary is-dark is-fullwidth has-text-white is-size-4-desktop is-size-6-tablet is-size-6-mobile">
