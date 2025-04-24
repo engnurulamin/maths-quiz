@@ -1,36 +1,86 @@
 
 import { questions, total } from '$lib/stores.js';
 
+function generateEasyQuestion() {
+  const a = Math.floor(Math.random() * 10);
+  const b = Math.floor(Math.random() * 10);
+  const type = Math.random() > 0.5 ? '+' : '-';
+
+  if (type === '+') {
+    return {
+      question: `${a} + ${b}`,
+      answer: a + b
+    };
+  } else {
+    const bigger = Math.max(a, b);
+    const smaller = Math.min(a, b);
+    return {
+      question: `${bigger} - ${smaller}`,
+      answer: bigger - smaller
+    };
+  }
+}
+
+function generateMediumQuestion() {
+  const a = Math.floor(Math.random() * 11) + 20;
+  const b = Math.floor(Math.random() * 11) + 20;
+  const type = Math.random() > 0.5 ? '+' : '-';
+
+  if (type === '+') {
+    return {
+      question: `${a} + ${b}`,
+      answer: a + b
+    };
+  } else {
+    const bigger = Math.max(a, b);
+    const smaller = Math.min(a, b);
+    return {
+      question: `${bigger} - ${smaller}`,
+      answer: bigger - smaller
+    };
+  }
+}
+
+
+
+function generateHardQuestion() {
+  const type = Math.random() > 0.5 ? '×' : '÷';
+
+  if (type === '×') {
+    const a = Math.floor(Math.random() * 10) + 10; // 10–19
+    const b = Math.floor(Math.random() * 10);      // 0–9
+    return {
+      question: `${a} × ${b}`,
+      answer: a * b
+    };
+  } else {
+    const b = Math.floor(Math.random() * 8) + 2;     // 2–9
+    const multiplier = Math.floor(Math.random() * 10); // 0–9
+    const a = b * multiplier;
+    return {
+      question: `${a} ÷ ${b}`,
+      answer: a / b
+    };
+  }
+}
+
+
 export function generateQuestions(level) {
-  let generated = [];
+  const generated = [];
+  const generatorMap = {
+    easy: generateEasyQuestion,
+    medium: generateMediumQuestion,
+    hard: generateHardQuestion
+  };
 
-  for (let i = 0; i < 10; i++) {
-    let a, b, question, answer;
+  const generator = generatorMap[level];
 
-    if (level === 'easy') {
-      a = Math.floor(Math.random() * 10);
-      b = Math.floor(Math.random() * 10);
-      question = `${a} + ${b}`;
-      answer = a + b;
-    } else if (level === 'medium') {
-      a = Math.floor(Math.random() * 90) + 10;
-      b = Math.floor(Math.random() * 9) + 1;
-      const type = Math.random() > 0.5 ? '×' : '÷';
-      if (type === '×') {
-        question = `${a} × ${b}`;
-        answer = a * b;
-      } else {
-        question = `${a} ÷ ${b}`;
-        answer = Math.floor(a / b);
-      }
-    } else {
-      a = Math.floor(Math.random() * 900) + 100;
-      b = Math.floor(Math.random() * 90) + 10;
-      question = `${a} ÷ ${b}`;
-      answer = Math.floor(a / b);
-    }
+  if (!generator) {
+    throw new Error(`Unknown level: ${level}`);
+  }
 
-    generated.push({ question, answer });
+  for (let i = 0; i < 20; i++) {
+    generated.push(generator());
   }
 
   questions.set(generated);
