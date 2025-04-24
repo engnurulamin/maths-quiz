@@ -4,7 +4,7 @@
       <div class="box has-background-warning-light m-4">
         <p class="has-text-black has-text-weight-bold has-text-centered is-size-3-desktop is-size-4-tablet is-size-5-mobile">
           {#if $user_name}
-          <span class="animated-emoji">{randomEmoji}</span>
+          <span class="animated-emoji">{random_emojies}</span>
           {/if}
            Congratulations
         </p>
@@ -109,7 +109,7 @@
 	accuracy.set(Math.round(($correct / $total) * 100));
 
 	const emojis = ['🎉', '🏆', '🎯', '⭐', '🌟', '🧁', '🍭', '🎈', '🚀', '💥'];
-	const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+	const random_emojies = emojis[Math.floor(Math.random() * emojis.length)];
 	const random_emoji = emojis[Math.floor(Math.random() * emojis.length -1)];
 
 	$: message = getMotivationalMessage($accuracy);

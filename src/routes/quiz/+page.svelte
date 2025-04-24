@@ -31,7 +31,7 @@
       <div class="control mx-4 my-6">
         <div class="filed">
           <div class="box has-background-warning-light p-4  has-text-centered">
-            <p class="has-text-dark is-size-1 has-text-weight-bold">{currentQuestion || '80 + 50 = ?'}</p>
+            <p class="has-text-dark is-size-1 has-text-weight-bold">{current_question || '80 + 50 = ?'}</p>
           </div>
         </div>
       </div>
@@ -39,7 +39,7 @@
         <div class="filed">
           <input 
             class="input is-medium is-transparent transparent-input" 
-            bind:value={answerInput} 
+            bind:value={answer_input} 
             type="text" 
             placeholder="Write your answer"
             disabled={!$is_game_start}
@@ -93,14 +93,14 @@
   import { generateQuestions } from '$lib/quiz';
 
   
-  let currentQuestionIndex = 0;
-  let currentQuestion = '';
-  let answerInput = '';
-  let timerInterval;
+  let current_question_index = 0;
+  let current_question = '';
+  let answer_input = '';
+  let timer_interval;
   let is_paused = false;
 
   $: if ($questions.length) {
-    currentQuestion = $questions[currentQuestionIndex]?.question;
+    current_question = $questions[current_question_index]?.question;
   }
 
   function startQuiz() {
@@ -108,7 +108,7 @@
     is_paused = false;
 
 
-    timerInterval = setInterval(() => {
+    timer_interval = setInterval(() => {
       if (!is_paused) {
         time.update(t => t + 1);
       }
@@ -117,7 +117,7 @@
 
   function pauseQuiz() {
     is_paused = true;
-    clearInterval(timerInterval);
+    clearInterval(timer_interval);
   }
  
   $: if ($is_game_start && !$is_game_end) {
@@ -126,29 +126,29 @@
 
   function startTimer() {
     time.set(0); 
-    clearInterval(timerInterval);
+    clearInterval();
 
-    timerInterval = setInterval(() => {
+    timer_interval = setInterval(() => {
       time.update(n => n + 1);
     }, 1000);
   }
 
   $: if ($is_game_end) {
-  clearInterval(timerInterval);
+  clearInterval(timer_interval);
 }
 
   function nextQuestion() {
-    const currentCorrectAnswer = $questions[currentQuestionIndex]?.answer;
-    if (parseInt(answerInput) === currentCorrectAnswer) {
+    const current_correct_answer = $questions[current_question_index]?.answer;
+    if (parseInt(answer_input) === current_correct_answer) {
       correct.update(n => n + 1);
     } else {
       wrong.update(n => n + 1);
     }
-    user_answers.update(ans => [...ans, answerInput]);
-    answerInput = '';
+    user_answers.update(ans => [...ans, answer_input]);
+    answer_input = '';
 
-    if (currentQuestionIndex < $questions.length - 1) {
-      currentQuestionIndex += 1;
+    if (current_question_index < $questions.length - 1) {
+      current_question_index += 1;
     } else {
       is_game_start.set(false);
       time_taken.set($time);
@@ -157,9 +157,9 @@
   }
 
   function resetQuiz() {
-    currentQuestionIndex = 0;
-    currentQuestion = '';
-    answerInput = '';
+    current_question_index = 0;
+    current_question = '';
+    answer_input = '';
     correct.set(0);
     wrong.set(0);
     score.set(0);
