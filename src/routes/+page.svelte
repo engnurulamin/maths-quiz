@@ -44,9 +44,15 @@
        </div>
       </div> 
       <div class="control mx-6 my-4">
-        <a href="/quiz" class="button is-rounded is-fullwidth is-success-dark"> 
+        <button 
+          class="button is-fullwidth is-success-dark" 
+          disabled={!$user_name || !$difficulty} 
+          onclick={() => goto('/quiz')}>
           <i class="fa-regular fa-clock mr-2"></i> Start Quiz
-        </a>
+        </button>
+        <!-- <a href="/quiz" class="button is-fullwidth is-success-dark" disabled={!$user_name}> 
+          <i class="fa-regular fa-clock mr-2"></i> Start Quiz
+        </a> -->
       </div>
     </div>
   </div>
@@ -106,6 +112,7 @@
   }
 </style>
 <script>
+  import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
 	import { user_name, difficulty } from '$lib/stores';
 
