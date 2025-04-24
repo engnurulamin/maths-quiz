@@ -97,7 +97,6 @@
 <script>
   import { user_name, questions } from '$lib/stores';
   import { page } from '$app/stores';
-  let is_active = 1;
   let is_open = false;
 
 </script>
