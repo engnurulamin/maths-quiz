@@ -8,13 +8,13 @@
           {/if}
            Congratulations
         </p>
-        <p class="has-text-success has-text-weight-bold has-text-centered is-size-3-desktop is-size-4-tablet is-size-5-mobile">
+        <p class="has-text-success has-text-weight-semibold has-text-centered is-size-3-desktop is-size-5-tablet is-size-5-mobile">
           {$user_name} 
           {#if $user_name}
             <span class="animated-emoji">{random_emoji}</span>
           {/if}
         </p>
-        <p class="has-text-centered has-text-link has-text-weight-semibold is-size-4-tablet is-size-5-mobile">
+        <p class="has-text-centered has-text-link is-size-4-tablet is-size-6-mobile">
           {#if $user_name}
             {message}
           {/if}
@@ -23,14 +23,14 @@
 
       <div class="columns">
         <div class="column">
-          <div class="box has-background-warning-light mx-4 my-2">
+          <div class="box has-background-warning-light mx-4">
             <p class="has-text-black has-text-centered is-size-4-desktop is-size-5-tablet is-size-6-mobile">
               ⏱️ You took: <span class="has-text-weight-semibold has-text-info">{formatTime($time_taken)}</span>
             </p>
           </div>
         </div>
         <div class="column">
-          <div class="box has-background-warning-light mx-4 mt-1">
+          <div class="box has-background-warning-light mx-4">
             <p class="has-text-black has-text-centered is-size-4-desktop is-size-5-tablet is-size-6-mobile">
               🏆 Your score is: <span class="has-text-weight-semibold has-text-primary">{$correct}/{$total}</span>
             </p>
@@ -40,14 +40,14 @@
 
       <div class="columns">
         <div class="column">
-          <div class="box has-background-warning-light mx-4 my-2">
+          <div class="box has-background-warning-light mx-4">
             <p class="has-text-black has-text-centered is-size-4-desktop is-size-5-tablet is-size-6-mobile">
               ✅ Total correct answers: <span class="has-text-weight-bold has-text-success">{$correct}</span>
             </p>
           </div>
         </div>
         <div class="column">
-          <div class="box has-background-warning-light mx-4 mt-1">
+          <div class="box has-background-warning-light mx-4">
             <p class="has-text-black has-text-centered is-size-4-desktop is-size-5-tablet is-size-6-mobile">
               ❌ Total wrong answers: <span class="has-text-weight-bold has-text-danger">{$wrong}</span>
             </p>
@@ -57,14 +57,14 @@
 
       <div class="columns">
         <div class="column">
-          <div class="box has-background-warning-light mx-4 my-2">
+          <div class="box has-background-warning-light mx-4">
             <p class="has-text-black has-text-centered is-size-4-desktop is-size-5-tablet is-size-6-mobile">
               🎯 Total attempts: <span class="has-text-weight-bold has-text-success">{$total}</span>
             </p>
           </div>
         </div>
         <div class="column">
-          <div class="box has-background-warning-light mx-4 my-2">
+          <div class="box has-background-warning-light mx-4">
             <p class="has-text-black has-text-centered is-size-4-desktop is-size-5-tablet is-size-6-mobile">
               📊 Accuracy: <span class="has-text-weight-bold has-text-link">{$accuracy || 0}%</span>
             </p>
@@ -72,10 +72,10 @@
         </div>
       </div>
       <div class="columns">
-        <div class="column mx-4 my-2">
+        <div class="column mx-4">
           <div class="field">
             <p class="control">
-              <a href="/" class="button is-primary is-dark is-rounded is-fullwidth has-text-white is-size-4-desktop is-size-6-tablet is-size-6-mobile">
+              <a href="/" class="button is-primary is-dark is-fullwidth has-text-white is-size-4-desktop is-size-6-tablet is-size-6-mobile">
                 Play Again
               </a>
             </p> 

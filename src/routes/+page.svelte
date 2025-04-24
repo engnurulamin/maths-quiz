@@ -18,7 +18,7 @@
           {/if}
         </p>
         <div class="filed my-5">
-          <input class="input is-transparent transparent-input" type="text" placeholder="Enter your name" bind:value={$user_name}>
+          <input class="input p-4 is-transparent transparent-input" type="text" placeholder="Enter your name" bind:value={$user_name}>
         </div>
       </div>
     

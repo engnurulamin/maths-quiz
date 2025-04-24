@@ -1,6 +1,6 @@
 <div class="columns">
   <div class="column">
-    <div class="card has-background-warning m-4 p-4 has-text-centered">
+    <div class="card has-background-warning has-text-centered m-4 p-4">
       {#if $is_game_start}
           <button class="button is-primary is-light" onclick={pauseQuiz}>
             Pause
@@ -11,8 +11,8 @@
             Start Quiz
           </button>
         {/if}
-      <h1 class="has-text-white has-text-weight-bold has-text-centered py-6 title is-2">
-        <i class="fa-regular fa-clock mr-2"></i> {formatTime($time)}
+      <h1 class="has-text-white has-text-weight-semibold has-text-centered title is-4 mt-2">
+        <i class="fa-regular fa-clock mr-1"></i> {formatTime($time)}
       </h1>
       
       {#if is_paused}
@@ -28,17 +28,17 @@
         </div>
       {/if}
 
-      <div class="control mx-4 my-6">
+      <div class="control mx-6">
         <div class="filed">
-          <div class="box has-background-warning-light p-4  has-text-centered">
-            <p class="has-text-dark is-size-1 has-text-weight-bold">{current_question || '80 + 50 = ?'}</p>
+          <div class="box has-background-warning-light has-text-centered">
+            <p class="has-text-dark is-size-2">{current_question || '80 + 50 = ?'}</p>
           </div>
         </div>
       </div>
-      <div class="control mx-4 my-6">
+      <div class="control mx-6 my-4">
         <div class="filed">
           <input 
-            class="input is-medium is-transparent transparent-input" 
+            class="input is-transparent transparent-input p-5" 
             bind:value={answer_input} 
             type="text" 
             placeholder="Write your answer"
@@ -46,13 +46,13 @@
             >
         </div>
       </div>
-      <div class="control mx-4 mt-6 mb-4">
-        <button class="button is-medium is-rounded is-fullwidth is-info-dark py-4" onclick={nextQuestion} disabled={!$is_game_start}> 
+      <div class="control mx-6 my-4">
+        <button class="button is-fullwidth is-info-dark" onclick={nextQuestion} disabled={!$is_game_start}> 
            Next
         </button>
       </div>
-      <div class="control mx-4 mt-6 mb-4">
-        <button class="button is-medium is-rounded is-fullwidth is-danger py-4" onclick={resetQuiz} disabled={!$is_game_start}> 
+      <div class="control mx-6 my-4">
+        <button class="button is-fullwidth is-danger" onclick={resetQuiz} disabled={!$is_game_start}> 
            Reset
         </button>
       </div>
@@ -65,7 +65,7 @@
     background-color: rgb(243, 230, 166) !important;
     border: 2px solid rgba(56, 3, 3, 0.796);
     padding: 0.75rem 1.5rem;
-    border-radius: 40px 40px 40px 40px;
+    border-radius: 10px;
     transition: all 0.3s ease;
     color: #000;
   }
@@ -74,7 +74,7 @@
     color: black;
     opacity: 0.5;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .transparent-input:focus,
