@@ -8,7 +8,7 @@
   <footer class="footer has-background-warning py-4">
     <div class="content has-text-centered">
       <p class="has-text-white">
-        © 2024 Expense Tracker Developed by Nurul Amin. All rights reserved.
+        © 2025 Expense Tracker Developed by <a href="https://github.com/engnurulamin" target="_blank" class="has-text-white">Nurul Amin</a> All rights reserved.
       </p>
     </div>
   </footer>
