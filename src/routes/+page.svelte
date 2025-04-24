@@ -1,7 +1,9 @@
 <div class="columns">
   <div class="column has-text-centered">
-    <div class="card m-4 p-4 has-background-warning">
-      <h1>Fun with Maths{randomEmoji}</h1>
+    <div class="card m-4 p-2 has-background-warning">
+      <div class="control">
+        <p class="field">
+          <h1>Fun with Maths{randomEmoji}</h1>
       <p class="has-text-dark is-size-5 mt-1">
         {#if $user_name}
         Your name is: <span class="has-text-success">{$user_name}</span>
@@ -16,13 +18,15 @@
         </span> mode
         {/if}
       </p>
-      <div class="control mx-6">
+      </div>
+      
+      <div class="control mx-5">
         <div class="filed my-5">
           <input class="input p-4 is-transparent transparent-input" type="text" placeholder="Enter your name" bind:value={$user_name}>
         </div>
       </div>
     
-      <div class="control mx-6">
+      <div class="control mx-5">
        <div class="field">
         <div class="columns">
           <div class="column is-clickable { !$user_name ? 'disabled' : '' }" onclick={() => $user_name && difficultyClick('easy')}>
@@ -43,7 +47,7 @@
         </div>
        </div>
       </div> 
-      <div class="control mx-6 my-4">
+      <div class="control mx-5 my-4">
         <button 
           class="button is-fullwidth is-success-dark" 
           disabled={!$user_name || !$difficulty} 
@@ -104,7 +108,7 @@
 
   @media (max-width: 768px) {
     h1 {
-    font-size: 40px;
+    font-size: 30px;
    }
   }
 </style>

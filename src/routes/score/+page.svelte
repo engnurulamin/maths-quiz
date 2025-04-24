@@ -1,6 +1,6 @@
 <div class="columns">
   <div class="column">
-    <div class="card has-background-warning m-4 p-4">
+    <div class="card has-background-warning m-4 p-2">
       <div class="box has-background-warning-light m-4">
         <p class="has-text-black has-text-weight-bold has-text-centered is-size-3-desktop is-size-4-tablet is-size-5-mobile">
           {#if $user_name}

@@ -1,6 +1,6 @@
 <div class="columns">
   <div class="column">
-    <div class="card has-background-warning has-text-centered m-4 p-4">
+    <div class="card has-background-warning has-text-centered m-4 p-2">
       {#if $is_game_start}
           <button class="button is-primary is-light" onclick={pauseQuiz}>
             Pause
@@ -28,14 +28,14 @@
         </div>
       {/if}
 
-      <div class="control mx-6">
+      <div class="control mx-5">
         <div class="filed">
           <div class="box has-background-warning-light has-text-centered">
             <p class="has-text-dark is-size-2">{current_question || '80 + 50 = ?'}</p>
           </div>
         </div>
       </div>
-      <div class="control mx-6 my-4">
+      <div class="control mx-5 my-4">
         <div class="filed">
           <input 
             class="input is-transparent transparent-input p-5" 
@@ -46,12 +46,12 @@
             >
         </div>
       </div>
-      <div class="control mx-6 my-4">
+      <div class="control mx-5 my-4">
         <button class="button is-fullwidth is-info-dark" onclick={nextQuestion} disabled={!$is_game_start}> 
            Next
         </button>
       </div>
-      <div class="control mx-6 my-4">
+      <div class="control mx-5 my-4">
         <button class="button is-fullwidth is-danger" onclick={resetQuiz} disabled={!$is_game_start}> 
            Reset
         </button>
