@@ -3,23 +3,21 @@
     <div class="logo">
       <a href="/"><strong>Maths Quiz</strong></a>
     </div>
-    <button class="hamburger" on:click={() => menuOpen = !menuOpen}>
+    <button class="hamburger" on:click={() => is_open = !is_open}>
       ☰
     </button>
-    <div class="menu-links {menuOpen ? 'show' : ''}">
-      <a href="/" class="menu {is_active === 1 ? 'is-active' : ''}" on:click={() => activeTab(1)}>
-        Home
-      </a>
+    <div class="menu-links {is_open ? 'show' : ''}">
+      <a href="/" class="menu {$page.url.pathname === '/' ? 'is-active' : ''}">Home</a>
       {#if $user_name}
-        <a href="/quiz" class="menu {is_active === 2 ? 'is-active' : ''}" on:click={() => activeTab(2)}>
+        <a href="/quiz" class="menu {$page.url.pathname === '/quiz' ? 'is-active' : ''}">
           Start Quiz
         </a>
-        {/if}
-        {#if $questions.length > 0 && $user_name}
-          <a href="/score" class="menu {is_active === 3 ? 'is-active' : ''}" on:click={() => activeTab(3)}>
-            Score
-          </a>
-        {/if}
+      {/if}
+      {#if $questions.length > 0 && $user_name}
+        <a href="/score" class="menu {$page.url.pathname === '/score' ? 'is-active' : ''}">
+          Score
+        </a>
+      {/if}
     </div>
   </div>
 </nav>
@@ -97,12 +95,9 @@
 </style>
 
 <script>
-  import { user_name, questions } from './stores';
+  import { user_name, questions } from '$lib/stores';
+  import { page } from '$app/stores';
   let is_active = 1;
-  let menuOpen = false;
+  let is_open = false;
 
-  function activeTab(val) {
-    is_active = val;
-    menuOpen = false; // optional: close menu after click on mobile
-  }
 </script>
