@@ -50,9 +50,6 @@
           onclick={() => goto('/quiz')}>
           <i class="fa-regular fa-clock mr-2"></i> Start Quiz
         </button>
-        <!-- <a href="/quiz" class="button is-fullwidth is-success-dark" disabled={!$user_name}> 
-          <i class="fa-regular fa-clock mr-2"></i> Start Quiz
-        </a> -->
       </div>
     </div>
   </div>
