@@ -1,8 +1,8 @@
 <div class="columns">
   <div class="column has-text-centered">
     <div class="card m-4 p-2 has-background-warning">
-      <div class="control">
-        <p class="field">
+      <div class="field py-2">
+        <p class="control">
           <h1>Fun with Maths{randomEmoji}</h1>
       <p class="has-text-dark is-size-5 mt-1">
         {#if $user_name}
@@ -20,14 +20,14 @@
       </p>
       </div>
       
+    <div class="filed my-5">
       <div class="control mx-5">
-        <div class="filed my-5">
           <input class="input p-4 is-transparent transparent-input" type="text" placeholder="Enter your name" bind:value={$user_name}>
         </div>
       </div>
     
+    <div class="field">
       <div class="control mx-5">
-       <div class="field">
         <div class="columns">
           <div class="column is-clickable { !$user_name ? 'disabled' : '' }" onclick={() => $user_name && difficultyClick('easy')}>
             <div class="card py-1 has-background-info-dark {$difficulty === 'easy' ? 'selected' : ''}">
@@ -61,7 +61,6 @@
 
 <style>
   h1 {
-    letter-spacing: 2.5px;
     font-weight: bolder;
     font-size: 50px;
     color: rgb(58, 3, 87);

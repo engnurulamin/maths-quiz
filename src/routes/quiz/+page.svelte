@@ -13,15 +13,15 @@
       <h1 class="has-text-white has-text-weight-semibold has-text-centered title is-4 mt-2">
         <i class="fa-regular fa-clock mr-1"></i> {formatTime($time)}
       </h1>
-      <div class="control mx-5">
-        <div class="filed">
+      <div class="filed mx-5">
+      <div class="control">
           <div class="box has-background-warning-light has-text-centered">
             <p class="has-text-dark is-size-2">{current_question || '80 + 50 = ?'}</p>
           </div>
         </div>
       </div>
-      <div class="control mx-5 my-4">
-        <div class="filed">
+      <div class="filed mx-5 my-4">
+      <div class="control ">
           <input 
             class="input is-transparent transparent-input p-5" 
             bind:value={answer_input} 
