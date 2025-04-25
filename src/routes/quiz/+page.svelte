@@ -2,18 +2,19 @@
   <div class="column">
     <div class="card has-background-warning has-text-centered m-4 p-2">
       {#if $is_game_start}
-          <button class="button is-primary is-light" onclick={pauseQuiz}>
-            Pause
-          </button>
-        {/if}
-        {#if !$is_game_start}
-          <button class="button is-primary is-light" onclick={startQuiz}>
-            Start Quiz
-          </button>
-        {/if}
+      <button class="button is-primary is-light" onclick={pauseQuiz}>
+        Pause
+      </button>
+    {/if}
+    {#if !$is_game_start}
+      <button class="button is-primary is-light" onclick={startQuiz}>
+        Start Quiz
+      </button>
+    {/if}
       <h1 class="has-text-white has-text-weight-semibold has-text-centered title is-4 mt-2">
         <i class="fa-regular fa-clock mr-1"></i> {formatTime($time)}
       </h1>
+     
       
       {#if is_paused}
         <div class="modal is-active">
@@ -40,7 +41,7 @@
           <input 
             class="input is-transparent transparent-input p-5" 
             bind:value={answer_input} 
-            type="text" 
+            type="number" 
             placeholder="Write your answer"
             disabled={!$is_game_start}
             >
