@@ -8,10 +8,10 @@
         </div>
       </div>
       <hr class="is-paddingless has-background-warning-light p-0 m-0">
-      <div class="control">
-        <div class="field p-4">
+      <div class="field p-4">
+        <label class="label has-text-white is-size-5">Select a subject</label>
+        <div class="control mt-2">
           <div class="buttons is-centered">
-            <label class="label">Select a subject</label>
             <a href="/math" class="button is-primary is-light is-fullwidth">
               📊 Math
             </a>
@@ -22,13 +22,14 @@
         </div>
       </div>
       <hr class="is-paddingless has-background-warning-light p-0 m-0">
-      <div class="control mx-5">
-        <div class="filed my-5">
-          <input class="input p-4 is-transparent transparent-input" type="text" placeholder="Enter your name" bind:value={$user_name}>
+      <div class="control mx-5 my-2">
+        <label class="label has-text-white is-size-5">Enter your name</label>
+        <div class="filed my-4">
+          <input class="input is-transparent transparent-input" type="text" placeholder="Enter your name" bind:value={$user_name}>
         </div>
       </div>
-    
-      <div class="control mx-5">
+      <hr class="is-paddingless has-background-warning-light p-0 m-0">
+      <div class="control mx-5 my-4">
        <div class="field">
         <div class="columns">
           <div class="column is-clickable { !$user_name ? 'disabled' : '' }" onclick={() => $user_name && difficultyClick('easy')}>
@@ -49,6 +50,7 @@
         </div>
        </div>
       </div> 
+      <hr class="is-paddingless has-background-warning-light p-0 m-0">
       <div class="control mx-5 my-4">
         <button 
           class="button is-fullwidth is-success-dark" 
