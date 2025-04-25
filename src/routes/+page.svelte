@@ -4,7 +4,7 @@
       <div class="control">
         <div class="field p-4">
           <h1 class="">Welcome to the QuizNest {randomEmoji}</h1>
-          <h3 class="has-text-white">What would you like to learn today?</h3>
+          <h3 class="has-text-white has-text-weight-light">What would you like to learn today?</h3>
         </div>
       </div>
       <hr class="is-paddingless has-background-warning-light p-0 m-0">
@@ -24,7 +24,7 @@
       <hr class="is-paddingless has-background-warning-light p-0 m-0">
       <div class="control mx-5 my-2">
         <label class="label has-text-white is-size-5">Enter your name</label>
-        <div class="filed my-4">
+        <div class="filed mb-4 mt-2">
           <input class="input is-transparent transparent-input" type="text" placeholder="Enter your name" bind:value={$user_name}>
         </div>
       </div>
@@ -56,7 +56,7 @@
           class="button is-fullwidth is-success-dark" 
           disabled={!$user_name || !$difficulty} 
           onclick={() => goto('/quiz')}>
-          <i class="fa-regular fa-clock mr-2"></i> Start Quiz
+          <i class="fa-solid fa-book mr-2"></i> Start Quiz
         </button>
       </div>
     </div>
@@ -72,7 +72,7 @@
 
   .transparent-input {
     background-color: rgb(243, 230, 166) !important;
-    border: 2px solid rgba(56, 3, 3, 0.796);
+    border: 2px solid rgba(255, 255, 255, 0.6);;
     border-radius: 10px;
     transition: all 0.3s ease;
     color: #000;
@@ -88,7 +88,7 @@
   .transparent-input:focus,
   .transparent-input:active {
     outline: none;
-    border-color: rgba(255, 255, 255, 0.6); 
+    border-color: rgba(33, 19, 43, 0.259); 
     box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
   }
   .disabled {
@@ -110,7 +110,8 @@
 
   @media (max-width: 768px) {
     h1 {
-    font-size: 22px;
+    font-size: 25px;
+    font-weight: 300;
    }
   }
 </style>
