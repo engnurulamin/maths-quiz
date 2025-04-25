@@ -2,24 +2,26 @@
   <div class="column has-text-centered">
     <div class="card m-4 p-2 has-background-warning">
       <div class="control">
-        <p class="field">
-          <h1>Fun with Maths{randomEmoji}</h1>
-      <p class="has-text-dark is-size-5 mt-1">
-        {#if $user_name}
-        Your name is: <span class="has-text-success">{$user_name}</span>
-        {/if}
-      </p>
-      
-      <p class="has-text-dark is-size-7 mt-1">
-        {#if $difficulty}
-        You are going to play on 
-        <span class="has-text-weight-bold has-text-success-light is-size-6">
-          {$difficulty.toUpperCase()}
-        </span> mode
-        {/if}
-      </p>
+        <div class="field p-4">
+          <h1 class="">Welcome to the QuizNest {randomEmoji}</h1>
+          <h3 class="has-text-white">What would you like to learn today?</h3>
+        </div>
       </div>
-      
+      <hr class="is-paddingless has-background-warning-light p-0 m-0">
+      <div class="control">
+        <div class="field p-4">
+          <div class="buttons is-centered">
+            <label class="label">Select a subject</label>
+            <a href="/math" class="button is-primary is-light is-fullwidth">
+              📊 Math
+            </a>
+            <a href="/english" class="button is-link is-light is-fullwidth">
+              📖 English
+            </a>
+          </div>          
+        </div>
+      </div>
+      <hr class="is-paddingless has-background-warning-light p-0 m-0">
       <div class="control mx-5">
         <div class="filed my-5">
           <input class="input p-4 is-transparent transparent-input" type="text" placeholder="Enter your name" bind:value={$user_name}>
@@ -61,16 +63,14 @@
 
 <style>
   h1 {
-    letter-spacing: 2.5px;
     font-weight: bolder;
-    font-size: 50px;
-    color: rgb(58, 3, 87);
+    font-size: 30px;
+    color: white;
   }
 
   .transparent-input {
     background-color: rgb(243, 230, 166) !important;
     border: 2px solid rgba(56, 3, 3, 0.796);
-    padding: 0.75rem 1.5rem;
     border-radius: 10px;
     transition: all 0.3s ease;
     color: #000;
@@ -108,7 +108,7 @@
 
   @media (max-width: 768px) {
     h1 {
-    font-size: 30px;
+    font-size: 22px;
    }
   }
 </style>
@@ -118,9 +118,8 @@
 	import { user_name, difficulty } from '$lib/stores';
 
 
-	let funEmojis = [
-		"🎉", "🎈", "🧁", "🍭", "🍬", "⭐", "🌟", "🪄",
-		"🚀",  "👑", "💎","🎀", "💖", "🔥", "💥"
+	let emojis = [
+		"📚", "✏️", "🧠", "🏫"
 	];
 
 	let randomEmoji = "";
@@ -132,7 +131,7 @@
 	});
 
 	function updateEmoji() {
-		randomEmoji = funEmojis[Math.floor(Math.random() * funEmojis.length)];
+		randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
 	}
 
   function difficultyClick(type) {

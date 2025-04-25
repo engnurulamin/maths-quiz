@@ -1,7 +1,7 @@
 <nav>
   <div class="navbar-container px-6 pb-4">
     <div class="logo">
-      <a href="/"><strong>Maths Quiz</strong></a>
+      <a href="/"><strong>QuizNest</strong></a>
     </div>
     <button class="hamburger" on:click={() => is_open = !is_open}>
       ☰
