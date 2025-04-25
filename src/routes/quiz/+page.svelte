@@ -2,33 +2,17 @@
   <div class="column">
     <div class="card has-background-warning has-text-centered m-4 p-2">
       {#if $is_game_start}
-      <button class="button is-primary is-light" onclick={pauseQuiz}>
-        Pause
-      </button>
-    {/if}
-    {#if !$is_game_start}
-      <button class="button is-primary is-light" onclick={startQuiz}>
-        Start Quiz
-      </button>
-    {/if}
+        <button class="button is-small is-primary is-light" onclick={() => is_paused ? startQuiz() : pauseQuiz()}>
+          {is_paused ? 'Resume' : 'Pause'}
+        </button>
+      {:else}
+        <button class="button is-small is-primary is-light" onclick={startQuiz}>
+          Start Quiz
+        </button>
+      {/if}
       <h1 class="has-text-white has-text-weight-semibold has-text-centered title is-4 mt-2">
         <i class="fa-regular fa-clock mr-1"></i> {formatTime($time)}
       </h1>
-     
-      
-      {#if is_paused}
-        <div class="modal is-active">
-          <div class="modal-background"></div>
-          <div class="modal-content has-text-centered p-6">
-            <h2 class="title is-3 has-text-white mb-6">Game Paused</h2>
-            <p class="is-size-5 has-text-white mb-6">Click 
-              <button class="button is-small is-rounded is-primary is-light mx-3" onclick={startQuiz}>
-                Resume
-              </button> to continue.</p>
-          </div>
-        </div>
-      {/if}
-
       <div class="control mx-5">
         <div class="filed">
           <div class="box has-background-warning-light has-text-centered">
@@ -110,19 +94,23 @@
   }
 
   function startQuiz() {
+    if (!$is_game_start) {
+      time.set(0);
+    }
     is_game_start.set(true);
     is_paused = false;
     startTimer();
   }
 
   function startTimer() {
-    time.set(0); 
-    clearInterval();
+  clearInterval(timer_interval);
 
-    timer_interval = setInterval(() => {
+  timer_interval = setInterval(() => {
+    if (!is_paused) {
       time.update(n => n + 1);
-    }, 1000);
-  }
+    }
+  }, 1000);
+}
 
   $: if ($is_game_end) {
   clearInterval(timer_interval);
