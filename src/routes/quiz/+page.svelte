@@ -104,24 +104,14 @@
     current_question = $questions[current_question_index]?.question;
   }
 
-  function startQuiz() {
-    is_game_start.set(true);
-    is_paused = false;
-
-
-    timer_interval = setInterval(() => {
-      if (!is_paused) {
-        time.update(t => t + 1);
-      }
-    }, 1000);
-  }
-
   function pauseQuiz() {
     is_paused = true;
     clearInterval(timer_interval);
   }
- 
-  $: if ($is_game_start && !$is_game_end) {
+
+  function startQuiz() {
+    is_game_start.set(true);
+    is_paused = false;
     startTimer();
   }
 

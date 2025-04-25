@@ -47,15 +47,15 @@ function generateHardQuestion() {
   const type = Math.random() > 0.5 ? '×' : '÷';
 
   if (type === '×') {
-    const a = Math.floor(Math.random() * 10) + 10; // 10–19
-    const b = Math.floor(Math.random() * 10);      // 0–9
+    const a = Math.floor(Math.random() * 10) + 10;
+    const b = Math.floor(Math.random() * 10);
     return {
       question: `${a} × ${b}`,
       answer: a * b
     };
   } else {
-    const b = Math.floor(Math.random() * 8) + 2;     // 2–9
-    const multiplier = Math.floor(Math.random() * 10); // 0–9
+    const b = Math.floor(Math.random() * 8) + 2; 
+    const multiplier = Math.floor(Math.random() * 10);
     const a = b * multiplier;
     return {
       question: `${a} ÷ ${b}`,
