@@ -156,7 +156,9 @@
     score.set(0);
     user_answers.set([]);
     is_game_start.set(false);
-    goto('/');
+    goto('/').then(() => {
+      location.reload();
+    });
   }
 
   onMount(() => {

@@ -75,9 +75,11 @@
         <div class="column mx-4 mb-3">
           <div class="field">
             <p class="control">
-              <a href="/" class="button is-primary is-dark is-fullwidth has-text-white is-size-4-desktop is-size-6-tablet is-size-6-mobile">
-                Play Again
-              </a>
+              <button class="button is-primary is-dark is-fullwidth has-text-white is-size-4-desktop is-size-6-tablet is-size-6-mobile" onclick={()=>{goto('/').then(() => {
+                location.reload();
+              })}}>
+                ♻️ Play Again
+              </button>
             </p> 
           </div>
         </div>
@@ -103,6 +105,7 @@
 	import { formatTime } from '$lib/utils';
   import { user_name, correct, wrong, total, time_taken, accuracy } from '$lib/stores';
   import { getMotivationalMessage } from '$lib/utils';
+  import { goto } from '$app/navigation';
 
 	total.set($correct + $wrong);
 
