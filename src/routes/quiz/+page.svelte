@@ -48,13 +48,13 @@
         </div>
       </div>
       <div class="control mx-5 my-4">
-        <button class="button is-fullwidth is-info-dark" onclick={nextQuestion} disabled={!$is_game_start}> 
-           Next
+        <button class="button is-fullwidth is-info is-dark has-text-white" onclick={nextQuestion} disabled={!$is_game_start}> 
+          ⏭️ Next
         </button>
       </div>
       <div class="control mx-5 my-4">
-        <button class="button is-fullwidth is-danger" onclick={resetQuiz} disabled={!$is_game_start}> 
-           Reset
+        <button class="button is-fullwidth is-danger is-dark has-text-white" onclick={resetQuiz} disabled={!$is_game_start}> 
+          ♻️ Reset
         </button>
       </div>
     </div>

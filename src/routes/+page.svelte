@@ -31,17 +31,17 @@
         <div class="columns">
           <div class="column is-clickable { !$user_name ? 'disabled' : '' }" onclick={() => $user_name && difficultyClick('easy')}>
             <div class="card py-1 has-background-info-dark {$difficulty === 'easy' ? 'selected' : ''}">
-              <span class="type is-size-5">Easy</span>
+              <span class="type is-size-5">🟢 Easy</span>
             </div>
           </div>
           <div class="column is-clickable { !$user_name ? 'disabled' : '' }" onclick={() => $user_name && difficultyClick('medium')}>
             <div class="card py-1 has-background-primary-dark {$difficulty === 'medium' ? 'selected' : ''}">
-              <span class="type is-size-5">Medium</span>
+              <span class="type is-size-5">🧩 Medium</span>
             </div>
           </div>
           <div class="column is-clickable { !$user_name ? 'disabled' : '' }" onclick={() => $user_name && difficultyClick('hard')}>
             <div class="card py-1 has-background-danger-dark {$difficulty === 'hard' ? 'selected' : ''}">
-              <span class="type is-size-5">Hard</span>
+              <span class="type is-size-5">🧠Hard</span>
             </div>
           </div>
         </div>

@@ -78,7 +78,7 @@
               <button class="button is-primary is-dark is-fullwidth has-text-white is-size-4-desktop is-size-6-tablet is-size-6-mobile" onclick={()=>{goto('/').then(() => {
                 location.reload();
               })}}>
-                ♻️ Play Again
+                🔁 Play Again
               </button>
             </p> 
           </div>
