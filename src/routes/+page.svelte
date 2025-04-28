@@ -32,21 +32,7 @@
       <div class="control mx-5 my-4">
        <div class="field">
         <div class="columns">
-          <div class="column is-clickable { !$user_name ? 'disabled' : '' }" onclick={() => $user_name && difficultyClick('easy')}>
-            <div class="card py-1 has-background-info-dark {$difficulty === 'easy' ? 'selected' : ''} card-shadow">
-              <span class="type is-size-5">🟢 Easy</span>
-            </div>
-          </div>
-          <div class="column is-clickable { !$user_name ? 'disabled' : '' } " onclick={() => $user_name && difficultyClick('medium')}>
-            <div class="card py-1 has-background-primary-dark {$difficulty === 'medium' ? 'selected' : ''} card-shadow">
-              <span class="type is-size-5">🧩 Medium</span>
-            </div>
-          </div>
-          <div class="column is-clickable { !$user_name ? 'disabled' : '' }" onclick={() => $user_name && difficultyClick('hard')}>
-            <div class="card py-1 has-background-danger-dark {$difficulty === 'hard' ? 'selected' : ''} card-shadow">
-              <span class="type is-size-5">🧠Hard</span>
-            </div>
-          </div>
+          <MathDifficulty/>
         </div>
        </div>
       </div> 
@@ -98,31 +84,7 @@
     border-color: rgba(33, 19, 43, 0.259); 
     box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
   }
-  .disabled {
-    opacity: 0.5;
-    pointer-events: none;
-    cursor: not-allowed !important;
-  }
-  .type {
-    color: white;
-    font-weight: 400;
-    font-size: 30px;
-    letter-spacing: 1.3px;
-  }
 
-  .selected {
-		border: 3px solid rgb(209, 201, 201);
-		transform: scale(1.05);
-	}
-
-  .card-shadow {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 24px rgba(0, 0, 0, 0.15);
-    transition: box-shadow 0.3s ease-in-out;
-  }
-
-  .card-shadow:hover {
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3), 0 16px 32px rgba(0, 0, 0, 0.2);
-  }
 
   .quiz-shadow {
     box-shadow: 0 4px 8px rgba(234, 214, 32, 0.5);
@@ -142,7 +104,8 @@
 <script>
   import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
-	import { user_name, difficulty } from '$lib/stores';
+	import { user_name, difficulty } from '$lib/utils/stores';
+  import MathDifficulty from '$lib/components/MathDifficulty.svelte';
 
 
 	let emojis = [
@@ -161,8 +124,5 @@
 		randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
 	}
 
-  function difficultyClick(type) {
-		difficulty.set(type);
-	}
 </script>
 

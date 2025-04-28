@@ -111,9 +111,9 @@
 </style>
 
 <script>
-	import { formatTime } from '$lib/utils';
-  import { user_name, correct, wrong, total, time_taken, accuracy } from '$lib/stores';
-  import { getMotivationalMessage } from '$lib/utils';
+	import { formatTime } from '$lib/utils/utils';
+  import { user_name, correct, wrong, total, time_taken, accuracy } from '$lib/utils/stores';
+  import { getMotivationalMessage } from '$lib/utils/utils';
   import { goto } from '$app/navigation';
 
 	total.set($correct + $wrong);

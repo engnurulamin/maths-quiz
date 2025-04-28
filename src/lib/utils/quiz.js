@@ -1,5 +1,5 @@
 
-import { questions, total } from '$lib/stores.js';
+import { questions, total } from '$lib/utils/stores.js';
 
 function generateEasyQuestion() {
   const a = Math.floor(Math.random() * 10);

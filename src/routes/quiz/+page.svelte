@@ -68,6 +68,19 @@
     font-size: 15px;
   }
 
+  /* Hide number input arrows in Webkit browsers */
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Hide number input arrows in Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+
+
   .box-shadow {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15), 0 6px 16px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease-in-out;
@@ -80,10 +93,10 @@
 
 <script>
   import { onMount } from 'svelte';
-  import { difficulty, questions, user_answers, is_game_start, is_game_end, time, time_taken, score, correct, wrong, total } from '$lib/stores';
+  import { difficulty, questions, user_answers, is_game_start, is_game_end, time, time_taken, score, correct, wrong, total } from '$lib/utils/stores';
   import { goto } from '$app/navigation';
-  import { formatTime } from '$lib/utils';
-  import { generateQuestions } from '$lib/quiz';
+  import { formatTime } from '$lib/utils/utils';
+  import { generateQuestions } from '$lib/utils/quiz';
 
   
   let current_question_index = 0;

@@ -16,13 +16,13 @@
 <style>
   .is-border{
     border-top: 0;
-  border-bottom: 0;
-  border-left: 5px solid #dfb313;
-  border-right: 5px solid #dfb313;
+    border-bottom: 0;
+    border-left: 5px solid #dfb313;
+    border-right: 5px solid #dfb313;
   }
 </style>
  <script>
    import 'bulma/css/bulma.min.css';
    import '@fortawesome/fontawesome-free/css/all.css';
-   import Navbar from '$lib/Navbar.svelte';
+   import Navbar from '$lib/components/Navbar.svelte';
  </script>

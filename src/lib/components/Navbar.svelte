@@ -95,7 +95,7 @@
 </style>
 
 <script>
-  import { user_name, questions } from '$lib/stores';
+  import { user_name, questions } from '$lib/utils/stores';
   import { page } from '$app/stores';
   let is_open = false;
 
