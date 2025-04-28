@@ -12,10 +12,10 @@
         <label class="label has-text-white is-size-5">Select a subject</label>
         <div class="control mt-2">
           <div class="buttons is-centered">
-            <a href="/math" class="button is-primary is-light is-fullwidth">
+            <a href="/math" class="button is-primary is-light is-fullwidth button-shadow">
               📊 Math
             </a>
-            <a href="/english" class="button is-link is-light is-fullwidth">
+            <a href="/english" class="button is-link is-light is-fullwidth button-shadow">
               📖 English
             </a>
           </div>          
@@ -25,7 +25,7 @@
       <div class="control mx-5 my-2">
         <label class="label has-text-white is-size-5">Enter your name</label>
         <div class="filed mb-4 mt-2">
-          <input class="input is-transparent transparent-input" type="text" placeholder="Enter your name" bind:value={$user_name}>
+          <input class="input is-transparent transparent-input button-shadow" type="text" placeholder="Enter your name" bind:value={$user_name}>
         </div>
       </div>
       <hr class="is-paddingless has-background-warning-light p-0 m-0">
@@ -33,17 +33,17 @@
        <div class="field">
         <div class="columns">
           <div class="column is-clickable { !$user_name ? 'disabled' : '' }" onclick={() => $user_name && difficultyClick('easy')}>
-            <div class="card py-1 has-background-info-dark {$difficulty === 'easy' ? 'selected' : ''}">
+            <div class="card py-1 has-background-info-dark {$difficulty === 'easy' ? 'selected' : ''} card-shadow">
               <span class="type is-size-5">🟢 Easy</span>
             </div>
           </div>
-          <div class="column is-clickable { !$user_name ? 'disabled' : '' }" onclick={() => $user_name && difficultyClick('medium')}>
-            <div class="card py-1 has-background-primary-dark {$difficulty === 'medium' ? 'selected' : ''}">
+          <div class="column is-clickable { !$user_name ? 'disabled' : '' } " onclick={() => $user_name && difficultyClick('medium')}>
+            <div class="card py-1 has-background-primary-dark {$difficulty === 'medium' ? 'selected' : ''} card-shadow">
               <span class="type is-size-5">🧩 Medium</span>
             </div>
           </div>
           <div class="column is-clickable { !$user_name ? 'disabled' : '' }" onclick={() => $user_name && difficultyClick('hard')}>
-            <div class="card py-1 has-background-danger-dark {$difficulty === 'hard' ? 'selected' : ''}">
+            <div class="card py-1 has-background-danger-dark {$difficulty === 'hard' ? 'selected' : ''} card-shadow">
               <span class="type is-size-5">🧠Hard</span>
             </div>
           </div>
@@ -53,7 +53,7 @@
       <hr class="is-paddingless has-background-warning-light p-0 m-0">
       <div class="control mx-5 my-4">
         <button 
-          class="button is-fullwidth is-success-dark" 
+          class="button is-fullwidth is-success-dark quiz-shadow" 
           disabled={!$user_name || !$difficulty} 
           onclick={() => goto('/quiz')}>
           <i class="fa-solid fa-book mr-2"></i> Start Quiz
@@ -70,6 +70,13 @@
     color: white;
   }
 
+  .button-shadow {
+    box-shadow: 0 9px 10px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
+  }
+  .button-shadow:hover {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+  }
   .transparent-input {
     background-color: rgb(243, 230, 166) !important;
     border: 2px solid rgba(255, 255, 255, 0.6);;
@@ -107,6 +114,23 @@
 		border: 3px solid rgb(209, 201, 201);
 		transform: scale(1.05);
 	}
+
+  .card-shadow {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 24px rgba(0, 0, 0, 0.15);
+    transition: box-shadow 0.3s ease-in-out;
+  }
+
+  .card-shadow:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3), 0 16px 32px rgba(0, 0, 0, 0.2);
+  }
+
+  .quiz-shadow {
+    box-shadow: 0 4px 8px rgba(234, 214, 32, 0.5);
+    transition: box-shadow 0.3s ease;
+  }
+  .quiz-shadow:hover {
+    box-shadow: 0 6px 12px black;
+  }
 
   @media (max-width: 768px) {
     h1 {
