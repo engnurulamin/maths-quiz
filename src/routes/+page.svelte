@@ -1,7 +1,7 @@
 <script>
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
-	import { user_name, difficulty, subject } from '$lib/utils/stores';
+	import { user_name, difficulty, subject, is_subject_selected } from '$lib/utils/stores';
 	import MathDifficulty from '$lib/components/MathDifficulty.svelte';
 	import EnglishQType from '$lib/components/EnglishQType.svelte';
 
@@ -40,13 +40,13 @@
 					<div class="buttons is-centered">
 						<button
 							class="button is-primary is-light is-fullwidth button-shadow"
-							onclick={subjectClick('math')}
+							onclick={() => subjectClick('math')}
 						>
 							📊 Math
 						</button>
 						<button
 							class="button is-link is-light is-fullwidth button-shadow"
-							onclick={subjectClick('english')}
+							onclick={() => subjectClick('english')}
 						>
 							📖 English
 						</button>

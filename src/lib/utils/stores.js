@@ -2,7 +2,6 @@ import { writable } from 'svelte/store';
 
 export const user_name = writable('');
 export const difficulty = writable('');
-export const subject = writable('');
 export const questions = writable([]);
 export const user_answers = writable([]);
 export const score = writable(0);
@@ -20,5 +19,10 @@ export const is_game_reset = writable(false);
 export const is_game_next = writable(false);
 export const is_game_previous = writable(false);
 export const is_game_pause = writable(false);
-export const is_game_resume = writable(false);
+export const is_game_resume = writable(false); 
+
+
+// For English
+export const subject = writable('');
+export const is_subject_selected = writable(false);
 
