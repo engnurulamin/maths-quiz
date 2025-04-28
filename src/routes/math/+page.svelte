@@ -22,6 +22,7 @@
 	let answer_input = '';
 	let timer_interval;
 	let is_paused = false;
+	$: paused = is_paused;
 
 	$: if ($questions.length) {
 		current_question = $questions[current_question_index]?.question;
@@ -97,6 +98,9 @@
 <div class="columns">
 	<div class="column">
 		<div class="card has-background-warning has-text-centered m-4 p-2">
+			<h1 class="p-4 mb-2">
+				<button class="button is-large px-6 is-warning is-light button-shadow">📊 Math</button>
+			</h1>
 			{#if $is_game_start}
 				<button
 					class="button is-small is-primary is-light"
@@ -109,10 +113,10 @@
 					Start Quiz
 				</button>
 			{/if}
-			<h1 class="has-text-white has-text-weight-semibold has-text-centered title is-4 mt-2">
+			<h2 class="has-text-white has-text-weight-semibold has-text-centered title is-4 mt-2">
 				<i class="fa-regular fa-clock mr-1"></i>
 				{formatTime($time)}
-			</h1>
+			</h2>
 			<div class="control mx-5">
 				<div class="filed">
 					<div class="box has-background-warning-light has-text-centered box-shadow">
@@ -127,7 +131,7 @@
 						bind:value={answer_input}
 						type="number"
 						placeholder="Write your answer"
-						disabled={!$is_game_start}
+						disabled={!$is_game_start || paused}
 					/>
 				</div>
 			</div>
@@ -174,6 +178,13 @@
 		opacity: 0.5;
 		font-weight: 400;
 		font-size: 15px;
+	}
+
+	.transparent-input:focus,
+	.transparent-input:active {
+		outline: none;
+		border-color: rgba(33, 19, 43, 0.259);
+		box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
 	}
 
 	/* Hide number input arrows in Webkit browsers */

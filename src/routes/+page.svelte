@@ -83,7 +83,7 @@
 				<button
 					class="button is-fullwidth is-success-dark quiz-shadow"
 					disabled={!$user_name || !$difficulty}
-					onclick={() => goto('/quiz')}
+					onclick={() => goto('/math')}
 				>
 					<i class="fa-solid fa-book mr-2"></i> Start Quiz
 				</button>
