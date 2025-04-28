@@ -29,8 +29,8 @@
 		<div class="card m-4 p-2 has-background-warning">
 			<div class="control">
 				<div class="field p-4">
-					<h1 class="">Welcome to the QuizNest {randomEmoji}</h1>
-					<h3 class="has-text-white has-text-weight-light">What would you like to learn today?</h3>
+					<h1>Welcome to the QuizNest {randomEmoji}</h1>
+					<h3 class="has-text-dark has-text-weight-light">What would you like to learn today?</h3>
 				</div>
 			</div>
 			<hr class="is-paddingless has-background-warning-light p-0 m-0" />
@@ -39,13 +39,17 @@
 				<div class="control mt-2">
 					<div class="buttons is-centered">
 						<button
-							class="button is-primary is-light is-fullwidth button-shadow"
+							class="button is-primary is-light is-fullwidth button-shadow {$subject === 'math'
+								? 'selected'
+								: ''}"
 							onclick={() => subjectClick('math')}
 						>
 							📊 Math
 						</button>
 						<button
-							class="button is-link is-light is-fullwidth button-shadow"
+							class="button is-link is-light is-fullwidth button-shadow {$subject === 'english'
+								? 'selected'
+								: ''}"
 							onclick={() => subjectClick('english')}
 						>
 							📖 English
@@ -60,6 +64,7 @@
 					<input
 						class="input is-transparent transparent-input button-shadow"
 						type="text"
+						disabled={!$subject}
 						placeholder="Enter your name"
 						bind:value={$user_name}
 					/>
@@ -91,7 +96,7 @@
 	h1 {
 		font-weight: bolder;
 		font-size: 30px;
-		color: white;
+		color: black;
 	}
 
 	.button-shadow {
@@ -129,6 +134,11 @@
 	}
 	.quiz-shadow:hover {
 		box-shadow: 0 6px 12px black;
+	}
+
+	.selected {
+		border: 1px solid grey;
+		transform: scale(1);
 	}
 
 	@media (max-width: 768px) {

@@ -1,3 +1,7 @@
+<script>
+	import { user_name, subject, difficulty } from '$lib/utils/stores';
+</script>
+
 <div class="control mx-5 my-4">
 	<div class="field">
 		<div class="columns">
@@ -18,7 +22,7 @@
 			</div>
 			<div class="column is-clickable">
 				<div class="card py-1 has-background-success-dark card-shadow">
-					<span class="type is-size-5">✍️ Spelling</span>
+					<span class="type is-size-5">✍️Word Spelling</span>
 				</div>
 			</div>
 		</div>
@@ -27,11 +31,6 @@
 <hr class="is-paddingless has-background-warning-light p-0 m-0" />
 
 <style>
-	.disabled {
-		opacity: 0.5;
-		pointer-events: none;
-		cursor: not-allowed !important;
-	}
 	.type {
 		color: white;
 		font-weight: 400;
@@ -40,7 +39,7 @@
 	}
 
 	.selected {
-		border: 3px solid rgb(209, 201, 201);
+		border: 1px solid rgb(209, 201, 201);
 		transform: scale(1.05);
 	}
 
