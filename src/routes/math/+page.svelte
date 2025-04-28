@@ -23,6 +23,7 @@
 	let current_question = '';
 	let answer_input = '';
 	let timer_interval;
+	let status = '';
 
 	$: if ($questions.length) {
 		current_question = $questions[current_question_index]?.question;
@@ -32,8 +33,10 @@
 		const current_correct_answer = $questions[current_question_index]?.answer;
 		if (parseInt(answer_input) === current_correct_answer) {
 			correct.update((n) => n + 1);
+			status = 'correct';
 		} else {
 			wrong.update((n) => n + 1);
+			status = 'wrong';
 		}
 		user_answers.update((ans) => [...ans, answer_input]);
 		answer_input = '';
@@ -76,6 +79,13 @@
 					<div class="box has-background-warning-light has-text-centered box-shadow">
 						<p class="has-text-dark is-size-2">{current_question || '80 + 50 = ?'}</p>
 					</div>
+					{#if status === 'correct'}
+						<p class="has-text-success is-size-5">✅ Correct! Geat job!</p>
+					{:else if status === 'wrong'}
+						<p class="has-text-danger is-size-5">
+							<span style="font-size: 1rem;">❌</span> Wrong! Try the next one!
+						</p>
+					{/if}
 				</div>
 			</div>
 			<div class="control mx-5 my-4">
