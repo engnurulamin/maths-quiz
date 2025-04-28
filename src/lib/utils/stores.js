@@ -2,6 +2,7 @@ import { writable } from 'svelte/store';
 
 export const user_name = writable('');
 export const difficulty = writable('');
+export const subject = writable('');
 export const questions = writable([]);
 export const user_answers = writable([]);
 export const score = writable(0);
