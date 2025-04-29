@@ -1,6 +1,5 @@
 <script>
 	import { user_name, difficulty } from '$lib/utils/stores';
-	import { goto } from '$app/navigation';
 
 	function difficultyClick(type) {
 		difficulty.set(type);

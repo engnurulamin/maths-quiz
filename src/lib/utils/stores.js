@@ -24,5 +24,5 @@ export const is_game_resume = writable(false);
 
 // For English
 export const subject = writable('');
-export const is_subject_selected = writable(false);
+export const question_type = writable('');
 
