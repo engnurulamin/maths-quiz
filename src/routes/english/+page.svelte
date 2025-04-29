@@ -88,22 +88,23 @@
 							<div class="columns is-multiline is-mobile mt-3">
 								<div class="column is-half">
 									<li class="is-size-5 has-text-weight-semibold has-text-dark">
-										<span class="is-circle is-size-4">✅</span> A small
+										<i class="fa-solid fa-circle-check has-text-success"></i> A small
 									</li>
 								</div>
 								<div class="column is-half">
 									<li class="is-size-5 has-text-weight-semibold has-text-dark">
-										<span class="has-text-transparent">⚪</span> A small
+										<i class="fa-regular fa-circle"></i>
+										A small
 									</li>
 								</div>
 								<div class="column is-half">
 									<li class="is-size-5 has-text-weight-semibold has-text-dark">
-										<span>🔘</span> A small
+										<i class="fa-regular fa-circle"></i> A small
 									</li>
 								</div>
 								<div class="column is-half">
 									<li class="is-size-5 has-text-weight-semibold has-text-dark">
-										<span>🔘</span> A small
+										<i class="fa-regular fa-circle"></i> A small
 									</li>
 								</div>
 							</div>
@@ -142,44 +143,11 @@
 
 <style>
 	.button-shadow {
-		box-shadow: 0 9px 10px rgba(0, 0, 0, 0.2);
+		box-shadow: 0 9px 10px rgba(236, 231, 231, 0.2);
 		transition: box-shadow 0.3s ease;
 	}
 	.button-shadow:hover {
 		box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
-	}
-	.transparent-input {
-		background-color: rgb(243, 230, 166) !important;
-		border: 2px solid rgba(255, 255, 255, 0.6);
-		border-radius: 10px;
-		transition: all 0.3s ease;
-		color: #000;
-	}
-
-	.transparent-input::placeholder {
-		color: black;
-		opacity: 0.5;
-		font-weight: 400;
-		font-size: 15px;
-	}
-
-	.transparent-input:focus,
-	.transparent-input:active {
-		outline: none;
-		border-color: rgba(33, 19, 43, 0.259);
-		box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
-	}
-
-	/* Hide number input arrows in Webkit browsers */
-	input[type='number']::-webkit-outer-spin-button,
-	input[type='number']::-webkit-inner-spin-button {
-		-webkit-appearance: none;
-		margin: 0;
-	}
-
-	/* Hide number input arrows in Firefox */
-	input[type='number'] {
-		-moz-appearance: textfield;
 	}
 
 	.box-shadow {
@@ -193,15 +161,5 @@
 		box-shadow:
 			0 8px 16px rgba(0, 0, 0, 0.2),
 			0 12px 24px rgba(0, 0, 0, 0.15);
-	}
-	.is-circle {
-		display: inline-flex;
-		justify-content: center;
-		align-items: center;
-		background-color: #d1ffd6; /* light green background */
-		border-radius: 50%;
-		width: 1.5rem;
-		height: 1.5rem;
-		font-size: 1rem;
 	}
 </style>

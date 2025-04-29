@@ -52,3 +52,13 @@
 	<i class="fa-regular fa-clock mr-1"></i>
 	{formatTime($time)}
 </h2>
+
+<style>
+	.button-shadow {
+		box-shadow: 0 9px 10px rgb(127, 125, 125);
+		transition: box-shadow 0.3s ease;
+	}
+	.button-shadow:hover {
+		box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+	}
+</style>
