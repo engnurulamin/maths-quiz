@@ -1,7 +1,7 @@
 <script>
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
-	import { user_name, difficulty, subject } from '$lib/utils/stores';
+	import { user_name, difficulty, subject, question_type } from '$lib/utils/stores';
 	import MathDifficulty from '$lib/components/MathDifficulty.svelte';
 	import EnglishQType from '$lib/components/EnglishQType.svelte';
 
@@ -84,7 +84,7 @@
 				<button
 					class="button is-fullwidth is-success-dark button-shadow"
 					disabled={!$user_name || !$difficulty}
-					onclick={() => goto('/math')}
+					onclick={$subject === 'english' ? () => goto('/english') : () => goto('/math')}
 				>
 					<i class="fa-solid fa-book mr-2"></i> Start Quiz
 				</button>
