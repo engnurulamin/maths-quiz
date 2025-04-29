@@ -76,7 +76,7 @@
 			<QuizHeader icon="📖" name="English" />
 			<div class="control mx-3">
 				<div class="filed">
-					<div class="box has-background-warning-light has-text-centered box-shadow">
+					<div class="box has-background-warning-light has-text-centered button-shadow">
 						<h3 class="is-size-3 has-text-dark has-text-weight-bold">📖 Word Meaning</h3>
 						<hr class="is-paddingless p-0 my-1 mx-3" />
 						<p class="has-text-weight-semibold has-text-dark is-size-4 mt-4">
@@ -143,11 +143,11 @@
 
 <style>
 	.button-shadow {
-		box-shadow: 0 9px 10px rgba(236, 231, 231, 0.2);
+		box-shadow: 0 5px 5px rgb(127, 125, 125);
 		transition: box-shadow 0.3s ease;
 	}
 	.button-shadow:hover {
-		box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+		box-shadow: 0 6px 6px rgba(0, 0, 0, 0.3);
 	}
 
 	.box-shadow {

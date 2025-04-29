@@ -55,10 +55,10 @@
 
 <style>
 	.button-shadow {
-		box-shadow: 0 9px 10px rgb(127, 125, 125);
+		box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
 		transition: box-shadow 0.3s ease;
 	}
 	.button-shadow:hover {
-		box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+		box-shadow: 0 6px 6px rgba(0, 0, 0, 0.3);
 	}
 </style>

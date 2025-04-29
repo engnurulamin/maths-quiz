@@ -81,7 +81,7 @@
 
 			<div class="control mx-5 my-4">
 				<button
-					class="button is-fullwidth is-success-dark quiz-shadow"
+					class="button is-fullwidth is-success-dark button-shadow"
 					disabled={!$user_name || !$difficulty}
 					onclick={() => goto('/math')}
 				>
@@ -100,11 +100,11 @@
 	}
 
 	.button-shadow {
-		box-shadow: 0 9px 10px rgba(0, 0, 0, 0.2);
+		box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
 		transition: box-shadow 0.3s ease;
 	}
 	.button-shadow:hover {
-		box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+		box-shadow: 0 6px 6px rgba(0, 0, 0, 0.3);
 	}
 	.transparent-input {
 		background-color: rgb(243, 230, 166) !important;
@@ -126,14 +126,6 @@
 		outline: none;
 		border-color: rgba(33, 19, 43, 0.259);
 		box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
-	}
-
-	.quiz-shadow {
-		box-shadow: 0 4px 8px rgba(234, 214, 32, 0.5);
-		transition: box-shadow 0.3s ease;
-	}
-	.quiz-shadow:hover {
-		box-shadow: 0 6px 12px black;
 	}
 
 	.selected {
