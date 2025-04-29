@@ -66,7 +66,7 @@
 
 	onMount(() => {
 		generateQuestions($difficulty);
-		clearInterval(timerInterval);
+		clearInterval(timer_interval);
 	});
 </script>
 
@@ -96,6 +96,7 @@
 						type="number"
 						placeholder="Write your answer"
 						disabled={!$is_game_start || $is_game_pause}
+						required
 					/>
 				</div>
 			</div>

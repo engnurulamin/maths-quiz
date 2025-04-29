@@ -67,6 +67,7 @@
 						disabled={!$subject}
 						placeholder="Enter your name"
 						bind:value={$user_name}
+						required
 					/>
 				</div>
 			</div>

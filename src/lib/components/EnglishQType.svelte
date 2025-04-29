@@ -1,27 +1,61 @@
 <script>
-	import { user_name, subject, difficulty } from '$lib/utils/stores';
+	import { user_name, subject, question_type } from '$lib/utils/stores';
+
+	function questionTypeClick(type) {
+		question_type.set(type);
+	}
 </script>
 
 <div class="control mx-5 my-4">
 	<div class="field">
 		<div class="columns">
-			<div class="column is-clickable">
-				<div class="card py-1 has-background-info-dark card-shadow">
+			<div
+				class="column is-clickable {$user_name ? '' : 'disabled'}"
+				onclick={() => $user_name && questionTypeClick('word-meaning')}
+			>
+				<div
+					class="card py-1 has-background-info-dark card-shadow {$question_type === 'word-meaning'
+						? 'selected'
+						: ''}"
+				>
 					<span class="type is-size-5">📖 Word Meaning</span>
 				</div>
 			</div>
-			<div class="column is-clickable">
-				<div class="card py-1 has-background-primary-dark card-shadow">
+			<div
+				class="column is-clickable {$user_name ? '' : 'disabled'}"
+				onclick={() => $user_name && questionTypeClick('word-synonym')}
+			>
+				<div
+					class="card py-1 has-background-primary-dark card-shadow {$question_type ===
+					'word-synonym'
+						? 'selected'
+						: ''}"
+				>
 					<span class="type is-size-5">🟰 Word Synonym</span>
 				</div>
 			</div>
-			<div class="column is-clickable">
-				<div class="card py-1 has-background-danger-dark card-shadow">
+			<div
+				class="column is-clickable {$user_name ? '' : 'disabled'}"
+				onclick={() => $user_name && questionTypeClick('word-antonym')}
+			>
+				<div
+					class="card py-1 has-background-danger-dark card-shadow {$question_type === 'word-antonym'
+						? 'selected'
+						: ''}"
+				>
 					<span class="type is-size-5">🔀 Word Antonym</span>
 				</div>
 			</div>
-			<div class="column is-clickable">
-				<div class="card py-1 has-background-success-dark card-shadow">
+			<div
+				class="column is-clickable {$user_name ? '' : 'disabled'}"
+				onclick={() => $user_name && questionTypeClick('word-spelling')}
+			>
+				<div
+					class="card py-1 has-background-success-dark card-shadow {$question_type ===
+					'word-spelling'
+						? 'selected'
+						: ''}"
+				>
 					<span class="type is-size-5">✍️Word Spelling</span>
 				</div>
 			</div>
@@ -38,8 +72,14 @@
 		letter-spacing: 1.3px;
 	}
 
+	.disabled {
+		opacity: 0.5;
+		pointer-events: none;
+		cursor: not-allowed !important;
+	}
+
 	.selected {
-		border: 1px solid rgb(209, 201, 201);
+		border: 3px solid rgb(209, 201, 201);
 		transform: scale(1.05);
 	}
 
