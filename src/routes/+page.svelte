@@ -1,7 +1,7 @@
 <script>
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
-	import { user_name, difficulty, subject, is_subject_selected } from '$lib/utils/stores';
+	import { user_name, difficulty, subject } from '$lib/utils/stores';
 	import MathDifficulty from '$lib/components/MathDifficulty.svelte';
 	import EnglishQType from '$lib/components/EnglishQType.svelte';
 
