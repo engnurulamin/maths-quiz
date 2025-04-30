@@ -83,7 +83,7 @@
 			<div class="control mx-5 my-4">
 				<button
 					class="button is-fullwidth is-success-dark button-shadow"
-					disabled={!$user_name || !$difficulty}
+					disabled={!$difficulty && !$question_type}
 					onclick={$subject === 'english' ? () => goto('/english') : () => goto('/math')}
 				>
 					<i class="fa-solid fa-book mr-2"></i> Start Quiz
