@@ -11,10 +11,10 @@
 		<div class="columns">
 			<div
 				class="column is-clickable {$user_name ? '' : 'disabled'}"
-				onclick={() => $user_name && questionTypeClick('word-meaning')}
+				onclick={() => $user_name && questionTypeClick('Meaning')}
 			>
 				<div
-					class="card py-1 has-background-info-dark card-shadow {$question_type === 'word-meaning'
+					class="card py-1 has-background-info-dark card-shadow {$question_type === 'Meaning'
 						? 'selected'
 						: ''}"
 				>
@@ -23,11 +23,10 @@
 			</div>
 			<div
 				class="column is-clickable {$user_name ? '' : 'disabled'}"
-				onclick={() => $user_name && questionTypeClick('word-synonym')}
+				onclick={() => $user_name && questionTypeClick('Synonym')}
 			>
 				<div
-					class="card py-1 has-background-primary-dark card-shadow {$question_type ===
-					'word-synonym'
+					class="card py-1 has-background-primary-dark card-shadow {$question_type === 'Synonym'
 						? 'selected'
 						: ''}"
 				>
@@ -36,10 +35,10 @@
 			</div>
 			<div
 				class="column is-clickable {$user_name ? '' : 'disabled'}"
-				onclick={() => $user_name && questionTypeClick('word-antonym')}
+				onclick={() => $user_name && questionTypeClick('Antonym')}
 			>
 				<div
-					class="card py-1 has-background-danger-dark card-shadow {$question_type === 'word-antonym'
+					class="card py-1 has-background-danger-dark card-shadow {$question_type === 'Antonym'
 						? 'selected'
 						: ''}"
 				>
@@ -48,11 +47,10 @@
 			</div>
 			<div
 				class="column is-clickable {$user_name ? '' : 'disabled'}"
-				onclick={() => $user_name && questionTypeClick('word-spelling')}
+				onclick={() => $user_name && questionTypeClick('Spelling')}
 			>
 				<div
-					class="card py-1 has-background-success-dark card-shadow {$question_type ===
-					'word-spelling'
+					class="card py-1 has-background-success-dark card-shadow {$question_type === 'Spelling'
 						? 'selected'
 						: ''}"
 				>

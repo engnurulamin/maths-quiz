@@ -12,12 +12,14 @@
 		score,
 		correct,
 		wrong,
-		total
+		total,
+		question_type
 	} from '$lib/utils/stores';
 	import { goto } from '$app/navigation';
 	import { formatTime } from '$lib/utils/utils';
 	import { generateQuestions } from '$lib/utils/quiz';
 	import QuizHeader from '$lib/components/QuizHeader.svelte';
+	import { spelling } from '$lib/utils/data';
 
 	let current_question_index = 0;
 	let current_question = '';
@@ -77,38 +79,59 @@
 			<div class="control mx-3">
 				<div class="filed">
 					<div class="box has-background-warning-light has-text-centered button-shadow">
-						<h3 class="is-size-3 has-text-dark has-text-weight-bold">📖 Word Meaning</h3>
+						<h3 class="is-size-3 has-text-dark has-text-weight-bold">
+							📖Word {$question_type || 'Word Meaning'}
+						</h3>
 						<hr class="is-paddingless p-0 my-1 mx-3" />
-						<p class="has-text-weight-semibold has-text-dark is-size-4 mt-4">
-							What is the meaning of <strong class="has-text-weight-bold has-text-dark"
-								>'Development'?</strong
-							>
-						</p>
-						<ul>
-							<div class="columns is-multiline is-mobile mt-3">
-								<div class="column is-half">
-									<li class="is-size-5 has-text-weight-semibold has-text-dark">
-										<i class="fa-solid fa-circle-check has-text-success"></i> A small
-									</li>
-								</div>
-								<div class="column is-half">
-									<li class="is-size-5 has-text-weight-semibold has-text-dark">
-										<i class="fa-regular fa-circle"></i>
-										A small
-									</li>
-								</div>
-								<div class="column is-half">
-									<li class="is-size-5 has-text-weight-semibold has-text-dark">
-										<i class="fa-regular fa-circle"></i> A small
-									</li>
-								</div>
-								<div class="column is-half">
-									<li class="is-size-5 has-text-weight-semibold has-text-dark">
-										<i class="fa-regular fa-circle"></i> A small
-									</li>
+						{#if $question_type !== 'Spelling'}
+							<p class="has-text-weight-semibold has-text-dark is-size-4 mt-4">
+								What is the <span class="is-lowercase">{$question_type}</span>
+								of <strong class="has-text-weight-bold has-text-dark">'Development'?</strong>
+							</p>
+						{/if}
+						{#if $question_type === 'Spelling'}
+							<p class="has-text-weight-semibold has-text-dark is-size-4 mt-4">
+								Write the spelling of this image <br />
+								<span class="is-size-1">🍎</span>
+							</p>
+							<div class="control my-4">
+								<div class="filed">
+									<input
+										class="input is-transparent transparent-input p-5 box-shadow"
+										type="text"
+										placeholder="Write your answer"
+										required
+									/>
 								</div>
 							</div>
-						</ul>
+						{/if}
+						{#if $question_type !== 'Spelling'}
+							<ul>
+								<div class="columns is-multiline is-mobile mt-3">
+									<div class="column is-half">
+										<li class="is-size-5 has-text-weight-semibold has-text-dark">
+											<i class="fa-solid fa-circle-check has-text-success"></i> A small
+										</li>
+									</div>
+									<div class="column is-half">
+										<li class="is-size-5 has-text-weight-semibold has-text-dark">
+											<i class="fa-regular fa-circle"></i>
+											A small
+										</li>
+									</div>
+									<div class="column is-half">
+										<li class="is-size-5 has-text-weight-semibold has-text-dark">
+											<i class="fa-regular fa-circle"></i> A small
+										</li>
+									</div>
+									<div class="column is-half">
+										<li class="is-size-5 has-text-weight-semibold has-text-dark">
+											<i class="fa-regular fa-circle"></i> A small
+										</li>
+									</div>
+								</div>
+							</ul>
+						{/if}
 					</div>
 					{#if status === 'correct'}
 						<p class="has-text-success is-size-5">✅ Correct! Geat job!</p>
@@ -150,6 +173,27 @@
 		box-shadow: 0 6px 6px rgba(0, 0, 0, 0.3);
 	}
 
+	.transparent-input {
+		background-color: rgb(243, 230, 166) !important;
+		border: 2px solid rgba(255, 255, 255, 0.6);
+		border-radius: 10px;
+		transition: all 0.3s ease;
+		color: #000;
+	}
+
+	.transparent-input::placeholder {
+		color: black;
+		opacity: 0.5;
+		font-weight: 400;
+		font-size: 15px;
+	}
+
+	.transparent-input:focus,
+	.transparent-input:active {
+		outline: none;
+		border-color: rgba(33, 19, 43, 0.259);
+		box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+	}
 	.box-shadow {
 		box-shadow:
 			0 4px 8px rgba(0, 0, 0, 0.15),
