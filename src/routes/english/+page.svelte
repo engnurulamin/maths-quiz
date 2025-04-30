@@ -99,7 +99,7 @@
 									<input
 										class="input is-transparent transparent-input p-5 box-shadow"
 										type="text"
-										placeholder="Write your answer"
+										placeholder="Write the spelling"
 										required
 									/>
 								</div>
