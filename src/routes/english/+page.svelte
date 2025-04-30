@@ -1,25 +1,21 @@
 <script>
 	import { onMount } from 'svelte';
+	import { word_meaning } from '$lib/utils/data';
 	import {
-		difficulty,
 		questions,
-		user_answers,
-		is_game_start,
-		is_game_end,
-		is_game_pause,
+		selected_option,
 		time,
 		time_taken,
 		score,
 		correct,
 		wrong,
 		total,
-		question_type
+		question_type,
+		is_game_start
 	} from '$lib/utils/stores';
 	import { goto } from '$app/navigation';
-	import { formatTime } from '$lib/utils/utils';
-	import { generateQuestions } from '$lib/utils/quiz';
+	import { formatTime, shuffleItems } from '$lib/utils/utils';
 	import QuizHeader from '$lib/components/QuizHeader.svelte';
-	import { spelling } from '$lib/utils/data';
 
 	let current_question_index = 0;
 	let current_question = '';
@@ -29,27 +25,6 @@
 
 	$: if ($questions.length) {
 		current_question = $questions[current_question_index]?.question;
-	}
-
-	function nextQuestion() {
-		const current_correct_answer = $questions[current_question_index]?.answer;
-		if (parseInt(answer_input) === current_correct_answer) {
-			correct.update((n) => n + 1);
-			status = 'correct';
-		} else {
-			wrong.update((n) => n + 1);
-			status = 'wrong';
-		}
-		user_answers.update((ans) => [...ans, answer_input]);
-		answer_input = '';
-
-		if (current_question_index < $questions.length - 1) {
-			current_question_index += 1;
-		} else {
-			is_game_start.set(false);
-			time_taken.set($time);
-			goto('/score');
-		}
 	}
 
 	function resetQuiz() {
@@ -66,9 +41,34 @@
 		});
 	}
 
+	function handleOptionClick(option) {
+		selected_option.set(option);
+		const correctAnswer = $questions[current_question_index]?.answer;
+		if (option === correctAnswer) {
+			correct.update((n) => n + 1);
+			status = 'correct';
+		} else {
+			wrong.update((n) => n + 1);
+			status = 'wrong';
+		}
+	}
+
+	function nextQuestion() {
+		if (current_question_index < $questions.length - 1) {
+			current_question_index += 1;
+			selected_option.set('');
+			status = '';
+		} else {
+			is_game_over.set(true);
+		}
+	}
+
 	onMount(() => {
-		generateQuestions($difficulty);
-		clearInterval(timerInterval);
+		clearInterval(timer_interval);
+		const shuffled = shuffleItems(word_meaning);
+		questions.set(shuffled);
+		current_question_index = 0;
+		selected_option.set('');
 	});
 </script>
 
@@ -86,7 +86,10 @@
 						{#if $question_type !== 'Spelling'}
 							<p class="has-text-weight-semibold has-text-dark is-size-4 mt-4">
 								What is the <span class="is-lowercase">{$question_type}</span>
-								of <strong class="has-text-weight-bold has-text-dark">'Development'?</strong>
+								of
+								<strong class="has-text-weight-bold has-text-dark"
+									>{$questions[current_question_index]?.word}?</strong
+								>
 							</p>
 						{/if}
 						{#if $question_type === 'Spelling'}
@@ -108,27 +111,24 @@
 						{#if $question_type !== 'Spelling'}
 							<ul>
 								<div class="columns is-multiline is-mobile mt-3">
-									<div class="column is-half">
-										<li class="is-size-5 has-text-weight-semibold has-text-dark">
-											<i class="fa-solid fa-circle-check has-text-success"></i> A small
-										</li>
-									</div>
-									<div class="column is-half">
+									{#each $questions[current_question_index]?.options as option, i}
+										<div class="column is-half">
+											<li
+												class="is-size-5 has-text-weight-semibold has-text-dark"
+												onclick={() => handleOptionClick(option)}
+											>
+												<i class="fa-regular fa-circle"></i>
+												{option}
+											</li>
+										</div>
+									{/each}
+
+									<!-- <div class="column is-half">
 										<li class="is-size-5 has-text-weight-semibold has-text-dark">
 											<i class="fa-regular fa-circle"></i>
 											A small
 										</li>
-									</div>
-									<div class="column is-half">
-										<li class="is-size-5 has-text-weight-semibold has-text-dark">
-											<i class="fa-regular fa-circle"></i> A small
-										</li>
-									</div>
-									<div class="column is-half">
-										<li class="is-size-5 has-text-weight-semibold has-text-dark">
-											<i class="fa-regular fa-circle"></i> A small
-										</li>
-									</div>
+									</div> -->
 								</div>
 							</ul>
 						{/if}
@@ -146,7 +146,6 @@
 				<button
 					class="button is-fullwidth is-info is-dark has-text-white button-shadow"
 					onclick={nextQuestion}
-					disabled={!$is_game_start}
 				>
 					⏭️ Next
 				</button>
@@ -155,7 +154,6 @@
 				<button
 					class="button is-fullwidth is-danger is-dark has-text-white button-shadow"
 					onclick={resetQuiz}
-					disabled={!$is_game_start}
 				>
 					♻️ Reset
 				</button>

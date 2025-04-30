@@ -16,3 +16,11 @@ export const getMotivationalMessage = (accuracy) => {
 	return "Don't give up! You can do it! 🚀";
 };
 
+export function shuffleItems(array) {
+	return array
+		.map(value => ({ value, sort: Math.random() }))
+		.sort((a, b) => a.sort - b.sort)
+		.map(({ value }) => value);
+}
+
+
