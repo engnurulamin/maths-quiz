@@ -171,7 +171,7 @@
 						{/if}
 					</div>
 					{#if status === 'correct'}
-						<p class="has-text-success is-size-5">✅ Correct! Geat job!</p>
+						<p class="has-text-success is-size-5">✅ Correct! Great job!</p>
 					{:else if status === 'wrong'}
 						<p class="has-text-danger is-size-5">
 							<span style="font-size: 1rem;">❌</span> Wrong! Try the next one!
