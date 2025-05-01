@@ -52,12 +52,12 @@ export const word_meaning = [
   {
     word: "School",
     options: ["স্কুল", "বাজার", "বাড়ি", "দোকান"],
-    answer: "স্কুল"
+    answer: "বিদ্যালয়"
   },
   {
     word: "Pen",
     options: ["পেন্সিল", "রাবার", "পেন", "বই"],
-    answer: "পেন"
+    answer: "কলম",
   },
   {
     word: "Tiger",
