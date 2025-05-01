@@ -25,7 +25,6 @@
 	let status = '';
 	let selected = '';
 	let has_answered = false;
-	let answer = '';
 
 	$: if ($questions.length) {
 		current_question = $questions[current_question_index]?.question;
@@ -63,17 +62,33 @@
 	}
 
 	function nextQuestion() {
+		if (!has_answered) return;
 		if (current_question_index < $questions.length - 1) {
 			current_question_index += 1;
 			selected_option.set('');
 			selected = '';
+			answer_input = '';
 			has_answered = false;
 			status = '';
 		} else {
-			is_game_start.set(false);
 			time_taken.set($time);
 			goto('/score');
 		}
+	}
+
+	function spellingAnswer() {
+		const current = $questions[current_question_index];
+		const userAnswer = answer_input.toLowerCase().trim();
+		const correctAnswer = current?.word.toLowerCase().trim();
+
+		if (userAnswer === correctAnswer) {
+			correct.update((n) => n + 1);
+			status = 'correct';
+		} else {
+			wrong.update((n) => n + 1);
+			status = 'wrong';
+		}
+		has_answered = true;
 	}
 
 	function renderType() {
@@ -139,10 +154,20 @@
 									<input
 										class="input is-transparent transparent-input p-5 box-shadow"
 										type="text"
-										bind:value={answer}
+										bind:value={answer_input}
 										placeholder="Write the spelling"
 										required
 									/>
+								</div>
+							</div>
+							<div class="control">
+								<div class="filed">
+									<button
+										class="button is-warning is-light is-fullwidth p-3 box-shadow"
+										onclick={spellingAnswer}
+									>
+										📝 Submit</button
+									>
 								</div>
 							</div>
 						{/if}
