@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-	import { word_meaning } from '$lib/utils/data';
+	import { word_meaning, synonyms, antonyms, spelling } from '$lib/utils/data';
 	import {
 		questions,
 		selected_option,
@@ -16,12 +16,16 @@
 	import { goto } from '$app/navigation';
 	import { formatTime, shuffleItems } from '$lib/utils/utils';
 	import QuizHeader from '$lib/components/QuizHeader.svelte';
+	import { get } from 'svelte/store';
 
 	let current_question_index = 0;
 	let current_question = '';
 	let answer_input = '';
 	let timer_interval;
 	let status = '';
+	let selected = '';
+	let has_answered = false;
+	let answer = '';
 
 	$: if ($questions.length) {
 		current_question = $questions[current_question_index]?.question;
@@ -30,7 +34,7 @@
 	function resetQuiz() {
 		current_question_index = 0;
 		current_question = '';
-		answer_input = '';
+		answer = '';
 		correct.set(0);
 		wrong.set(0);
 		score.set(0);
@@ -42,7 +46,12 @@
 	}
 
 	function handleOptionClick(option) {
+		if (has_answered) return;
+
+		selected = option;
+		has_answered = true;
 		selected_option.set(option);
+
 		const correctAnswer = $questions[current_question_index]?.answer;
 		if (option === correctAnswer) {
 			correct.update((n) => n + 1);
@@ -57,19 +66,45 @@
 		if (current_question_index < $questions.length - 1) {
 			current_question_index += 1;
 			selected_option.set('');
+			selected = '';
+			has_answered = false;
 			status = '';
 		} else {
-			is_game_over.set(true);
+			is_game_start.set(false);
+			time_taken.set($time);
+			goto('/score');
 		}
+	}
+
+	function renderType() {
+		if ($question_type === 'Meaning') return word_meaning;
+		if ($question_type === 'Synonym') return synonyms;
+		if ($question_type === 'Antonym') return antonyms;
+		if ($question_type === 'Spelling') return spelling;
+		return [];
+	}
+
+	$: if ($question_type) {
+		clearInterval(timer_interval);
+		const data_type = renderType();
+		console.log('✅ Loaded data:', $question_type, data_type);
+		const shuffled = shuffleItems(data_type);
+		questions.set(shuffled);
+		current_question_index = 0;
+		selected_option.set('');
 	}
 
 	onMount(() => {
 		clearInterval(timer_interval);
-		const shuffled = shuffleItems(word_meaning);
-		questions.set(shuffled);
-		current_question_index = 0;
-		selected_option.set('');
 	});
+	$: console.log(
+		'>> type:',
+		$question_type,
+		'| started:',
+		$is_game_start,
+		'| questions:',
+		$questions
+	);
 </script>
 
 <div class="columns">
@@ -94,14 +129,17 @@
 						{/if}
 						{#if $question_type === 'Spelling'}
 							<p class="has-text-weight-semibold has-text-dark is-size-4 mt-4">
-								Write the spelling of this image <br />
-								<span class="is-size-1">🍎</span>
+								Write the spelling of this image: <br />
+								<span class="has-text-weight-bold" style="font-size: 100px;"
+									>{$questions[current_question_index]?.image}</span
+								>
 							</p>
 							<div class="control my-4">
 								<div class="filed">
 									<input
 										class="input is-transparent transparent-input p-5 box-shadow"
 										type="text"
+										bind:value={answer}
 										placeholder="Write the spelling"
 										required
 									/>
@@ -109,28 +147,25 @@
 							</div>
 						{/if}
 						{#if $question_type !== 'Spelling'}
-							<ul>
-								<div class="columns is-multiline is-mobile mt-3">
-									{#each $questions[current_question_index]?.options as option, i}
-										<div class="column is-half">
+							<div class="columns is-multiline is-mobile mt-3">
+								{#each $questions[current_question_index]?.options as option, i}
+									<div class="column is-half">
+										<ul>
 											<li
-												class="is-size-5 has-text-weight-semibold has-text-dark"
+												class="is-size-5 has-text-weight-semibold has-text-dark is-clickable"
 												onclick={() => handleOptionClick(option)}
 											>
-												<i class="fa-regular fa-circle"></i>
+												{#if selected === option}
+													<i class="fa-solid fa-circle-check has-text-success"></i>
+												{:else}
+													<i class="fa-regular fa-circle"></i>
+												{/if}
 												{option}
 											</li>
-										</div>
-									{/each}
-
-									<!-- <div class="column is-half">
-										<li class="is-size-5 has-text-weight-semibold has-text-dark">
-											<i class="fa-regular fa-circle"></i>
-											A small
-										</li>
-									</div> -->
-								</div>
-							</ul>
+										</ul>
+									</div>
+								{/each}
+							</div>
 						{/if}
 					</div>
 					{#if status === 'correct'}
