@@ -16,7 +16,8 @@
 				<a href="/math" class="menu my-0 {$page.url.pathname === '/math' ? 'is-active' : ''}">
 					Maths
 				</a>
-			{:else}
+			{/if}
+			{#if $user_name && $subject === 'english'}
 				<a href="/english" class="menu my-0 {$page.url.pathname === '/english' ? 'is-active' : ''}">
 					English
 				</a>
