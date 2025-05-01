@@ -26,9 +26,9 @@
 	let selected = '';
 	let has_answered = false;
 
-	$: if ($questions.length) {
-		current_question = $questions[current_question_index]?.question;
-	}
+	// $: if ($questions.length) {
+	// 	current_question = $questions[current_question_index]?.question;
+	// }
 
 	function handleOptionClick(option) {
 		if (has_answered) return;
@@ -136,8 +136,10 @@
 								<div class="filed">
 									<button
 										class="button is-warning is-light is-fullwidth p-3 box-shadow"
-										disabled={answer_input === ''}
-										{...$is_game_start || $is_game_pause ? '' : 'disabled'}
+										disabled={answer_input === '' ||
+											has_answered ||
+											!$is_game_start ||
+											$is_game_pause}
 										onclick={spellingAnswer}
 									>
 										📝 Submit</button
