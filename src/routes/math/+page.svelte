@@ -50,20 +50,6 @@
 		}
 	}
 
-	function resetQuiz() {
-		current_question_index = 0;
-		current_question = '';
-		answer_input = '';
-		correct.set(0);
-		wrong.set(0);
-		score.set(0);
-		user_answers.set([]);
-		is_game_start.set(false);
-		goto('/').then(() => {
-			location.reload();
-		});
-	}
-
 	onMount(() => {
 		generateQuestions($difficulty);
 		clearInterval(timer_interval);
@@ -112,7 +98,7 @@
 			<div class="control mx-5 my-4">
 				<button
 					class="button is-fullwidth is-danger is-dark has-text-white button-shadow"
-					onclick={resetQuiz}
+					onclick={() => (window.location.href = '/')}
 					disabled={!$is_game_start}
 				>
 					♻️ Reset
