@@ -14,7 +14,7 @@
 				onclick={() => $user_name && difficultyClick('easy')}
 			>
 				<div
-					class="card py-3 has-background-info-dark {$difficulty === 'easy'
+					class="card py-2 has-background-info-dark {$difficulty === 'easy'
 						? 'selected'
 						: ''} card-shadow"
 				>
@@ -26,7 +26,7 @@
 				onclick={() => $user_name && difficultyClick('medium')}
 			>
 				<div
-					class="card py-3 has-background-primary-dark {$difficulty === 'medium'
+					class="card py-2 has-background-primary-dark {$difficulty === 'medium'
 						? 'selected'
 						: ''} card-shadow"
 				>
@@ -38,7 +38,7 @@
 				onclick={() => $user_name && difficultyClick('hard')}
 			>
 				<div
-					class="card py-3 has-background-danger-dark {$difficulty === 'hard'
+					class="card py-2 has-background-danger-dark {$difficulty === 'hard'
 						? 'selected'
 						: ''} card-shadow"
 				>

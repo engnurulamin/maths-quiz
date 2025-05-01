@@ -14,7 +14,7 @@
 				onclick={() => $user_name && questionTypeClick('Spelling')}
 			>
 				<div
-					class="card py-3 has-background-success-dark card-shadow {$question_type === 'Spelling'
+					class="card py-2 has-background-success-dark card-shadow {$question_type === 'Spelling'
 						? 'selected'
 						: ''}"
 				>
@@ -26,7 +26,7 @@
 				onclick={() => $user_name && questionTypeClick('Meaning')}
 			>
 				<div
-					class="card py-3 has-background-info-dark card-shadow {$question_type === 'Meaning'
+					class="card py-2 has-background-info-dark card-shadow {$question_type === 'Meaning'
 						? 'selected'
 						: ''}"
 				>
@@ -38,7 +38,7 @@
 				onclick={() => $user_name && questionTypeClick('Synonym')}
 			>
 				<div
-					class="card py-3 has-background-primary-dark card-shadow {$question_type === 'Synonym'
+					class="card py-2 has-background-primary-dark card-shadow {$question_type === 'Synonym'
 						? 'selected'
 						: ''}"
 				>
@@ -50,7 +50,7 @@
 				onclick={() => $user_name && questionTypeClick('Antonym')}
 			>
 				<div
-					class="card py-3 has-background-danger-dark card-shadow {$question_type === 'Antonym'
+					class="card py-2 has-background-danger-dark card-shadow {$question_type === 'Antonym'
 						? 'selected'
 						: ''}"
 				>

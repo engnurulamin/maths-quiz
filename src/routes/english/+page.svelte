@@ -148,28 +148,6 @@
 							</div>
 						{/if}
 						{#if $question_type !== 'Spelling'}
-							<!-- <div class="columns is-multiline is-mobile mt-3">
-								{#each $questions[current_question_index]?.options as option, i}
-									<div class="column is-6">
-										<ul>
-											<li
-												class="is-size-5 has-text-weight-semibold has-text-dark is-clickable {!$is_game_start ||
-												$is_game_pause
-													? 'disabled'
-													: ''}"
-												onclick={() => handleOptionClick(option)}
-											>
-												{#if selected === option}
-													<i class="fa-solid fa-circle-check has-text-success"></i>
-												{:else}
-													<i class="fa-regular fa-circle"></i>
-												{/if}
-												{option}
-											</li>
-										</ul>
-									</div>
-								{/each}
-							</div> -->
 							<div class="options-grid mt-2">
 								{#each $questions[current_question_index]?.options as option, i}
 									<div
@@ -275,7 +253,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: flex-start;
-		padding: 1rem;
+		padding: 0.8rem;
 		border-radius: 0.5rem;
 		background-color: transparent;
 		cursor: pointer;
