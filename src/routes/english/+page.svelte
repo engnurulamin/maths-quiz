@@ -1,6 +1,5 @@
 <script>
 	import { onMount } from 'svelte';
-	// import { word_meaning, synonyms, antonyms, spelling } from '$lib/utils/data';
 	import {
 		questions,
 		selected_option,
@@ -11,7 +10,8 @@
 		wrong,
 		total,
 		question_type,
-		is_game_start
+		is_game_start,
+		is_game_pause
 	} from '$lib/utils/stores';
 	import { goto } from '$app/navigation';
 	import { formatTime, shuffleItems, renderType } from '$lib/utils/utils';
@@ -71,6 +71,7 @@
 			has_answered = false;
 			status = '';
 		} else {
+			is_game_start.set(false);
 			time_taken.set($time);
 			goto('/score');
 		}
@@ -138,6 +139,7 @@
 										class="input is-transparent transparent-input p-5 box-shadow"
 										type="text"
 										bind:value={answer_input}
+										disabled={!$is_game_start || $is_game_pause}
 										placeholder="Write the spelling"
 										required
 									/>
@@ -147,6 +149,8 @@
 								<div class="filed">
 									<button
 										class="button is-warning is-light is-fullwidth p-3 box-shadow"
+										disabled={answer_input === ''}
+										{...$is_game_start || $is_game_pause ? '' : 'disabled'}
 										onclick={spellingAnswer}
 									>
 										📝 Submit</button
@@ -160,7 +164,10 @@
 									<div class="column is-6">
 										<ul>
 											<li
-												class="is-size-5 has-text-weight-semibold has-text-dark is-clickable"
+												class="is-size-5 has-text-weight-semibold has-text-dark is-clickable {!$is_game_start ||
+												$is_game_pause
+													? 'disabled'
+													: ''}"
 												onclick={() => handleOptionClick(option)}
 											>
 												{#if selected === option}
@@ -189,6 +196,7 @@
 				<button
 					class="button is-fullwidth is-info is-dark has-text-white button-shadow"
 					onclick={nextQuestion}
+					disabled={!has_answered}
 				>
 					⏭️ Next
 				</button>
@@ -246,5 +254,11 @@
 		box-shadow:
 			0 8px 16px rgba(0, 0, 0, 0.2),
 			0 12px 24px rgba(0, 0, 0, 0.15);
+	}
+
+	.disabled {
+		opacity: 0.5;
+		pointer-events: none;
+		cursor: not-allowed !important;
 	}
 </style>

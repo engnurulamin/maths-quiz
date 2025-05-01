@@ -1,5 +1,5 @@
 <script>
-	import { user_name, questions } from '$lib/utils/stores';
+	import { user_name, questions, subject } from '$lib/utils/stores';
 	import { page } from '$app/stores';
 	let is_open = false;
 </script>
@@ -12,9 +12,13 @@
 		<button class="hamburger" on:click={() => (is_open = !is_open)}> ☰ </button>
 		<div class="menu-links {is_open ? 'show' : ''}">
 			<a href="/" class="menu my-0 {$page.url.pathname === '/' ? 'is-active' : ''}">Home</a>
-			{#if $user_name}
+			{#if $user_name && $subject === 'math'}
 				<a href="/math" class="menu my-0 {$page.url.pathname === '/math' ? 'is-active' : ''}">
-					Math Quiz
+					Maths
+				</a>
+			{:else}
+				<a href="/english" class="menu my-0 {$page.url.pathname === '/english' ? 'is-active' : ''}">
+					English
 				</a>
 			{/if}
 			{#if $questions.length > 0 && $user_name}
