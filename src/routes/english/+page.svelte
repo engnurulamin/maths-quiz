@@ -59,6 +59,7 @@
 		} else {
 			is_game_start.set(false);
 			time_taken.set($time);
+			clearInterval(timer_interval);
 			goto('/score');
 		}
 	}

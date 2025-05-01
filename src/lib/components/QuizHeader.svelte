@@ -1,6 +1,8 @@
 <script>
 	import { is_game_start, is_game_end, time, is_game_pause } from '$lib/utils/stores';
 	import { formatTime } from '$lib/utils/utils';
+	import { onDestroy } from 'svelte';
+	import { beforeNavigate } from '$app/navigation';
 
 	let timer_interval;
 	export let icon;
@@ -33,6 +35,14 @@
 	$: if ($is_game_end) {
 		clearInterval(timer_interval);
 	}
+
+	beforeNavigate(() => {
+		clearInterval(timer_interval);
+	});
+
+	onDestroy(() => {
+		clearInterval(timer_interval);
+	});
 </script>
 
 <h1 class="p-4">
