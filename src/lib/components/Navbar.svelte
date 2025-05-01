@@ -6,10 +6,10 @@
 
 <nav>
 	<div class="navbar-container px-6 pb-4">
-		<div class="logo">
+		<div class="logo" onclick={() => (window.location.href = '/')}>
 			<a href="/"><strong>QuizNest</strong></a>
 		</div>
-		<button class="hamburger" on:click={() => (is_open = !is_open)}> ☰ </button>
+		<button class="hamburger" onclick={() => (is_open = !is_open)}> ☰ </button>
 		<div class="menu-links {is_open ? 'show' : ''}">
 			<a href="/" class="menu my-0 {$page.url.pathname === '/' ? 'is-active' : ''}">Home</a>
 			{#if $user_name && $subject === 'math'}
