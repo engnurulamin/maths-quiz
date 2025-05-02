@@ -87,10 +87,10 @@
 			<hr class="is-paddingless has-background-warning-light p-0 m-0" />
 
 			{#if $subject === 'math'}
-				<MathDifficulty bind:this={MATH} />
+				<MathDifficulty bind:this={SUBJECT} />
 			{/if}
 			{#if $subject === 'english'}
-				<EnglishQType bind:this={ENGLISH} />
+				<EnglishQType bind:this={SUBJECT} />
 			{/if}
 
 			<div class="control mx-5 my-4">
