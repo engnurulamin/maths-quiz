@@ -3,10 +3,13 @@
 	import { formatTime } from '$lib/utils/utils';
 	import { onDestroy } from 'svelte';
 	import { beforeNavigate } from '$app/navigation';
+	import { createEventDispatcher } from 'svelte';
 
-	let timer_interval;
 	export let icon;
 	export let name;
+
+	let timer_interval;
+	const dispatch = createEventDispatcher();
 
 	function pauseQuiz() {
 		is_game_pause.set(true);
@@ -20,6 +23,7 @@
 		is_game_start.set(true);
 		is_game_pause.set(false);
 		startTimer();
+		dispatch('start');
 	}
 
 	function startTimer() {

@@ -25,6 +25,8 @@
 	let status = '';
 	let selected = '';
 	let has_answered = false;
+	let ANSWER;
+	let NEXT;
 
 	// $: if ($questions.length) {
 	// 	current_question = $questions[current_question_index]?.question;
@@ -88,6 +90,20 @@
 		selected_option.set('');
 	}
 
+	function focusAnswerInput() {
+		// Wait a tick for layout to settle before focusing
+		setTimeout(() => {
+			ANSWER?.focus();
+		}, 50);
+	}
+
+	function handleNextClick() {
+		nextQuestion();
+		setTimeout(() => {
+			ANSWER?.focus();
+		}, 50);
+	}
+
 	onMount(() => {
 		clearInterval(timer_interval);
 	});
@@ -96,7 +112,7 @@
 <div class="columns">
 	<div class="column">
 		<div class="card has-background-warning has-text-centered m-4 p-2">
-			<QuizHeader icon="📖" name="English" />
+			<QuizHeader icon="📖" name="English" on:start={focusAnswerInput} />
 			<div class="control mx-3">
 				<div class="filed">
 					<div class="box has-background-warning-light has-text-centered button-shadow">
@@ -126,6 +142,7 @@
 										class="input is-transparent transparent-input p-5 box-shadow"
 										type="text"
 										bind:value={answer_input}
+										bind:this={ANSWER}
 										disabled={!$is_game_start || $is_game_pause}
 										placeholder="Write the spelling"
 										required
@@ -177,8 +194,9 @@
 			<div class="control mx-3 my-4">
 				<button
 					class="button is-fullwidth is-info is-dark has-text-white button-shadow"
-					onclick={nextQuestion}
+					onclick={handleNextClick}
 					disabled={!has_answered}
+					bind:this={NEXT}
 				>
 					⏭️ Next
 				</button>
