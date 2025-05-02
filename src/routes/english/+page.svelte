@@ -14,7 +14,7 @@
 		is_game_pause
 	} from '$lib/utils/stores';
 	import { goto } from '$app/navigation';
-	import { formatTime, shuffleItems, renderType } from '$lib/utils/utils';
+	import { formatTime, shuffleItems, renderType, playSound } from '$lib/utils/utils';
 	import QuizHeader from '$lib/components/QuizHeader.svelte';
 	import { get } from 'svelte/store';
 
@@ -39,9 +39,11 @@
 		if (option === correctAnswer) {
 			correct.update((n) => n + 1);
 			status = 'correct';
+			playSound('/sounds/correct.mp3');
 		} else {
 			wrong.update((n) => n + 1);
 			status = 'wrong';
+			playSound('/sounds/wrong.mp3');
 		}
 	}
 
@@ -70,9 +72,11 @@
 		if (userAnswer === correctAnswer) {
 			correct.update((n) => n + 1);
 			status = 'correct';
+			playSound('/sounds/correct.mp3');
 		} else {
 			wrong.update((n) => n + 1);
 			status = 'wrong';
+			playSound('/sounds/wrong.mp3');
 		}
 		has_answered = true;
 	}
@@ -97,6 +101,10 @@
 		setTimeout(() => {
 			ANSWER?.focus();
 		}, 50);
+	}
+
+	function handleCorrect() {
+		playSound('/sounds/correct.mp3');
 	}
 
 	onMount(() => {

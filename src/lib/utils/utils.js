@@ -33,6 +33,27 @@ export function renderType(type) {
 	return [];
 }
 
+const audioCache = {};
+
+export function playSound(path) {
+	if (!audioCache[path]) {
+		audioCache[path] = new Audio(path);
+	}
+
+	const audio = audioCache[path];
+
+	try {
+		audio.pause();
+		audio.currentTime = 0;
+		audio.play().catch((e) => {
+			console.warn('Audio play error (inner):', e);
+		});
+	} catch (e) {
+		console.warn('Audio play error (outer):', e);
+	}
+}
+
+
 
 
 

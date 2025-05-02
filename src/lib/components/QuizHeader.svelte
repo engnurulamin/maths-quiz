@@ -1,6 +1,6 @@
 <script>
 	import { is_game_start, is_game_end, time, is_game_pause } from '$lib/utils/stores';
-	import { formatTime } from '$lib/utils/utils';
+	import { formatTime, playSound } from '$lib/utils/utils';
 	import { onDestroy } from 'svelte';
 	import { beforeNavigate } from '$app/navigation';
 	import { createEventDispatcher } from 'svelte';
@@ -14,6 +14,7 @@
 	function pauseQuiz() {
 		is_game_pause.set(true);
 		clearInterval(timer_interval);
+		playSound('/sounds/tap.mp3');
 	}
 
 	function startQuiz() {
@@ -23,6 +24,7 @@
 		is_game_start.set(true);
 		is_game_pause.set(false);
 		startTimer();
+		playSound('/sounds/tap.mp3');
 		dispatch('start');
 	}
 

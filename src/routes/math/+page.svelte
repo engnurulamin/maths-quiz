@@ -15,7 +15,7 @@
 		total
 	} from '$lib/utils/stores';
 	import { goto } from '$app/navigation';
-	import { formatTime } from '$lib/utils/utils';
+	import { formatTime, playSound } from '$lib/utils/utils';
 	import { generateQuestions } from '$lib/utils/quiz';
 	import QuizHeader from '$lib/components/QuizHeader.svelte';
 
@@ -36,9 +36,11 @@
 		if (parseInt(answer_input) === current_correct_answer) {
 			correct.update((n) => n + 1);
 			status = 'correct';
+			playSound('/sounds/correct.mp3');
 		} else {
 			wrong.update((n) => n + 1);
 			status = 'wrong';
+			playSound('/sounds/wrong.mp3');
 		}
 		user_answers.update((ans) => [...ans, answer_input]);
 		answer_input = '';
