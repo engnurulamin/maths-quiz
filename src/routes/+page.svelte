@@ -11,6 +11,7 @@
 	let randomEmoji = '';
 	let NAME;
 	let QUIZ;
+	let prevReady = false;
 
 	onMount(() => {
 		updateEmoji();
@@ -29,10 +30,14 @@
 		});
 	}
 
-	$: if ($user_name) {
-		tick().then(() => {
-			startButton?.focus();
-		});
+	$: {
+		const ready = $user_name && ($difficulty || $question_type);
+		if (ready && !prevReady) {
+			tick().then(() => {
+				QUIZ?.focus();
+			});
+		}
+		prevReady = ready;
 	}
 </script>
 
