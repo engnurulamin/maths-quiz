@@ -29,7 +29,7 @@
 		});
 	}
 
-	$: if ($user_name && ($difficulty || $question_type)) {
+	$: if ($user_name) {
 		tick().then(() => {
 			startButton?.focus();
 		});
