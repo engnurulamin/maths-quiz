@@ -1,6 +1,7 @@
 <script>
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
+	import { tick } from 'svelte';
 	import { user_name, difficulty, subject, question_type } from '$lib/utils/stores';
 	import MathDifficulty from '$lib/components/MathDifficulty.svelte';
 	import EnglishQType from '$lib/components/EnglishQType.svelte';
@@ -8,6 +9,8 @@
 	let emojis = ['📚', '✏️', '🧠', '🏫'];
 
 	let randomEmoji = '';
+	let NAME;
+	let SUBJECT;
 
 	onMount(() => {
 		updateEmoji();
@@ -21,6 +24,15 @@
 
 	function subjectClick(type) {
 		subject.set(type);
+		tick().then(() => {
+			NAME?.focus();
+		});
+	}
+
+	$: if ($user_name && SUBJECT) {
+		tick().then(() => {
+			SUBJECT.scrollIntoView({ behavior: 'smooth', block: 'start' });
+		});
 	}
 </script>
 
@@ -67,6 +79,7 @@
 						disabled={!$subject}
 						placeholder="Enter your name"
 						bind:value={$user_name}
+						bind:this={NAME}
 						required
 					/>
 				</div>
@@ -74,10 +87,10 @@
 			<hr class="is-paddingless has-background-warning-light p-0 m-0" />
 
 			{#if $subject === 'math'}
-				<MathDifficulty />
+				<MathDifficulty bind:this={MATH} />
 			{/if}
 			{#if $subject === 'english'}
-				<EnglishQType />
+				<EnglishQType bind:this={ENGLISH} />
 			{/if}
 
 			<div class="control mx-5 my-4">

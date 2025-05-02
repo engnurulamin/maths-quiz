@@ -100,7 +100,7 @@
 			<div class="control mx-3">
 				<div class="filed">
 					<div class="box has-background-warning-light has-text-centered button-shadow">
-						<h3 class="is-size-3 has-text-dark has-text-weight-bold">
+						<h3 class="is-size-3-desktop is-size-4-mobile has-text-dark has-text-weight-bold">
 							📖Word {$question_type || 'Word Meaning'}
 						</h3>
 						<hr class="is-paddingless p-0 my-1 mx-3" />
