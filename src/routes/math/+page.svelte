@@ -24,6 +24,8 @@
 	let answer_input = '';
 	let timer_interval;
 	let status = '';
+	let ANSWER;
+	let NEXT;
 
 	$: if ($questions.length) {
 		current_question = $questions[current_question_index]?.question;
@@ -50,6 +52,19 @@
 		}
 	}
 
+	function focusAnswerInput() {
+		setTimeout(() => {
+			ANSWER?.focus();
+		}, 50);
+	}
+
+	function handleNextClick() {
+		nextQuestion();
+		setTimeout(() => {
+			ANSWER?.focus();
+		}, 50);
+	}
+
 	onMount(() => {
 		generateQuestions($difficulty);
 		clearInterval(timer_interval);
@@ -59,7 +74,7 @@
 <div class="columns">
 	<div class="column">
 		<div class="card has-background-warning has-text-centered m-4 p-2">
-			<QuizHeader icon="📊" name="Math" />
+			<QuizHeader icon="📊" name="Math" on:start={focusAnswerInput} />
 			<div class="control mx-5">
 				<div class="filed">
 					<div class="box has-background-warning-light has-text-centered box-shadow">
@@ -79,6 +94,7 @@
 					<input
 						class="input is-transparent transparent-input p-5 box-shadow"
 						bind:value={answer_input}
+						bind:this={ANSWER}
 						type="number"
 						placeholder="Write your answer"
 						disabled={!$is_game_start || $is_game_pause}
@@ -89,7 +105,8 @@
 			<div class="control mx-5 my-4">
 				<button
 					class="button is-fullwidth is-info is-dark has-text-white button-shadow"
-					onclick={nextQuestion}
+					onclick={handleNextClick}
+					bind:this={ANSWER}
 					disabled={!$is_game_start}
 				>
 					⏭️ Next

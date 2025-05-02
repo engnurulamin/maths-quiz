@@ -28,10 +28,6 @@
 	let ANSWER;
 	let NEXT;
 
-	// $: if ($questions.length) {
-	// 	current_question = $questions[current_question_index]?.question;
-	// }
-
 	function handleOptionClick(option) {
 		if (has_answered) return;
 
@@ -91,7 +87,6 @@
 	}
 
 	function focusAnswerInput() {
-		// Wait a tick for layout to settle before focusing
 		setTimeout(() => {
 			ANSWER?.focus();
 		}, 50);
@@ -170,7 +165,6 @@
 									<div
 										class="option-box {!$is_game_start || $is_game_pause ? 'disabled' : ''}"
 										onclick={() => handleOptionClick(option)}
-										bind:this={ANSWER}
 									>
 										{#if selected === option}
 											<i class="fa-solid fa-circle-check has-text-success"></i>
