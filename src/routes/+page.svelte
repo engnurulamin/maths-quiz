@@ -10,7 +10,7 @@
 
 	let randomEmoji = '';
 	let NAME;
-	let SUBJECT;
+	let QUIZ;
 
 	onMount(() => {
 		updateEmoji();
@@ -29,9 +29,9 @@
 		});
 	}
 
-	$: if ($user_name && SUBJECT) {
+	$: if ($user_name && ($difficulty || $question_type)) {
 		tick().then(() => {
-			SUBJECT.scrollIntoView({ behavior: 'smooth', block: 'start' });
+			startButton?.focus();
 		});
 	}
 </script>
@@ -87,14 +87,15 @@
 			<hr class="is-paddingless has-background-warning-light p-0 m-0" />
 
 			{#if $subject === 'math'}
-				<MathDifficulty bind:this={SUBJECT} />
+				<MathDifficulty />
 			{/if}
 			{#if $subject === 'english'}
-				<EnglishQType bind:this={SUBJECT} />
+				<EnglishQType />
 			{/if}
 
 			<div class="control mx-5 my-4">
 				<button
+					bind:this={QUIZ}
 					class="button is-fullwidth is-success-dark button-shadow"
 					disabled={!$difficulty && !$question_type}
 					onclick={$subject === 'english' ? () => goto('/english') : () => goto('/math')}
