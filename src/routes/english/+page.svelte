@@ -170,6 +170,7 @@
 									<div
 										class="option-box {!$is_game_start || $is_game_pause ? 'disabled' : ''}"
 										onclick={() => handleOptionClick(option)}
+										bind:this={ANSWER}
 									>
 										{#if selected === option}
 											<i class="fa-solid fa-circle-check has-text-success"></i>
