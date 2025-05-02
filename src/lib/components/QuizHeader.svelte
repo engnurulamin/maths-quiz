@@ -14,7 +14,7 @@
 	function pauseQuiz() {
 		is_game_pause.set(true);
 		clearInterval(timer_interval);
-		playSound('/sounds/tap.mp3');
+		playSound('/sounds/tap.wav');
 	}
 
 	function startQuiz() {
@@ -24,7 +24,7 @@
 		is_game_start.set(true);
 		is_game_pause.set(false);
 		startTimer();
-		playSound('/sounds/tap.mp3');
+		playSound('/sounds/tap.wav');
 		dispatch('start');
 	}
 
