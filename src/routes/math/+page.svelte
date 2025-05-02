@@ -106,7 +106,7 @@
 				<button
 					class="button is-fullwidth is-info is-dark has-text-white button-shadow"
 					onclick={handleNextClick}
-					bind:this={ANSWER}
+					bind:this={NEXT}
 					disabled={!$is_game_start}
 				>
 					⏭️ Next
