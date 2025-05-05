@@ -51,12 +51,12 @@ export const word_meaning = [
   },
   {
     word: "School",
-    options: ["স্কুল", "বাজার", "বাড়ি", "দোকান"],
+    options: ["বিদ্যালয়", "বাজার", "বাড়ি", "দোকান"],
     answer: "বিদ্যালয়"
   },
   {
     word: "Pen",
-    options: ["পেন্সিল", "রাবার", "পেন", "বই"],
+    options: ["পেন্সিল", "রাবার", "কলম", "বই"],
     answer: "কলম",
   },
   {
@@ -109,22 +109,22 @@ export const synonyms = [
   },
   {
     word: "Fast",
-    options: ["Quick", "Slow", "Lazy", "Weak"],
+    options: ["Slow", "Lazy", "Quick", "Weak"],
     answer: "Quick"
   },
   {
     word: "Strong",
-    options: ["Powerful", "Weak", "Slow", "Small"],
+    options: [ "Weak", "Powerful", "Slow", "Small"],
     answer: "Powerful"
   },
   {
     word: "Beautiful",
-    options: ["Pretty", "Ugly", "Boring", "Dirty"],
+    options: ["Ugly", "Boring", "Dirty", "Pretty" ],
     answer: "Pretty"
   },
   {
     word: "Cold",
-    options: ["Chilly", "Warm", "Hot", "Comfortable"],
+    options: ["Warm", "Hot", "Chilly",  "Comfortable"],
     answer: "Chilly"
   },
   {
@@ -134,12 +134,12 @@ export const synonyms = [
   },
   {
     word: "Smart",
-    options: ["Intelligent", "Dumb", "Slow", "Shy"],
+    options: [ "Dumb", "Slow", "Shy","Intelligent"],
     answer: "Intelligent"
   },
   {
     word: "Brave",
-    options: ["Courageous", "Afraid", "Scared", "Timid"],
+    options: [ "Afraid", "Scared", "Courageous", "Timid"],
     answer: "Courageous"
   },
   {
@@ -149,12 +149,12 @@ export const synonyms = [
   },
   {
     word: "Funny",
-    options: ["Humorous", "Boring", "Serious", "Sad"],
+    options: ["Boring", "Humorous", "Serious", "Sad"],
     answer: "Humorous"
   },
   {
     word: "Quiet",
-    options: ["Silent", "Loud", "Talkative", "Shy"],
+    options: ["Loud", "Talkative", "Shy","Silent",],
     answer: "Silent"
   },
   {
@@ -164,27 +164,27 @@ export const synonyms = [
   },
   {
     word: "Clean",
-    options: ["Neat", "Dirty", "Messy", "Wet"],
+    options: ["Dirty", "Messy", "Neat", "Wet"],
     answer: "Neat"
   },
   {
     word: "New",
-    options: ["Fresh", "Old", "Used", "Broken"],
+    options: ["Old", "Fresh", "Used", "Broken"],
     answer: "Fresh"
   },
   {
     word: "Hard",
-    options: ["Tough", "Soft", "Easy", "Weak"],
+    options: ["Soft", "Easy", "Weak","Tough"],
     answer: "Tough"
   },
   {
     word: "Bright",
-    options: ["Shiny", "Dull", "Dark", "Gloomy"],
+    options: ["Dull", "Shiny", "Dark", "Gloomy"],
     answer: "Shiny"
   },
   {
     word: "Soft",
-    options: ["Gentle", "Rough", "Hard", "Sharp"],
+    options: ["Rough", "Hard", "Gentle", "Sharp"],
     answer: "Gentle"
   },
   {
@@ -202,7 +202,7 @@ export const synonyms = [
 export const antonyms = [
   {
     word: "Happy",
-    options: ["Sad", "Joyful", "Excited", "Delighted"],
+    options: ["Joyful", "Excited", "Sad", "Delighted"],
     answer: "Sad"
   },
   {
@@ -212,17 +212,17 @@ export const antonyms = [
   },
   {
     word: "Hot",
-    options: ["Cold", "Warm", "Chilly", "Freezing"],
+    options: ["Chilly", "Freezing", "Cold", "Warm"],
     answer: "Cold"
   },
   {
     word: "Fast",
-    options: ["Slow", "Quick", "Rapid", "Speedy"],
+    options: ["Quick", "Slow", "Rapid", "Speedy"],
     answer: "Slow"
   },
   {
     word: "Strong",
-    options: ["Weak", "Powerful", "Mighty", "Tough"],
+    options: ["Powerful", "Tough", "Weak", "Mighty"],
     answer: "Weak"
   },
   {
@@ -232,22 +232,22 @@ export const antonyms = [
   },
   {
     word: "Tall",
-    options: ["Short", "Big", "Huge", "Large"],
+    options: ["Big", "Huge", "Large", "Short"],
     answer: "Short"
   },
   {
     word: "Old",
-    options: ["Young", "Ancient", "Fresh", "New"],
+    options: ["Fresh", "New", "Young", "Ancient"],
     answer: "Young"
   },
   {
     word: "Bright",
-    options: ["Dull", "Shiny", "Radiant", "Glowing"],
+    options: ["Radiant", "Dull", "Glowing", "Shiny"],
     answer: "Dull"
   },
   {
     word: "Heavy",
-    options: ["Light", "Weighty", "Bulky", "Large"],
+    options: ["Bulky", "Weighty", "Light", "Large"],
     answer: "Light"
   },
   {
@@ -257,7 +257,7 @@ export const antonyms = [
   },
   {
     word: "Clean",
-    options: ["Dirty", "Tidy", "Neat", "Spotless"],
+    options: ["Tidy", "Dirty", "Neat", "Spotless"],
     answer: "Dirty"
   },
   {
@@ -267,30 +267,31 @@ export const antonyms = [
   },
   {
     word: "Soft",
-    options: ["Hard", "Gentle", "Firm", "Tender"],
+    options: ["Firm", "Hard", "Gentle", "Tender"],
     answer: "Hard"
   },
   {
     word: "Hard",
-    options: ["Easy", "Tough", "Challenging", "Complex"],
+    options: ["Challenging", "Complex", "Easy", "Tough"],
     answer: "Easy"
   },
   {
     word: "Smooth",
-    options: ["Rough", "Polished", "Sleek", "Shiny"],
+    options: ["Polished", "Sleek", "Rough", "Shiny"],
     answer: "Rough"
   },
   {
     word: "Loud",
-    options: ["Quiet", "Silent", "Soft", "Calm"],
+    options: ["Quiet", "Soft", "Silent", "Calm"],
     answer: "Quiet"
   },
   {
     word: "Wet",
-    options: ["Dry", "Moist", "Damp", "Soggy"],
+    options: ["Moist", "Damp", "Dry", "Soggy"],
     answer: "Dry"
   }
 ];
+
 
 export const spelling = [
   {
