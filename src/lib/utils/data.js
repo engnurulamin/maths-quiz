@@ -271,6 +271,16 @@ export const antonyms = [
     answer: "Hard"
   },
   {
+    word: "Wet",
+    options: ["Moist", "Damp", "Dry", "Soggy"],
+    answer: "Dry"
+  },
+  {
+    word: "Early",
+    options: ["Late", "First", "Soon", "Punctual"],
+    answer: "Late"
+  },
+  {
     word: "Hard",
     options: ["Challenging", "Complex", "Easy", "Tough"],
     answer: "Easy"
