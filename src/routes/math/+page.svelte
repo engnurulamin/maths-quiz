@@ -40,7 +40,7 @@
 		} else {
 			wrong.update((n) => n + 1);
 			status = 'wrong';
-			playSound('/sounds/wrong.mp3');
+			playSound('/sounds/buzzer.mp3');
 		}
 		user_answers.update((ans) => [...ans, answer_input]);
 		answer_input = '';

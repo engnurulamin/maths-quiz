@@ -196,7 +196,22 @@ export const synonyms = [
     word: "Quiet",
     options: ["Silent", "Noisy", "Loud", "Talkative"],
     answer: "Silent"
-  }
+  },
+  {
+    word: "Sweet",
+    options: ["Bitter", "Sour", "Sugary", "Salty"],
+    answer: "Sugary"
+  },
+  // {
+  //   word: "Brave",
+  //   options: ["Fearless", "Cowardly", "Timid", "Weak"],
+  //   answer: "Fearless"
+  // },
+  // {
+  //   word: "Lazy",
+  //   options: ["Active", "Energetic", "Indolent", "Diligent"],
+  //   answer: "Indolent"
+  // }
 ];
 
 export const antonyms = [
@@ -376,10 +391,18 @@ export const spelling = [
     word: "School",
     image: "🏫"
   },
+  // {
+  //   word: "Cup",
+  //   image: "☕"
+  // },
+  // {
+  //   word: "Hat",
+  //   image: "🧢"
+  // },
   {
-    word: "Candy",
-    image: "🍬"
-  }
+    word: "Key",
+    image: "🔑"
+  },
 ];
 
 

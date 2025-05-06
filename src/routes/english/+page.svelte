@@ -43,7 +43,7 @@
 		} else {
 			wrong.update((n) => n + 1);
 			status = 'wrong';
-			playSound('/sounds/wrong.mp3');
+			playSound('/sounds/buzzer.mp3');
 		}
 	}
 
@@ -76,7 +76,7 @@
 		} else {
 			wrong.update((n) => n + 1);
 			status = 'wrong';
-			playSound('/sounds/wrong.mp3');
+			playSound('/sounds/buzzer.mp3');
 		}
 		has_answered = true;
 	}
