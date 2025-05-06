@@ -5,24 +5,44 @@
 				<div class="column p-0 m-0">
 					<div class="control">
 						<div class="field m-2">
-							<button class="button is-fullwidth is-info is-dark">Arabic</button>
+							<button class="button is-fullwidth is-primary is-dark button-shadow">
+								<figure class="image is-24x24">
+									<img src="/icons/religious.png" alt="" />
+								</figure>
+								<span class="is-size-5 has-text-white ml-2">Arabic</span>
+							</button>
 						</div>
 					</div>
 					<div class="control">
 						<div class="field m-2">
-							<button class="button is-fullwidth is-info is-dark">Arabic</button>
+							<button class="button is-fullwidth is-info is-dark button-shadow">
+								<figure class="image is-24x24">
+									<img src="/icons/flag.png" alt="" />
+								</figure>
+								<span class="is-size-5 has-text-white ml-2">Bangla</span>
+							</button>
 						</div>
 					</div>
 				</div>
 				<div class="column p-0 m-0">
 					<div class="control">
 						<div class="field m-2">
-							<button class="button is-fullwidth is-info is-dark">Arabic</button>
+							<button class="button is-fullwidth is-danger is-dark button-shadow">
+								<figure class="image is-24x24">
+									<img src="/icons/school.png" alt="" />
+								</figure>
+								<span class="is-size-5 has-text-white ml-2">English</span>
+							</button>
 						</div>
 					</div>
 					<div class="control">
 						<div class="field m-2">
-							<button class="button is-fullwidth is-info is-dark">Arabic</button>
+							<button class="button is-fullwidth is-success is-dark button-shadow">
+								<figure class="image is-24x24">
+									<img src="/icons/nums.png" alt="" />
+								</figure>
+								<span class="is-size-5 has-text-white ml-2">Numbers</span>
+							</button>
 						</div>
 					</div>
 				</div>
