@@ -179,7 +179,9 @@
 										{:else}
 											<i class="fa-regular fa-circle has-text-dark"></i>
 										{/if}
-										<span class="has-text-weight-semibold has-text-dark">{option}</span>
+										<span class="has-text-weight-semibold has-text-dark"
+											>{shuffleItems(option)}</span
+										>
 									</div>
 								{/each}
 							</div>
