@@ -1,4 +1,5 @@
 <script>
+	import { english_letters } from '$lib/utils/kidz/data';
 	let show_bangla = false;
 	let show_numbers = false;
 </script>
@@ -87,55 +88,13 @@
 			</div>
 			<hr class="is-paddingless has-background-warning-light p-0 m-0" />
 			<div class="grid mx-2 mt-5 mb-3">
-				<div class="letter-card">
-					<p class="letter">A</p>
-					<span class="emoji">🍎</span>
-					<!-- Emoji instead of image -->
-					<p class="word">Apple</p>
-				</div>
-				<div class="letter-card">
-					<p class="letter">C</p>
-					<span class="emoji">🐱</span>
-					<!-- Emoji instead of image -->
-					<p class="word">Cat</p>
-				</div>
-				<div class="letter-card">
-					<p class="letter">D</p>
-					<span class="emoji">🐶</span>
-					<!-- Emoji instead of image -->
-					<p class="word">Dog</p>
-				</div>
-				<div class="letter-card">
-					<p class="letter">E</p>
-					<span class="emoji">⚽</span>
-					<!-- Emoji instead of image -->
-					<p class="word">Egg</p>
-				</div>
-				<div class="letter-card">
-					<p class="letter">B</p>
-					<span class="emoji">⚽</span>
-					<!-- Emoji instead of image -->
-					<p class="word">Ball</p>
-				</div>
-				<div class="letter-card">
-					<p class="letter">B</p>
-					<span class="emoji">⚽</span>
-					<!-- Emoji instead of image -->
-					<p class="word">Ball</p>
-				</div>
-				<div class="letter-card">
-					<p class="letter">B</p>
-					<span class="emoji">⚽</span>
-					<!-- Emoji instead of image -->
-					<p class="word">Ball</p>
-				</div>
-				<div class="letter-card">
-					<p class="letter">B</p>
-					<span class="emoji">⚽</span>
-					<!-- Emoji instead of image -->
-					<p class="word">Ball</p>
-				</div>
-				<!-- Add more letter cards here -->
+				{#each english_letters as { letter, emoji, word }}
+					<div class="letter-card">
+						<p class="letter">{letter}</p>
+						<span class="emoji has-text-danger">{emoji}</span>
+						<p class="word">{word}</p>
+					</div>
+				{/each}
 			</div>
 		</div>
 	</div>
@@ -149,58 +108,10 @@
 	.button-shadow:hover {
 		box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
 	}
-	.transparent-input {
-		background-color: rgb(243, 230, 166) !important;
-		border: 2px solid rgba(255, 255, 255, 0.6);
-		border-radius: 10px;
-		transition: all 0.3s ease;
-		color: #000;
-	}
-
-	.transparent-input::placeholder {
-		color: black;
-		opacity: 0.5;
-		font-weight: 400;
-		font-size: 15px;
-	}
-
-	.transparent-input:focus,
-	.transparent-input:active {
-		outline: none;
-		border-color: rgba(33, 19, 43, 0.259);
-		box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
-	}
-
-	/* Hide number input arrows in Webkit browsers */
-	input[type='number']::-webkit-outer-spin-button,
-	input[type='number']::-webkit-inner-spin-button {
-		-webkit-appearance: none;
-		margin: 0;
-	}
-
-	/* Hide number input arrows in Firefox */
-	input[type='number'] {
-		-moz-appearance: textfield;
-	}
-
-	.box-shadow {
-		box-shadow:
-			0 4px 8px rgba(0, 0, 0, 0.15),
-			0 6px 16px rgba(0, 0, 0, 0.1);
-		transition: box-shadow 0.3s ease-in-out;
-	}
-
-	.box-shadow:hover {
-		box-shadow:
-			0 8px 16px rgba(0, 0, 0, 0.2),
-			0 12px 24px rgba(0, 0, 0, 0.15);
-	}
-
 	.grid {
 		display: grid;
-		grid-template-columns: repeat(4, 1fr); /* 4 items per row on desktop */
+		grid-template-columns: repeat(4, 1fr);
 		gap: 1rem;
-		/* padding: 0.5rem; */
 	}
 
 	.letter-card {
@@ -226,28 +137,74 @@
 	}
 
 	.letter {
-		font-size: 2.5rem;
+		font-size: 3.8rem;
 		font-weight: bold;
 		margin-bottom: 0.5rem;
+		color: #333;
+		text-shadow:
+			1px 1px 2px rgba(0, 0, 0, 0.12),
+			2px 2px 3px rgba(0, 0, 0, 0.1),
+			3px 3px 4px rgba(0, 0, 0, 0.08),
+			4px 4px 5px rgba(0, 0, 0, 0.06),
+			5px 5px 6px rgba(0, 0, 0, 0.05),
+			6px 6px 7px rgba(0, 0, 0, 0.04),
+			7px 7px 8px rgba(0, 0, 0, 0.03),
+			8px 8px 9px rgba(0, 0, 0, 0.02),
+			9px 9px 10px rgba(0, 0, 0, 0.01);
+	}
+
+	.letter-card:nth-child(4n + 1) .letter,
+	.letter-card:nth-child(4n + 1) .word {
+		color: #f22bdb;
+	}
+
+	.letter-card:nth-child(4n + 2) .letter,
+	.letter-card:nth-child(4n + 2) .word {
+		color: #1a73e8;
+	}
+
+	.letter-card:nth-child(4n + 3) .letter,
+	.letter-card:nth-child(4n + 3) .word {
+		color: #d93025;
+	}
+
+	.letter-card:nth-child(4n) .letter,
+	.letter-card:nth-child(4n) .word {
+		color: #f9ab00;
 	}
 
 	.word {
-		font-size: 1.25rem;
+		font-size: 1.8rem;
 		margin-top: 0.5rem;
 	}
 
 	.emoji {
-		font-size: 3rem; /* Adjust the emoji size to fit the design */
+		font-size: 4rem;
 	}
 
-	/* Mobile-specific styling for 2 items per row */
 	@media (max-width: 600px) {
 		.grid {
-			grid-template-columns: repeat(2, 1fr); /* 2 items per row on mobile */
+			grid-template-columns: repeat(2, 1fr);
+			gap: 0.75rem;
+		}
+
+		.letter {
+			font-size: 2.8rem;
+			margin-bottom: 0.1rem;
+		}
+
+		.emoji {
+			font-size: 3rem;
+			margin-bottom: 0.1rem;
+		}
+
+		.word {
+			font-size: 1.1rem;
+			margin-top: 0;
 		}
 
 		.letter-card {
-			padding: 0.75rem; /* Slightly reduce padding for mobile */
+			padding: 0.35rem;
 		}
 	}
 </style>
