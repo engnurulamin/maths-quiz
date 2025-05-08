@@ -11,7 +11,7 @@
 	let show_bangla = false;
 	let show_numbers = false;
 	let current_language = 'en-US';
-	let data = [];
+	let data = english_letters;
 
 	function speak(text, lang) {
 		let voices = speechSynthesis.getVoices();
