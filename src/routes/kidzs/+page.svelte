@@ -110,7 +110,7 @@
 										class="button is-info has-text-white is-dark is-fullwidth"
 										onclick={() => handlerClick('vowel')}
 									>
-										Vowel
+										অ আ ই ঈ
 									</button>
 								</div>
 								<div class="control is-expanded">
@@ -118,7 +118,7 @@
 										class="button is-link is-fullwidth"
 										onclick={() => handlerClick('consonant')}
 									>
-										Consonant
+										ক খ গ ঘ
 									</button>
 								</div>
 							{/if}
@@ -161,7 +161,7 @@
 											handlerClick('en-numbers');
 										}}
 									>
-										1234
+										1 2 3 4
 									</button>
 								</div>
 								<div class="control is-expanded">
@@ -172,7 +172,7 @@
 											handlerClick('bd-numbers');
 										}}
 									>
-										১২৩৪
+										১ ২ ৩ ৪
 									</button>
 								</div>
 							{/if}
