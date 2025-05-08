@@ -2,6 +2,12 @@
 	import { english_letters } from '$lib/utils/kidz/data';
 	let show_bangla = false;
 	let show_numbers = false;
+
+	function speak(text) {
+		const utterance = new SpeechSynthesisUtterance(text);
+		utterance.lang = 'en-US'; // Adjust if needed, e.g., 'bn-BD' or 'ar-SA'
+		speechSynthesis.speak(utterance);
+	}
 </script>
 
 <div class="columns">
@@ -89,7 +95,7 @@
 			<hr class="is-paddingless has-background-warning-light p-0 m-0" />
 			<div class="grid mx-2 mt-5 mb-3">
 				{#each english_letters as { letter, emoji, word }}
-					<div class="letter-card">
+					<div class="letter-card" onclick={() => speak(`${letter} for ${word}`)}>
 						<p class="letter">{letter}</p>
 						<span class="emoji has-text-danger">{emoji}</span>
 						<p class="word">{word}</p>
