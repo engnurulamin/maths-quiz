@@ -1,12 +1,69 @@
 <script>
-	import { english_letters } from '$lib/utils/kidz/data';
+	import {
+		english_letters,
+		arabic_letters,
+		english_numbers,
+		bangla_numbers,
+		vowels,
+		consonents
+	} from '$lib/utils/kidz/data';
+
 	let show_bangla = false;
 	let show_numbers = false;
+	let current_language = 'en-US';
+	let data = [];
 
-	function speak(text) {
+	function speak(text, lang) {
+		let voices = speechSynthesis.getVoices();
+		if (!voices.length) {
+			speechSynthesis.onvoiceschanged = () => speak(text, lang);
+			return;
+		}
+
+		let voice = voices.find((v) => v.lang === lang);
+
+		if (!voice && lang === 'bn-BD') {
+			voice = voices.find((v) => v.lang.includes('en-IN'));
+		}
+		if (!voice && lang === 'ar-SA') {
+			voice = voices.find((v) => v.lang.includes('ar'));
+		}
+
 		const utterance = new SpeechSynthesisUtterance(text);
-		utterance.lang = 'en-US'; // Adjust if needed, e.g., 'bn-BD' or 'ar-SA'
+		utterance.lang = voice?.lang || lang;
+		utterance.voice = voice;
+
+		speechSynthesis.cancel();
 		speechSynthesis.speak(utterance);
+	}
+
+	function handlerClick(type) {
+		switch (type) {
+			case 'english':
+				current_language = 'en-US';
+				data = english_letters;
+				break;
+			case 'arabic':
+				current_language = 'ar-SA';
+				data = arabic_letters;
+				break;
+			case 'en-numbers':
+				current_language = 'en-US';
+				data = english_numbers;
+				break;
+			case 'bd-numbers':
+				current_language = 'bn-BD';
+				data = bangla_numbers;
+				break;
+			case 'vowel':
+				current_language = 'bn-BD';
+				data = vowels;
+				break;
+			case 'consonant':
+				current_language = 'bn-BD';
+				data = consonents;
+				break;
+		}
 	}
 </script>
 
@@ -23,7 +80,10 @@
 				<div class="column p-0 m-0">
 					<div class="control">
 						<div class="field m-4">
-							<button class="button is-fullwidth is-primary is-dark button-shadow">
+							<button
+								class="button is-fullwidth is-primary is-dark button-shadow"
+								onclick={() => handlerClick('arabic')}
+							>
 								<figure class="image is-24x24">
 									<img src="/icons/religious.png" alt="" />
 								</figure>
@@ -33,14 +93,6 @@
 					</div>
 					<div class="control">
 						<div class="field m-4 is-grouped is-grouped-multiline">
-							{#if show_bangla}
-								<div class="control is-expanded">
-									<button class="button is-info has-text-white is-dark is-fullwidth">Vowel</button>
-								</div>
-								<div class="control is-expanded">
-									<button class="button is-link is-fullwidth">Consonant</button>
-								</div>
-							{/if}
 							{#if !show_bangla}
 								<button
 									class="button is-fullwidth is-info is-dark button-shadow"
@@ -52,13 +104,34 @@
 									<span class="is-size-5 has-text-white ml-2">Bangla</span>
 								</button>
 							{/if}
+							{#if show_bangla}
+								<div class="control is-expanded">
+									<button
+										class="button is-info has-text-white is-dark is-fullwidth"
+										onclick={() => handlerClick('vowel')}
+									>
+										Vowel
+									</button>
+								</div>
+								<div class="control is-expanded">
+									<button
+										class="button is-link is-fullwidth"
+										onclick={() => handlerClick('consonant')}
+									>
+										Consonant
+									</button>
+								</div>
+							{/if}
 						</div>
 					</div>
 				</div>
 				<div class="column p-0 m-0">
 					<div class="control">
 						<div class="field m-4">
-							<button class="button is-fullwidth is-danger is-dark button-shadow">
+							<button
+								class="button is-fullwidth is-danger is-dark button-shadow"
+								onclick={() => handlerClick('english')}
+							>
 								<figure class="image is-24x24">
 									<img src="/icons/language.png" alt="" />
 								</figure>
@@ -68,15 +141,6 @@
 					</div>
 					<div class="control">
 						<div class="field m-4 is-grouped is-grouped-multiline">
-							{#if show_numbers}
-								<div class="control is-expanded">
-									<button class="button is-success is-dark has-text-white is-fullwidth">1234</button
-									>
-								</div>
-								<div class="control is-expanded">
-									<button class="button is-link is-dark is-fullwidth has-text-white">১২৩৪</button>
-								</div>
-							{/if}
 							{#if !show_numbers}
 								<button
 									class="button is-fullwidth is-success is-dark button-shadow"
@@ -88,15 +152,43 @@
 									<span class="is-size-5 has-text-white ml-2">Numbers</span>
 								</button>
 							{/if}
+							{#if show_numbers}
+								<div class="control is-expanded">
+									<button
+										class="button is-success is-dark has-text-white is-fullwidth"
+										onclick={() => {
+											show_numbers = false;
+											handlerClick('en-numbers');
+										}}
+									>
+										1234
+									</button>
+								</div>
+								<div class="control is-expanded">
+									<button
+										class="button is-link is-dark is-fullwidth has-text-white"
+										onclick={() => {
+											show_numbers = true;
+											handlerClick('bd-numbers');
+										}}
+									>
+										১২৩৪
+									</button>
+								</div>
+							{/if}
 						</div>
 					</div>
 				</div>
 			</div>
 			<hr class="is-paddingless has-background-warning-light p-0 m-0" />
 			<div class="grid mx-2 mt-5 mb-3">
-				{#each english_letters as { letter, emoji, word }}
-					<div class="letter-card" onclick={() => speak(`${letter} for ${word}`)}>
-						<p class="letter">{letter}</p>
+				{#each data as { letter, number, emoji, word }}
+					<div
+						class="letter-card"
+						onclick={() =>
+							speak(number ? `${number}` : `${letter || number} ${word || ''}`, current_language)}
+					>
+						<p class="letter">{letter || number}</p>
 						<span class="emoji has-text-danger">{emoji}</span>
 						<p class="word">{word}</p>
 					</div>

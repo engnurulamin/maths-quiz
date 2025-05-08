@@ -27,8 +27,7 @@ export const english_letters = [
   { letter: 'Z', emoji: '🦓', word: 'Zebra' }
 ];
 
-
-export const bangla_letters = [
+export const vowels = [
   { letter: 'অ', emoji: '🍎', word: 'আপেল' },
   { letter: 'আ', emoji: '🌙', word: 'আকাশ' },
   { letter: 'ই', emoji: '🐘', word: 'ইলিফ্যান্ট' },
@@ -40,7 +39,8 @@ export const bangla_letters = [
   { letter: 'ঐ', emoji: '🌾', word: 'ঐশ্বর্য' },
   { letter: 'ও', emoji: '🐺', word: 'ওজন' },
   { letter: 'ঔ', emoji: '💊', word: 'ঔষধ' },
-
+]
+export const consonents = [
   { letter: 'ক', emoji: '🕋', word: 'কাবা' },
   { letter: 'খ', emoji: '🌿', word: 'খেজুর' },
   { letter: 'গ', emoji: '🐐', word: 'গরু' },
@@ -114,7 +114,7 @@ export const english_numbers = [
 ];
 
 
-export const arabicLettersWithEmoji = [
+export const arabic_letters = [
   { letter: 'ا', emoji: '🕌', word: 'أَلله' },  
   { letter: 'ب', emoji: '🕋', word: 'بَيْتُ الله' },  
   { letter: 'ت', emoji: '📚', word: 'تِلْمِيذ' },  
