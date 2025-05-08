@@ -55,6 +55,9 @@
 				<label class="label has-text-white is-size-5">Select a subject</label>
 				<div class="control mt-2">
 					<div class="buttons is-centered">
+						<a href="/kidzs" class="button is-link is-fullwidth button-shadow py-3 is-size-5">
+							🎨 Kidz Mode 📚
+						</a>
 						<button
 							class="button is-primary is-light is-fullwidth button-shadow {$subject === 'math'
 								? 'selected'
