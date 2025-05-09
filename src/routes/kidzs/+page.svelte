@@ -181,7 +181,11 @@
 				</div>
 			</div>
 			<hr class="is-paddingless has-background-warning-light p-0 m-0" />
-			<div class="grid mx-2 mt-5 mb-3">
+			<div
+				class="grid mx-2 mt-5 mb-3"
+				dir={current_language === 'ar-SA' ? 'rtl' : 'ltr'}
+				style="direction: {current_language === 'ar-SA' ? 'rtl' : 'ltr'}"
+			>
 				{#each data as { letter, number, emoji, word }}
 					<div
 						class="letter-card"
