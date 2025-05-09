@@ -208,7 +208,7 @@
 					<div
 						class="letter-card"
 						onclick={() =>
-							speak(number ? `${number}` : `${letter.charAt(0)} ${number} ${word || ''}`, current_language)}
+							speak(number ? `${number}` : `${letter.charAt(0)} ${word || ''}`, current_language)}
 					>
 						<p class="letter">
 							{letter || number}
