@@ -7,6 +7,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		%sveltekit.head%
 	</head>
+
+	<style>
+		* {
+			user-select: none;	
+			-webkit-user-select: none; 	
+			-ms-user-select: none; 	
+		}
+	</style>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">%sveltekit.body%</div>
 	</body>
