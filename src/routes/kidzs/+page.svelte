@@ -188,7 +188,9 @@
 						onclick={() =>
 							speak(number ? `${number}` : `${letter || number} ${word || ''}`, current_language)}
 					>
-						<p class="letter">{letter || number}</p>
+						<p class="letter">
+							{letter || number}
+						</p>
 						<span class="emoji has-text-danger">{emoji}</span>
 						<p class="word">{word}</p>
 					</div>

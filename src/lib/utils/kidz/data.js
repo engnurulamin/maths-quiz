@@ -115,44 +115,44 @@ export const english_numbers = [
 
 
 export const arabic_letters = [
-  { letter: 'ث', emoji: '👕', word: 'ثَوْب' },
-  { letter: 'ت', emoji: '📚', word: 'تِلْمِيذ' },
-  { letter: 'ب', emoji: '🕋', word: 'بَيْتُ الله' }, 
   { letter: 'ا', emoji: '🕌', word: 'أَلله' },  
+  { letter: 'ب', emoji: '🕋', word: 'بَيْتُ الله' }, 
+  { letter: 'ت', emoji: '📚', word: 'تِلْمِيذ' },
+  { letter: 'ث', emoji: '👕', word: 'ثَوْب' },
      
-  { letter: 'د', emoji: '📖', word: 'دَرْس' },  
-  { letter: 'خ', emoji: '✨', word: 'خَيْر' },  
-  { letter: 'ح', emoji: '🥛', word: 'حَلِيب' },  
   { letter: 'ج', emoji: '🐪', word: 'جَمَل' }, 
+  { letter: 'ح', emoji: '🥛', word: 'حَلِيب' },  
+  { letter: 'خ', emoji: '✨', word: 'خَيْر' },  
+  { letter: 'د', emoji: '📖', word: 'دَرْس' },  
 
-  { letter: 'س', emoji: '🐟', word: 'سَمَك' },  
-  { letter: 'ز', emoji: '🌸', word: 'زَهْرَة' },  
-  { letter: 'ر', emoji: '✉️', word: 'رَسُول' },  
   { letter: 'ذ', emoji: '🌟', word: 'ذَهَب' }, 
+  { letter: 'ر', emoji: '✉️', word: 'رَسُول' },  
+  { letter: 'ز', emoji: '🌸', word: 'زَهْرَة' },  
+  { letter: 'س', emoji: '🐟', word: 'سَمَك' },  
 
-  { letter: 'ط', emoji: '🐦', word: 'طَيْر' }, 
-  { letter: 'ض', emoji: '🐸', word: 'ضَفْدَع' },  
-  { letter: 'ص', emoji: '🕌', word: 'صَلَاة' },  
   { letter: 'ش', emoji: '☀️', word: 'شَمْس' },  
+  { letter: 'ص', emoji: '🕌', word: 'صَلَاة' },  
+  { letter: 'ض', emoji: '🐸', word: 'ضَفْدَع' },  
+  { letter: 'ط', emoji: '🐦', word: 'طَيْر' }, 
 
-  { letter: 'ف', emoji: '🧶', word: 'فَرْوَة'}, 
-  { letter: 'غ', emoji: '☁️', word: 'غَيْم' },  
-  { letter: 'ع', emoji: '📚', word: 'عِلْم' },  
   { letter: 'ظ', emoji: '🌴', word: 'ظِل' },  
+  { letter: 'ع', emoji: '📚', word: 'عِلْم' },  
+  { letter: 'غ', emoji: '☁️', word: 'غَيْم' },  
+  { letter: 'ف', emoji: '🧶', word: 'فَرْوَة'}, 
    
-  { letter: 'م', emoji: '🕌', word: 'مَسْجِد' },  
-  { letter: 'ل', emoji: '🌙', word: 'لَيْل' },  
-  { letter: 'ك', emoji: '📖', word: 'كِتَاب' },  
   { letter: 'ق', emoji: '❤️', word: 'قَلْب' },  
+  { letter: 'ك', emoji: '📖', word: 'كِتَاب' },  
+  { letter: 'ل', emoji: '🌙', word: 'لَيْل' },  
+  { letter: 'م', emoji: '🕌', word: 'مَسْجِد' },  
 
-  { letter: 'ء', emoji: '🕋', word: 'إِيمَان' }, 
-  { letter: 'ه', emoji: '🎁', word: 'هَدْيَة' },  
-  { letter: 'و', emoji: '🌹', word: 'وَرْد' },  
   { letter: 'ن', emoji: '🌊', word: 'نَهْر' },  
+  { letter: 'و', emoji: '🌹', word: 'وَرْد' },  
+  { letter: 'ه', emoji: '🎁', word: 'هَدْيَة' },  
+  { letter: 'ء', emoji: '🕋', word: 'إِيمَان' }, 
 
-  { letter: 'ى', emoji: '🕊️', word: 'هُدَى' },  
-  { letter: 'ي', emoji: '✋', word: 'يَد' }, 
   { letter: 'ة', emoji: '⏰', word: 'سَاعَة' },   
+  { letter: 'ي', emoji: '✋', word: 'يَد' }, 
+  { letter: 'ى', emoji: '🕊️', word: 'هُدَى' },  
 ];
 
 
