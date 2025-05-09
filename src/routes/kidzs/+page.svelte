@@ -233,6 +233,7 @@
 	.letter-card:hover {
 		transform: translateY(-4px);
 		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+		border: 1px solid rgb(74, 72, 72);
 	}
 
 	.letter-card:active {
