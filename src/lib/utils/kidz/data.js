@@ -113,6 +113,20 @@ export const english_numbers = [
   { number: '10', word: 'Ten' }
 ];
 
+export const arabic_numbers = [
+  { number: '٠', word: 'صِفْر' },
+  { number: '١', word: 'وَاحِد' },
+  { number: '٢', word: 'اِثْنَان' },
+  { number: '٣', word: 'ثَلَاثَة' },
+  { number: '٤', word: 'أَرْبَعَة' },
+  { number: '٥', word: 'خَمْسَة' },
+  { number: '٦', word: 'سِتَّة' },
+  { number: '٧', word: 'سَبْعَة' },
+  { number: '٨', word: 'ثَمَانِيَة' },
+  { number: '٩', word: 'تِسْعَة' },
+  { number: '١٠', word: 'عَشَرَة' }
+];
+
 
 export const arabic_letters = [
   { letter: 'ا', emoji: '🕌', word: 'أَلله' },  

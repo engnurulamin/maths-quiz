@@ -5,13 +5,16 @@
 		english_numbers,
 		bangla_numbers,
 		vowels,
-		consonents
+		consonents,
+		arabic_numbers
 	} from '$lib/utils/kidz/data';
 
 	let show_bangla = false;
 	let show_numbers = false;
 	let current_language = 'en-US';
 	let data = english_letters;
+
+	// console.log(arabic_numbers);
 
 	function speak(text, lang) {
 		let voices = speechSynthesis.getVoices();
@@ -54,6 +57,10 @@
 			case 'bd-numbers':
 				current_language = 'bn-BD';
 				data = bangla_numbers;
+				break;
+			case 'ar-numbers':
+				current_language = 'ar-SA';
+				data = arabic_numbers;
 				break;
 			case 'vowel':
 				current_language = 'bn-BD';
@@ -173,6 +180,17 @@
 										}}
 									>
 										১ ২ ৩ ৪
+									</button>
+								</div>
+								<div class="control is-expanded">
+									<button
+										class="button is-primary is-dark is-fullwidth has-text-white"
+										onclick={() => {
+											show_numbers = true;
+											handlerClick('ar-numbers');
+										}}
+									>
+										١ ٢ ٣ ٤
 									</button>
 								</div>
 							{/if}
